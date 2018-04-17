@@ -117,124 +117,176 @@ $con=new Conexion(); ?>
                                         <?php } ?>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                       <!-- <div class="row b-col-default-indent">
+                       <div class="row b-col-default-indent">
                             <div class="col-md-6 ">
+                                <?php if(isset($_SESSION['user'])){ ?>
+                                    <form action="GE-procesar-pedido.php" method="post">
+                                        <div class="f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent">Forma de pago</div>
+                                        <div class="b-shortcode-example">
+                                            <div class="checkbox">
+                                                <label><input type="radio" name="metodoPago" checked value="paypal"> <strong>PayPal</strong></label>
+                                                <p>Pago con tarjeta de credito.</p>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="radio" name="metodoPago" value="deposito"> <strong>Deposito bancario</strong></label>
+                                                <p>Debe consignar en la cuenta que bancaria que le llegará al correo electrónico junto con el pedido despues de hacer el deposito envia al correo info@gmail.com la copia del recibo.</p>
+                                            </div>
+                                        </div>
+                                        <button href="GE-procesar-pedido.php" name="submit" class="b-btn f-btn b-btn-lg f-btn-lg b-btn-default f-primary-b button-gray pull-right">Completar compra <i class="fas fa-arrow-right"></i></button>
+                                    </form>
+                                <?php }else{ ?>
                                 <div class="b-product-cart-small">
                                     <div class="b-product-cart-small__header">
-                                        <div class="f-primary-b c-default f-uppercase f-title-small">CALCULAR COSTO DE ENVÍO
-</div>
-                                    </div>
-                                    <div class="b-product-cart-small__content">
-                                        <div class="b-product-cart-small__content_row">
-                                            <div class="b-form-row--big b-form-select b-select--secondary">
-                                                <select class="j-select">
-                                                    <option>Argentina</option>
-                                                    <option selected="selected">Colombia</option>
-                                                    <option>Russia</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="b-product-cart-small__content_row clearfix">
-                                            <div class="b-product-cart-small__content_row-half">
-                                                <div class="b-form-row--big b-form-select b-select--secondary">
-                                                    <select class="j-select">
-                                                        <option selected="selected">Ciudad</option>
-                                                        <option>State 1</option>
-                                                        <option>State 2</option>
-                                                        <option>State 3</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="b-product-cart-small__content_row-half">
-                                                <div class="b-form-row--big b-form-select b-select--secondary">
-                                                    <select class="j-select">
-                                                        <option selected="selected">Código postal </option>
-                                                        <option>12345</option>
-                                                        <option>23456</option>
-                                                        <option>34567</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <a href="#" class="b-btn f-btn b-btn-sm f-btn-sm b-btn-default f-primary-b">Enviar</a>
+                                        <div class="f-primary-b c-default f-uppercase b-title-b-hr f-title-b-hr">DATOS DEL USUARIO
                                         </div>
                                     </div>
-                                </div>
+                                    <div class="b-tabs f-tabs j-tabs b-tabs-reset b-tabs--secondary f-tabs--secondary">
+                                        <ul class="f-left">
+                                            <li><a href="#tabs-31">Iniciar Sesión</a></li>
+                                            <li><a href="#tabs-32">Registrarse</a></li>
+                                        </ul>
+                                        <div class="b-tabs__content">
+                                            <?php
 
-                            </div>-->
-                        <div class="col-md-6"></div>
-                            <div class="col-md-6">
-                                <div class="b-product-cart-small">
-                                    <div class="b-product-cart-small__header">
-                                        <div class="f-primary-b c-default f-uppercase b-title-b-hr f-title-b-hr">total a pagar
-                                            <span class="j-price-total pull-right">$ <?php echo $_SESSION['total'] ?></span>
-                                        </div>
-                                    </div>
-                                    <div class="b-product-cart-small__content">
-                                        <div class="b-product-cart-small__content_info">
-                                            <!-- <div class="b-product-cart-small__content_info_row">
-                                                <div class="b-product-cart-small__content_info_title f-title-smallest c-senary">
-                                                    Subtotal
+                                            if (!isset($_GET['param'])){}else{
+                                                $param=unserialize($_GET['param']);?>
+
+                                                <div class="alert <?php echo $param['clase'] ?>">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                    <strong><?php echo $param['alert'].":"; ?></strong> <?php echo $param['ms'] ?>
                                                 </div>
-                                                <div class="b-product-cart-small__content_info_value f-primary-b c-default f-title-medium">
-                                                    $ <?php echo $_SESSION['total'] ?><span class="j-price-total"></span>
-                                                </div>
-                                            </div>-->
-                                            <!--<div class="b-product-cart-small__content_info_row">
-                                                <div class="b-product-cart-small__content_info_title f-title-smallest c-senary">
-                                                   Gastos de envío
-                                                </div>
-                                                <div class="b-product-cart-small__content_info_value f-primary-b c-default f-title-medium">
-                                                    0
-                                                </div>
-                                            </div>
-                                            <div class="b-product-cart-small__content_info_row">
-                                                <div class="b-product-cart-small__content_info_title f-title-smallest c-senary">
-                                                    Precio total de la orden
-                                                </div>
-                                                <div class="b-product-cart-small__content_info_value f-primary-b c-default f-title-medium">
-                                                    $ <span class="j-price-total"></span>
-                                                </div>
-                                            </div>-->
-                                        </div>
-                                        <div>
-                                            <div class="b-tag-container b-right">
-                                                <form action="GE-procesar-pedido.php" method="POST">
-                                                    <!--<div class="f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent">Ubicación</div>
-                                                    <div class="form-group">
-                                                        <label for="exampleInputName"><span class="text-label">Ciudad</span></label>
-                                                         <input class="form-control" type="text" name="ciudad" placeholder="Ciudad">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="exampleInputName"><span class="text-label">País</span></label>
-                                                        <input class="form-control" type="text" name="pais" placeholder="País">
-                                                    </div>-->
-                                                    <div class="f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent">Forma de pago</div>
-                                                    <div class="b-shortcode-example">
-                                                        <div class="checkbox">
-                                                            <label><input type="radio" name="metodoPago" checked value="paypal"> <strong>PayPal</strong></label>
-                                                            <p>Pago con tarjeta de credito.</p>
+                                            <?php } ?>
+                                        <div id="tabs-31" class="clearfix">
+                                            <div class="b-form-row b-form-inline b-form-horizontal">
+                                                <div class="f-primary-l f-title-big c-secondary">Identifícate</div>
+                                                <form action="GE-inicio-sesion.php" method="post">
+                                                    <div class="col-xs-12">
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_email">Tu Email o Usuario</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="text" name="user" id="create_account_email" class="form-control" />
+                                                            </div>
                                                         </div>
-                                                        <div class="checkbox">
-                                                            <label><input type="radio" name="metodoPago" value="deposito"> <strong>Deposito bancario</strong></label>
-                                                            <p>Debe consignar en la cuenta que bancaria que le llegará al correo electrónico junto con el pedido despues de hacer el deposito envia al correo info@gmail.com la copia del recibo.</p>
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_password">Tu Contraseña</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="text" name="pass" id="create_account_password" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-form-row">
+                                                            <div class="b-form-horizontal__label"></div>
+                                                            <label for="contact_form_copy" class="b-contact-form__window-form-row-label">
+                                                                <input type="checkbox" id="contact_form_copy" class="b-form-checkbox" />
+                                                                <span>Recordarme</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="b-form-row">
+                                                            <div class="b-form-horizontal__label"></div>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="submit" name="submit" class="btn b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100" value="Iniciar Sesión">
+                                                            </div>
                                                         </div>
                                                     </div>
-
-                                                    <button href="GE-procesar-pedido.php" name="submit" class="b-btn f-btn b-btn-lg f-btn-lg b-btn-default f-primary-b button-gray pull-right">Continuar <i class="fas fa-arrow-right"></i></button>
                                                 </form>
-
-
                                             </div>
-                                            <div class="clearfix"></div>
                                         </div>
+                                        <div id="tabs-32" class="clearfix">
+                                            <div class="b-form-row f-primary-l f-title-big c-secondary">Crear una cuenta</div>
+
+                                            <hr class="b-hr" />
+                                            <div class="row b-form-inline b-form-horizontal">
+                                                <div class="col-xs-12">
+                                                    <form action="GE-crear-cuenta.php" method="post">
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_name">Usuario *</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="text" id="create_account_name" required class="form-control" name="usuario" placeholder="Escriba un usuario" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_name">Nombre *</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="text" id="create_account_name" required class="form-control" name="nombre" placeholder="Escriba su nombre completo" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_email">Mi Email *</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="mail" id="create_account_email" required class="form-control" name="mail"  placeholder="Escriba un correo electronico valido"/>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_phone">Número Telefonico</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="text" id="create_account_phone"  class="form-control" name="telefono"  placeholder="Escriba su número telefonico"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_phone">Número Celular</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="text" id="create_account_phone"  class="form-control" name="celular"  placeholder="Escriba su número celular"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_location">Dirección</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="text" name="direccion" id="create_account_location" class="form-control" placeholder="Escriba su dirección"/>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_password">Crear Contraseña *</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="password" name="pass" id="create_account_password" class="form-control"  placeholder="Escriba su contraseña" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_confirm">Confirmar Contraseña *</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="password" name="repass" id="create_account_confirm"class="form-control"  placeholder="Vuelva a escribir la contraseña"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_confirm">Ciudad</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="text" name="ciudad" id="create_account_confirm"  class="form-control"  placeholder="Ciudad"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-form-row">
+                                                            <label class="b-form-horizontal__label" for="create_account_confirm">Pais</label>
+                                                            <div class="b-form-horizontal__input">
+                                                                <input type="text" name="pais" id="create_account_confirm" class="form-control"  placeholder="País"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="b-form-row">
+                                                            <div class="b-form-horizontal__label"></div>
+                                                            <div class="b-form-horizontal__input">
+                                                                <button name="submit" class="btn b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100" >Registrase</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
                                     </div>
                                 </div>
+                                <?php } ?>
+                            </div>
 
+                            <div class="col-md-6">
+                                <div class="f-primary-b c-default f-uppercase b-title-b-hr f-title-b-hr">total a pagar
+                                    <span class="j-price-total pull-right">$ <?php echo $_SESSION['total'] ?></span>
+                                </div>
                             </div>
                         </div>
                         

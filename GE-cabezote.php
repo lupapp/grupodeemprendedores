@@ -19,8 +19,7 @@
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu b-top-user">
                                 <li class="b-top-nav__2level f-top-nav__2level f-primary f-top-nav__2level_title"><a href="GE-micuenta.php">Mi Cuenta</a></li>
-                                <li class="b-top-nav__2level f-top-nav__2level f-primary f-top-nav__2level_title"><a href="#">Cambiar Contraseña</a></li>
-                                <li class="b-top-nav__2level f-top-nav__2level f-primary f-top-nav__2level_title"><a href="logut.php">Cerrar Sesión</a></li>
+                                <li class="b-top-nav__2level f-top-nav__2level f-primary f-top-nav__2level_title"><a href="logout.php">Cerrar Sesión</a></li>
                             </ul>
                      <?php }else{ ?>
                       <a href="GE-login.php">
@@ -107,41 +106,58 @@
                       <div class="b-option-cart__items">
                           <div class="b-option-cart__items__title f-option-cart__items__title f-default-l">Artículos agregados recientemente</div>
                           <ul class="itemCart">
-                              <?php if(count($_SESSION['carrito'])>0){
-                                      $datos=$_SESSION['carrito'];
-                                      for($i=0;$i<count($datos);$i++){?>
-                                      <li>
-                                          <div class='b-option-cart__items__img'>
-                                              <div class='view view-sixth'>
-                                                  <img data-retina='' src='Administer/public/img/<?php echo $datos[$i]['img'] ?>' alt=''>
-                                                  <div class='b-item-hover-action f-center mask'>
-                                                      <div class='b-item-hover-action__inner'>
-                                                          <div class='b-item-hover-action__inner-btn_group'>
-                                                              <a href='#' class='b-btn f-btn b-btn-light f-btn-light info'><i class='fa fa-link'></i></a>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class='b-option-cart__items__descr'>
-                                              <strong class='b-option-cart__descr__title f-option-cart__descr__title'><a href='#'><?php echo $datos[$i]['nombre'] ?></a></strong>
-                                              <span class='b-option-cart__descr__cost f-option-cart__descr__cost'><?php echo $datos[$i]['cant']?> x $<?php echo $datos[$i]['price'] ?></span>
-                                          </div>
-                                          <i class='fa fa-times b-icon--fa quitar' data-id="<?php echo $datos[$i]['id'] ?>"></i>
-                                      </li>
-                                      <?php }?>
-                              <?php }else{ ?>
-                                  <li>
-                                      <center>No hay productos</center>
-                                  </li>
-                              <?php } ?>
+                              <?php
+                                if(isset($_SESSION['carrito'])) {
+                                    if (count($_SESSION['carrito']) > 0) {
+                                        $datos = $_SESSION['carrito'];
+                                        for ($i = 0; $i < count($datos); $i++) {
+                                            ?>
+                                            <li>
+                                                <div class='b-option-cart__items__img'>
+                                                    <div class='view view-sixth'>
+                                                        <img data-retina=''
+                                                             src='Administer/public/img/<?php echo $datos[$i]['img'] ?>'
+                                                             alt=''>
+                                                        <div class='b-item-hover-action f-center mask'>
+                                                            <div class='b-item-hover-action__inner'>
+                                                                <div class='b-item-hover-action__inner-btn_group'>
+                                                                    <a href='#'
+                                                                       class='b-btn f-btn b-btn-light f-btn-light info'><i
+                                                                                class='fa fa-link'></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class='b-option-cart__items__descr'>
+                                                    <strong class='b-option-cart__descr__title f-option-cart__descr__title'><a
+                                                                href='#'><?php echo $datos[$i]['nombre'] ?></a></strong>
+                                                    <span class='b-option-cart__descr__cost f-option-cart__descr__cost'><?php echo $datos[$i]['cant'] ?>
+                                                        x $<?php echo $datos[$i]['price'] ?></span>
+                                                </div>
+                                                <i class='fa fa-times b-icon--fa quitar'
+                                                   data-id="<?php echo $datos[$i]['id'] ?>"></i>
+                                            </li>
+                                        <?php } ?>
+                                    <?php } else { ?>
+                                        <li>
+                                            <center>No hay productos</center>
+                                        </li>
+                                    <?php }
+                                    }else{ ?>
+                                    <li>
+                                        <center>No hay productos</center>
+                                    </li>
+                                <?php }?>
                           </ul>
                           <div class="b-option-cart__btn">
                               <button class="button-xs button-gray-light cancelCart">Cancelar</button>
-                              <button class="button-xs" dir="GE-shop_cart.php">Revisar  </button>
+                              <a href="GE-shop_cart.php" class="button-xs" dir="GE-shop_cart.php">Revisar  </a>
                           </div>
                       </div>
                   </div>
               </div>
           </div>
-      </div>
+      </div>
+
+</header>

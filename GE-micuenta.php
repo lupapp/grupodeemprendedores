@@ -1,4 +1,72 @@
-<?php $mipagina = "cuenta"; ?>
+<?php
+session_start();
+spl_autoload_register(function ($clase) {
+    include 'Administer/class/'.$clase.'/'.$clase.'.php';
+});
+$con = new Conexion();
+$mipagina = "cuenta";
+$user=new User($con);
+if(isset($_POST['submit'])) {
+    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+    $mail = isset($_POST['mail']) ? $_POST['mail'] : '';
+    $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : '';
+    $direccion = isset($_POST['direccion']) ? $_POST['direccion'] : '';
+    $celular = isset($_POST['celular']) ? $_POST['celular'] : '';
+    $ciudad = isset($_POST['ciudad']) ? $_POST['ciudad'] : '';
+    $pais = isset($_POST['pais']) ? $_POST['pais'] : '';
+    $pass = isset($_POST['pass']) ? $_POST['pass'] : '';
+    $repass = isset($_POST['repass']) ? $_POST['repass'] : '';
+
+    if (empty($nombre) or empty($mail)) {
+        $param = [
+            'ms' => 'Llene todos los campos con asterísco (obligatorio)',
+            'clase' => 'alert-danger',
+            'alert' => 'Error'
+        ];
+    } else {
+        if($pass!='') {
+            if(strcmp($pass, $repass)===0) {
+                $user->setPass($pass);
+            }else{
+                $param = [
+                    'ms' => 'Las contraseñas no son iguales',
+                    'clase' => 'alert-danger',
+                    'alert' => 'Error'
+                ];
+
+                header('Location:GE-micuenta.php');
+                exit;
+            }
+        }
+        $user->setNombre($nombre);
+        $user->setMail($mail);
+        $user->setCelular($celular);
+        $user->setTelefono($telefono);
+        $user->setDireccion($direccion);
+        $user->setCiudad($ciudad);
+        $user->setPais($pais);
+        $user->setTipo($_SESSION['user']['tipo']);
+        $resul = $user->update($_SESSION['user']['id']);
+        $datos=array(
+                'id'=>$_SESSION['user']['id'],
+                'usuario'=>$_SESSION['user']['usuario'],
+                'nombre'=>$nombre,
+                'mail'=>$mail,
+                'movil'=>$celular,
+                'telefono'=>$telefono,
+                'direccion'=>$direccion,
+                'ciudad'=>$ciudad,
+                'pais'=>$pais,
+                'tipo'=>$_SESSION['user']['tipo']
+        );
+        $_SESSION['user']=$datos;
+        $param = [
+            'ms' => 'Usuario actualizado exitosamente',
+            'clase' => 'alert-success',
+            'alert' => 'Exito'
+        ];
+    }
+}?>
 
 <!DOCTYPE html>
 <html>
@@ -72,20 +140,27 @@
 </div>
 <div class="container">
     <div class="l-inner-page-container">
-        <div class="f-primary-b b-title-b-hr f-title-b-hr">Bienvenido <strong>Jon Doe</strong> a tu cuenta</div>
-        
+        <div class="f-primary-b b-title-b-hr f-title-b-hr">Bienvenido <strong><?php echo $_SESSION['user']['nombre'] ?></strong> a tu cuenta</div>
+        <?php
+        if (!isset($param)){}else{?>
+
+            <div class="alert <?php echo $param['clase'] ?>">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <strong><?php echo $param['alert'].":"; ?></strong> <?php echo $param['ms'] ?>
+            </div>
+        <?php } ?>
       <div class="b-shortcode-example">
             <div class="b-tabs-vertical f-tabs-vertical j-tabs-vertical b-tabs-reset row b-tabs-vertical--secondary">
                 <div class="col-md-3 col-sm-4 b-tabs-vertical__nav">
                     <ul>
-                        <li><a class="f-primary-l" href="#tabs-11"><i class="fa fa-suitcase"></i> Datos personales</a></li>
+                        <!--<li><a class="f-primary-l" href="#tabs-11"><i class="fa fa-suitcase"></i> Datos personales</a></li>-->
                         <li><a class="f-primary-l" href="#tabs-12"><i class="fa fa-flask"></i> Actualizar mis Datos</a></li>
-                        <li><a class="f-primary-l" href="#tabs-13"><i class="fa fa-flag"></i>  Mis pagos</a></li>
-                        <li><a class="f-primary-l" href="#tabs-14"><i class="fa fa-users"></i> Mi Historial</a></li>
+                       <!-- <li><a class="f-primary-l" href="#tabs-13"><i class="fa fa-flag"></i>  Mis pagos</a></li>
+                        <li><a class="f-primary-l" href="#tabs-14"><i class="fa fa-users"></i> Mi Historial</a></li>-->
                     </ul>
                 </div>
                 <div class="col-md-9 col-sm-8 b-tabs-vertical__content">
-                    <div id="tabs-11">
+                    <!--<div id="tabs-11">
                         <div class="b-tabs-vertical__content-text">
                             <h3 class="f-tabs-vertical__title f-primary-b">Datos Personales</h3>
                             <h5>Usuario: <strong>Jhon Doe</strong></h5>
@@ -95,71 +170,81 @@
                             <h5>Contraseña: <strong>pepitoperes</strong></h5>
                             
                         </div>
-                    </div>
+                    </div>-->
                     <div id="tabs-12">
                         <div class="b-tabs-vertical__content-text">
                             <h3 class="f-tabs-vertical__title f-primary-b">Modificar Datos</h3>
                             <p>Quisque at tortor a libero posuere laoreet vitae sed arcu.  </p>
                             
                           <div class="">
+                              <form action="GE-micuenta.php" method="post">
                                 <div class="b-form-row">
-                                    <label class="b-form-horizontal__label" for="create_account_name">Usuario *</label>
+                                    <label class="b-form-horizontal__label" for="create_account_name">Nombre *</label>
                                     <div class="b-form-horizontal__input">
-                                        <input type="text" id="create_account_name" required class="form-control" />
+                                        <input type="text" id="create_account_name" required class="form-control" name="nombre" value="<?php echo $_SESSION['user']['nombre'] ?>"/>
                                     </div>
                                 </div>
                                 <div class="b-form-row">
                                     <label class="b-form-horizontal__label" for="create_account_email">Mi Email *</label>
                                     <div class="b-form-horizontal__input">
-                                        <input type="text" id="create_account_email" required class="form-control" />
+                                        <input type="text" id="create_account_email" required class="form-control" name="mail" value="<?php echo $_SESSION['user']['mail'] ?>"" />
                                     </div>
                                 </div>
                                 
                                 <div class="b-form-row">
-                                    <label class="b-form-horizontal__label" for="create_account_phone">Número Telefonico *</label>
+                                    <label class="b-form-horizontal__label" for="create_account_phone">Número Telefonico</label>
                                     <div class="b-form-horizontal__input">
-                                        <input type="text" id="create_account_phone" required class="form-control" />
+                                        <input type="text" id="create_account_phone"  class="form-control" name="telefono" value="<?php echo $_SESSION['user']['telefono'] ?>"/>
                                     </div>
                                 </div>
+                                  <div class="b-form-row">
+                                      <label class="b-form-horizontal__label" for="create_account_phone">Número Celular</label>
+                                      <div class="b-form-horizontal__input">
+                                          <input type="text" id="create_account_phone"  class="form-control" name="celular" value="<?php echo $_SESSION['user']['movil'] ?>"/>
+                                      </div>
+                                  </div>
                                 <div class="b-form-row">
                                     <label class="b-form-horizontal__label" for="create_account_location">Dirección</label>
                                     <div class="b-form-horizontal__input">
-                                        <input type="text" id="create_account_location" class="form-control" placeholder="Pais, Ciudad, Dirección" />
+                                        <input type="text" name="direccion" id="create_account_location" class="form-control" placeholder="Pais, Ciudad, Dirección" value="<?php echo $_SESSION['user']['direccion'] ?>"/>
                                     </div>
                                 </div>
                                 
                                 <div class="b-form-row">
-                                    <label class="b-form-horizontal__label" for="create_account_password">crear Contraseña *</label>
+                                    <label class="b-form-horizontal__label" for="create_account_password">crear Contraseña</label>
                                     <div class="b-form-horizontal__input">
-                                        <input type="text" id="create_account_password" required class="form-control" />
+                                        <input type="password" name="pass" id="create_account_password" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="b-form-row">
-                                    <label class="b-form-horizontal__label" for="create_account_confirm">Confirmar Contraseña *</label>
+                                    <label class="b-form-horizontal__label" for="create_account_confirm">Confirmar Contraseña</label>
                                     <div class="b-form-horizontal__input">
-                                        <input type="text" id="create_account_confirm" required class="form-control" />
+                                        <input type="password" name="repass" id="create_account_confirm"class="form-control" />
                                     </div>
                                 </div>
+                                  <div class="b-form-row">
+                                      <label class="b-form-horizontal__label" for="create_account_confirm">Ciudad</label>
+                                      <div class="b-form-horizontal__input">
+                                          <input type="text" name="ciudad" id="create_account_confirm"  class="form-control" value="<?php echo $_SESSION['user']['ciudad'] ?>"/>
+                                      </div>
+                                  </div>
+                                  <div class="b-form-row">
+                                      <label class="b-form-horizontal__label" for="create_account_confirm">Pais</label>
+                                      <div class="b-form-horizontal__input">
+                                          <input type="text" name="pais" id="create_account_confirm" class="form-control" value="<?php echo $_SESSION['user']['pais'] ?>"/>
+                                      </div>
+                                  </div>
                                 <div class="b-form-row">
                                     <div class="b-form-horizontal__label"></div>
                                     <div class="b-form-horizontal__input">
-                                        <label for="create_account_terms">
-                                            <input type="checkbox" class="b-form-checkbox required b-form-checkbox" id="create_account_terms" />
-                                            <span>Estoy de acuerdo con los  <a href="#" class="c-secondary f-more">Términos de uso</a></span>
-                                        </label>
+                                        <input type="submit" name="submit" class="btn b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100" value="Guardar">
                                     </div>
                                 </div>
-                                <div class="b-form-row">
-                                    <div class="b-form-horizontal__label"></div>
-                                    <div class="b-form-horizontal__input">
-                                        <a href="#" class="b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100">Regístrate ahora
-        </a>
-                                    </div>
-                                </div>
+                              </form>
                             </div>
                         </div>
                     </div>
-                    <div id="tabs-13">
+                    <!--<div id="tabs-13">
                         <div class="b-tabs-vertical__content-text">
                             <h3 class="f-tabs-vertical__title f-primary-b">Mis Pagos </h3>
                             <div class="b-shortcode-example">
@@ -238,7 +323,7 @@
                                 </table>
                           </div>
                         </div>
-                    </div>                    
+                    </div>   -->
                   
                 </div>
             </div>
@@ -327,7 +412,7 @@
 <script src="js/loader.js"></script>
 <script src="js/scrollIt/scrollIt.min.js"></script>
 <script src="js/modules/navigation-slide.js"></script>
-
+<?php include 'footer.php' ?>
 
 </body>
 </html>

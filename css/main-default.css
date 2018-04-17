@@ -2270,7 +2270,7 @@ a.is-global-link,
 /* End First Letter */
 .b-title-b-hr {
   border-bottom: 1px solid #d9d9d9;
-  padding: 40px 0 10px; }
+  padding: 10px 0 10px; }
 
 .f-title-b-hr {
   font-size: 1.38462em;
@@ -12773,6 +12773,9 @@ textarea.b-product-card-textarea {
     margin: 10px 16px 10px 10px; }
   .b-shortcode-example.b-shortcode-example--big-indent {
     margin-top: 22px; }
+  .b-shortcode-example p{
+    padding:0 0 0 20px;
+  }
   @media screen and (max-width: 639px) {
     .b-shortcode-example .b-tagline_btn--right .button-lg,
     .b-shortcode-example .b-tagline_btn--left .button-lg {

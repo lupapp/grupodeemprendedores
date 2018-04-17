@@ -3,25 +3,54 @@ spl_autoload_register(function ($clase) {
     include 'Administer/class/'.$clase.'/'.$clase.'.php';
 });
 $con = new Conexion();
-if(isset($_POST['submit'])){
-    $pass= isset($_POST['pass']) ? $_POST['pass'] : '';
-    $user= isset($_POST['user']) ? $_POST['user'] : '';
-    if (empty($pass) or empty($user)){
-        header('Location: login.php?ms="El usuario o el pasword no pueden estar vacios"');
-    }
-    $login = new Login(new Conexion());
-    $login->setPass($pass);
-    $login->setUser($user);
-    $resul=$login->signIn();
-    $_SESSION['user']=$resul['user'];
-    if($resul['existe']==1){
-        if($resul['user']['tipo']==1) {
-            header('Location: ../desktop');
+$user=new User($con);
+if(isset($_POST['submit'])) {
+    $usuario = isset($_POST['usuario']) ? $_POST['usuario'] : '';
+    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+    $mail = isset($_POST['mail']) ? $_POST['mail'] : '';
+    $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : '';
+    $direccion = isset($_POST['direccion']) ? $_POST['direccion'] : '';
+    $celular = isset($_POST['celular']) ? $_POST['celular'] : '';
+    $ciudad = isset($_POST['ciudad']) ? $_POST['ciudad'] : '';
+    $pais = isset($_POST['pais']) ? $_POST['pais'] : '';
+    $pass = isset($_POST['pass']) ? $_POST['pass'] : '';
+    $repass = isset($_POST['repass']) ? $_POST['repass'] : '';
+
+    if (empty($nombre) or empty($mail) or empty($usuario) or empty($pass)) {
+        $param = [
+            'ms' => 'Llene todos los campos con asterísco (obligatorio)',
+            'clase' => 'alert-danger',
+            'alert' => 'Error'
+        ];
+    } else {
+        if(strcmp($pass, $repass)===0) {
+            $user->setPass($pass);
+            $user->setUser($usuario);
+            $user->setNombre($nombre);
+            $user->setMail($mail);
+            $user->setCelular($celular);
+            $user->setTelefono($telefono);
+            $user->setDireccion($direccion);
+            $user->setCiudad($ciudad);
+            $user->setPais($pais);
+            $user->setTipo(2);
+            $resul = $user->save();
+            $u=$user->getUltimoRegistro();
+            $_SESSION['user']=$u;
+            $param = [
+                'ms' => 'Usuario creado exitosamente',
+                'clase' => 'alert-success',
+                'alert' => 'Exito'
+            ];
+            header('Location:index.php');
         }else{
-            $ms='Ingrese con un usuario administrador';
+            $param = [
+                'ms' => 'Las contraseñas no son iguales',
+                'clase' => 'alert-danger',
+                'alert' => 'Error'
+            ];
         }
-    }else{
-        $ms=$resul['ms'];
+
     }
 }
 
@@ -101,63 +130,87 @@ if(isset($_POST['submit'])){
             <div class="col-md-6">
                 <div class="b-form-row f-primary-l f-title-big c-secondary">Crear una cuenta</div>
                 <div class="b-form-row">Consectetur adipiscing elituis sagittis eu mi et pellentesqueur</div>
+                <?php
+                if (!isset($param)){}else{?>
+
+                    <div class="alert <?php echo $param['clase'] ?>">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <strong><?php echo $param['alert'].":"; ?></strong> <?php echo $param['ms'] ?>
+                    </div>
+                <?php } ?>
                 <hr class="b-hr" />
                 <div class="row b-form-inline b-form-horizontal">
                     <div class="col-xs-12">
-                    	<div class="b-form-row">
-                            <label class="b-form-horizontal__label" for="create_account_name">Usuario *</label>
-                            <div class="b-form-horizontal__input">
-                                <input type="text" id="create_account_name" required class="form-control" />
+                        <form action="GE-registro.php" method="post">
+                            <div class="b-form-row">
+                                <label class="b-form-horizontal__label" for="create_account_name">Usuario *</label>
+                                <div class="b-form-horizontal__input">
+                                    <input type="text" id="create_account_name" required class="form-control" name="usuario" placeholder="Escriba un usuario" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="b-form-row">
-                            <label class="b-form-horizontal__label" for="create_account_email">Mi Email *</label>
-                            <div class="b-form-horizontal__input">
-                                <input type="text" id="create_account_email" required class="form-control" />
+                            <div class="b-form-row">
+                                <label class="b-form-horizontal__label" for="create_account_name">Nombre *</label>
+                                <div class="b-form-horizontal__input">
+                                    <input type="text" id="create_account_name" required class="form-control" name="nombre" placeholder="Escriba su nombre completo" />
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="b-form-row">
-                            <label class="b-form-horizontal__label" for="create_account_phone">Número Telefonico *</label>
-                            <div class="b-form-horizontal__input">
-                                <input type="text" id="create_account_phone" required class="form-control" />
+                            <div class="b-form-row">
+                                <label class="b-form-horizontal__label" for="create_account_email">Mi Email *</label>
+                                <div class="b-form-horizontal__input">
+                                    <input type="mail" id="create_account_email" required class="form-control" name="mail"  placeholder="Escriba un correo electronico valido"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="b-form-row">
-                            <label class="b-form-horizontal__label" for="create_account_location">Dirección</label>
-                            <div class="b-form-horizontal__input">
-                                <input type="text" id="create_account_location" class="form-control" placeholder="Pais, Ciudad, Dirección" />
+
+                            <div class="b-form-row">
+                                <label class="b-form-horizontal__label" for="create_account_phone">Número Telefonico</label>
+                                <div class="b-form-horizontal__input">
+                                    <input type="text" id="create_account_phone"  class="form-control" name="telefono"  placeholder="Escriba su número telefonico"/>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="b-form-row">
-                            <label class="b-form-horizontal__label" for="create_account_password">crear Contraseña *</label>
-                            <div class="b-form-horizontal__input">
-                                <input type="text" id="create_account_password" required class="form-control" />
+                            <div class="b-form-row">
+                                <label class="b-form-horizontal__label" for="create_account_phone">Número Celular</label>
+                                <div class="b-form-horizontal__input">
+                                    <input type="text" id="create_account_phone"  class="form-control" name="celular"  placeholder="Escriba su número celular"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="b-form-row">
-                            <label class="b-form-horizontal__label" for="create_account_confirm">Confirmar Contraseña *</label>
-                            <div class="b-form-horizontal__input">
-                                <input type="text" id="create_account_confirm" required class="form-control" />
+                            <div class="b-form-row">
+                                <label class="b-form-horizontal__label" for="create_account_location">Dirección</label>
+                                <div class="b-form-horizontal__input">
+                                    <input type="text" name="direccion" id="create_account_location" class="form-control" placeholder="Escriba su dirección"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="b-form-row">
-                            <div class="b-form-horizontal__label"></div>
-                            <div class="b-form-horizontal__input">
-                                <label for="create_account_terms">
-                                    <input type="checkbox" class="b-form-checkbox required b-form-checkbox" id="create_account_terms" />
-                                    <span>Estoy de acuerdo con los  <a href="#" class="c-secondary f-more">Términos de uso</a></span>
-                                </label>
+
+                            <div class="b-form-row">
+                                <label class="b-form-horizontal__label" for="create_account_password">Crear Contraseña *</label>
+                                <div class="b-form-horizontal__input">
+                                    <input type="password" name="pass" id="create_account_password" class="form-control"  placeholder="Escriba su contraseña" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="b-form-row">
-                            <div class="b-form-horizontal__label"></div>
-                            <div class="b-form-horizontal__input">
-                                <a href="#" class="b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100">Regístrate ahora
-</a>
+                            <div class="b-form-row">
+                                <label class="b-form-horizontal__label" for="create_account_confirm">Confirmar Contraseña *</label>
+                                <div class="b-form-horizontal__input">
+                                    <input type="password" name="repass" id="create_account_confirm"class="form-control"  placeholder="Vuelva a escribir la contraseña"/>
+                                </div>
                             </div>
-                        </div>
+                            <div class="b-form-row">
+                                <label class="b-form-horizontal__label" for="create_account_confirm">Ciudad</label>
+                                <div class="b-form-horizontal__input">
+                                    <input type="text" name="ciudad" id="create_account_confirm"  class="form-control"  placeholder="Ciudad"/>
+                                </div>
+                            </div>
+                            <div class="b-form-row">
+                                <label class="b-form-horizontal__label" for="create_account_confirm">Pais</label>
+                                <div class="b-form-horizontal__input">
+                                    <input type="text" name="pais" id="create_account_confirm" class="form-control"  placeholder="País"/>
+                                </div>
+                            </div>
+                            <div class="b-form-row">
+                                <div class="b-form-horizontal__label"></div>
+                                <div class="b-form-horizontal__input">
+                                    <button name="submit" class="btn b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100" >Registrase</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
