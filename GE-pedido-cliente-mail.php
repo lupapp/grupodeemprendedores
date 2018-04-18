@@ -1,5 +1,5 @@
-
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif"">
+<?php
+$mensaje='<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; font-family: dHelvetica Neue, Arial, Helvetica, sans-serif"">
 <tr>
 
     <td align="center" bgcolor="#05735a" style="padding: 5px 0 10px 0;">
@@ -32,14 +32,14 @@
                 <?php foreach ($datos as $d) { ?>
                 <tr style="color:#666666; font-size: 12px;">
                     <td style="padding: 3px 0 3px 0">
-                        <img width="50" src="Administer/public/img/<?php echo $d['img'] ?>"/>
+                        <img width="50" src="Administer/public/img/'.$d['img'].'/>
                     </td>
                     <td align="left">
-                        <?php echo $d['nombre']?>
+                        '.$d['nombre'].'
                     </td>
-                    <td align="center">$ <?php echo $d['price'] ?></td>
-                    <td align="center"><?php echo $d['cant'] ?></td>
-                    <td align="right">$ <?php echo $d['price']*$d['cant'] ?></td>
+                    <td align="center">'. $d['price'].'</td>
+                    <td align="center">'. $d['cant'].'</td>
+                    <td align="right">$ '.$d['price']*$d['cant'].'</td>
                 </tr>
                 <?php } ?>
             </table>
@@ -51,12 +51,12 @@
                 <tr>
                     <td style="padding:10px 0 10px 0" width="260"></td>
                     <td><strong>Total pagado</strong></td>
-                    <td align="right" style="padding:0 15px 0 0"><strong>$ <?php echo $_SESSION['total'] ?></strong></td>
+                    <td align="right" style="padding:0 15px 0 0"><strong>$ '.$_SESSION['total'].'</strong></td>
                 </tr>
                 <tr>
                     <td style="padding:10px 0 10px 0" width="260"></td>
                     <td><strong>Método pago</strong></td>
-                    <td align="right" style="padding:0 15px 0 0"><strong><?php echo $_POST['metodoPago'] ?></strong></td>
+                    <td align="right" style="padding:0 15px 0 0"><strong>'.$_SESSION['metodo'].'</strong></td>
                 </tr>
                 <tr >
                     <td colspan="3" style="padding:20px 15px 20px 15px">
@@ -96,4 +96,5 @@
         </td>
     </tr>
 </table>';
+?>
 

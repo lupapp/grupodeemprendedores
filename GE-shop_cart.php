@@ -124,12 +124,13 @@ $con=new Conexion(); ?>
                        <div class="row b-col-default-indent">
                             <div class="col-md-6 ">
                                 <?php if(isset($_SESSION['user'])){ ?>
-                                    <form action="GE-procesar-pedido.php" method="post">
+                                    <form action="paypal/comprar.php" method="post">
                                         <div class="f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent">Forma de pago</div>
                                         <div class="b-shortcode-example">
                                             <div class="checkbox">
                                                 <label><input type="radio" name="metodoPago" checked value="paypal"> <strong>PayPal</strong></label>
                                                 <p>Pago con tarjeta de credito.</p>
+                                                <input type="hidden" name="precio" value="<?php echo $_SESSION['total'] ?>">
                                             </div>
                                             <div class="checkbox">
                                                 <label><input type="radio" name="metodoPago" value="deposito"> <strong>Deposito bancario</strong></label>
