@@ -20,8 +20,8 @@ require '../vendor/autoload.php';
 require 'common.php';
 
 //ID's
-$clientId     = 'AT-_YkwqTNy1qhfhmmjljNgiMxgD94iYSVy_J7_F98seBHqGXlu9PEGIdyT3ofdOGt7cY-PCqr0DZJ92';
-$clientSecret = 'EIkBt5scFtWQ9MSDTT3Ond3TI7krKmGO5l4Bo6XJdcZrcYBQITjQXp1ctfd6aOfrRGLVpp8Isd8QW5Am';
+$clientId     = 'Af_XjDeyjRarycmoUqEjN-PL7QOWvnaGHXy9vx7xnVYOYKe7SbkJDq_zdQjODjTflAVdRmb6oU9D3keH';
+$clientSecret = 'EO3X0D4KplidxBzLYq_ThUdg72A16VteAlEIwipXfNzd2Is79QABdU-ZLiXt1WXQP4MURlpOH_mcyftD';
 
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
@@ -86,7 +86,7 @@ function getApiContext($clientId, $clientSecret)
     $apiContext->setConfig(
         //change 'mode => sandbox' for development and testing.
         array(
-            'mode' => 'sandbox',
+            'mode' => 'live',
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'INFO', // PLEASE USE `INFO` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS DEFAULT IS DEBUG

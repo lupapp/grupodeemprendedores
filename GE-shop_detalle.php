@@ -148,16 +148,16 @@ $img=$imagen->getByProd($pro->id);
                                     </div>
                                     <div class="b-product-card__info_row">
                                         <div class="b-product-card__info_count">
-                                            <input type="number" min="1" class="form-control form-control--secondary" placeholder="1">
+                                            <input type="number" min="1" class="form-control form-control--secondary cantidad" placeholder="1">
                                         </div>
                                         <div class="b-product-card__info_add b-margin-right-standard">
                                             <div class=" b-btn f-btn b-btn-sm-md f-btn-sm-md">
-                                                <a  href="GE-shop_cart.php">añadir <i class="fa fa-shopping-cart"></i> </a>
+                                                <a class="addCart" data-img="<?php echo $pro->imagen ?>" data-id="<?php echo $pro->id ?>" data-valor="<?php echo $pro->valor ?>" data-nombre="<?php echo $pro->name ?>">añadir <i class="fa fa-shopping-cart"></i> </a>
                                             </div>
                                         </div>
-                                        <div class="b-product-card__info_like  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
+                                        <!--<div class="b-product-card__info_like  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
                                             <i class="fa fa-heart"></i>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="b-product-card__info_row">
                                         <div class="b-product-card__info_code">
@@ -167,7 +167,7 @@ $img=$imagen->getByProd($pro->id);
                                             <i class="fa fa-arrow-right"></i>
                                         </div>
                                     </div>
-                                    <div class="b-product-card__info_row">
+                                    <!--<div class="b-product-card__info_row">
                                         <div class="b-product-card__info_title f-primary-b f-title-smallest">Categorias</div>
                                         <a class="f-more f-title-smallest" href="">Dress</a>, <a class="f-more f-title-smallest" href="">Lorem</a>
                                     </div>
@@ -176,7 +176,7 @@ $img=$imagen->getByProd($pro->id);
                                         <div class="b-tag-container">
                                             <a class="f-tag b-tag" href="">Dress</a>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="b-product-card__info_row">
                                         <div class="b-btn-group-hor f-btn-group-hor">
                                             <a href="#" class="b-btn-group-hor__item f-btn-group-hor__item">

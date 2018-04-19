@@ -3,12 +3,16 @@
 $concepto = "Carrito de compras";
 
 //URL's de retorno
-$regreso   = "http://localhost:801/grupoemp/GE-procesar-pedido.php";
-$cancelado = "http://localhost:801/grupoemp/GE-shop_cart.php";
+/*$regreso   = "http://localhost:801/grupoemp/GE-procesar-pedido.php";
+$cancelado = "http://localhost:801/grupoemp/GE-shop_cart.php";*/
+$regreso   = "http://grupodeemprendedores.com/index/GE-procesar-pedido.php";
+$cancelado = "http://grupodeemprendedores.com/index/GE-shop_cart.php";
 
 //El total
-$precio = $_POST['precio'];
-
+$tax=0;
+$envio=0;
+$dolar=$_POST['dolar'];
+//$total=$_SESSION['total']/$dolar;
 //NO MODIFICAR
 require 'bootstrap.php';
 use PayPal\Api\Amount;
@@ -22,49 +26,47 @@ use PayPal\Api\Transaction;
 
 $payer = new Payer();
 $payer->setPaymentMethod("paypal");
-/*$datos=$_SESSION['carrito'];
+
+$datos=$_SESSION['carrito'];
+$items=array();
+$subtotal=0;
+foreach ($datos as $d) {
+    $item = new Item();
+    $price=$d['total']/$dolar;
+    $item->setName($d['nombre'])
+        ->setCurrency('USD')
+        ->setQuantity(1)
+        ->setSku($d['id'])// Similar to `item_number` in Classic API
+        ->setPrice($price);
+    $items[]=$item;
+    $subtotal=$price+$subtotal;
+}
 
 $itemList = new ItemList();
-$item1 = new Item();
-for ($i=0;$i<count($datos);$i++) {
+$itemList->setItems($items);
 
-    $item1->setName($datos[$i]['nombre'])
-        ->setCurrency('USD')
-        ->setQuantity($datos[$i]['cant'])
-        ->setSku($datos[$i]['id'])// Similar to `item_number` in Classic API
-        ->setPrice($datos[$i]['price']);
-    $arr=$itemList->addItem($item1);
-    print_r($item1);
-
-}
-print_r($arr);*/
-
-//$itemList->setItems(array($item1));
-
-$item1 = new Item();
+/*$item1 = new Item();
 $item1->setName($concepto)
     ->setCurrency('USD')
     ->setQuantity(1)
     ->setSku("5") // Similar to `item_number` in Classic API
-    ->setPrice($precio);
-
-$itemList = new ItemList();
-$itemList->setItems(array($item1));
+    ->setPrice($precio);*/
 
 $details = new Details();
 $details->setShipping(0)
     ->setTax(0)
-    ->setSubtotal($precio);
+    ->setSubtotal($subtotal);
 
+$total=$subtotal+$envio+$tax;
 $amount = new Amount();
 $amount->setCurrency("USD")
-    ->setTotal($precio)
+    ->setTotal($total)
     ->setDetails($details);
 
 $transaction = new Transaction();
 $transaction->setAmount($amount)
     ->setItemList($itemList)
-    ->setDescription("Payment description")
+    ->setDescription("Compra en linea www.grupodeemprendedores.com")
     ->setInvoiceNumber(uniqid());
 
 $redirectUrls = new RedirectUrls();

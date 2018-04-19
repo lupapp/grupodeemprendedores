@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php session_start();
 $mipagina = "index";
 spl_autoload_register(function ($clase) {
     include 'Administer/class/'.$clase.'/'.$clase.'.php';

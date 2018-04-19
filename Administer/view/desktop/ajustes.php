@@ -10,21 +10,15 @@ spl_autoload_register(function ($clase) {
 
 	<?php include("../../llamadoshead.php");
 	$cone=new Conexion();
-	$procuto=new Producto($cone);
-	$productos=$procuto->getAll();
-	$imagen=new Imagen($cone);
-	$clas=new Clasificacion($cone);
-	$cat=new Categoria($cone);
+	$options=new Options($cone);
+	$opciones=$options->getAll();
     if(isset($_GET['id'])){
         $id=$_GET["id"];
-        $procuto->delete($id);
-        $imgs=$imagen->getByProd($id);
-        foreach ($imgs as $img) {
-            $b = $imagen->delete($img->id);
-            unlink('../../public/img/'.$img->imagen);
-            $imagen->delete($img->id);
+        $op=$options->getById($id);
+        if($op->borrar=='si') {
+            $options->delete($id);
+            header('location:ajustes.php');
         }
-        header('location:articulos.php');
     }
 	?>
 	</head>
@@ -54,10 +48,10 @@ spl_autoload_register(function ($clase) {
                                     <li class="breadcrumb-item">
                                         <a href="index.php"><i class="fas fa-home"></i> Inicio</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Productos</li>
+                                    <li class="breadcrumb-item active">Ajustes</li>
                                     <li>
                                         <div class="btn-group pb-2">
-                                            <a type="button" class="btn btn-success" href="newProducto.php"><i class="fas fa-plus"></i> Nuevo producto</a>
+                                            <a type="button" class="btn btn-success" href="newAjuste.php"><i class="fas fa-plus"></i> Nuevo ajuste</a>
                                         </div>
                                     </li>
                                 </ol>
@@ -69,66 +63,44 @@ spl_autoload_register(function ($clase) {
                                                 <table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                     <thead>
                                                     <tr>
-                                                        <th>Imagen</th>
-                                                        <th>Refencia</th>
-                                                        <th>Nombre</th>
+                                                        <th>Opción</th>
                                                         <th>Valor</th>
-                                                        <th>Categoría</th>
-                                                        <th>Stock</th>
+                                                        <th>Borrar</th>
+                                                        <th>Estado</th>
                                                         <th></th>
                                                     </tr>
                                                     </thead>
                                                     <tfoot>
                                                     <tr>
-                                                        <th>Imagen</th>
-                                                        <th>Refencia</th>
-                                                        <th>Nombre</th>
+                                                        <th>Opción</th>
                                                         <th>Valor</th>
-                                                        <th>Categoría</th>
-                                                        <th>Stock</th>
+                                                        <th>Borrar</th>
+                                                        <th>Estado</th>
                                                         <th></th>
                                                     </tr>
                                                     </tfoot>
                                                     <tbody>
                                                         <?php
-                                                        if(count($productos)>0) {
-                                                            foreach ($productos as $p) {
+                                                        if(count($opciones)>0) {
+                                                            foreach ($opciones as $o) {
                                                                 ?>
                                                                 <tr>
-                                                                    <td class="w-10"><?php
-                                                                        $im = $imagen->getFirst($p->id);
-                                                                        if (isset($im->imagen)) { ?>
-                                                                            <img class="img-thumbnail"
-                                                                                 src="../../public/img/<?php echo $im->imagen ?>"/>
-                                                                        <?php } else {
-                                                                            ?>
-                                                                            <img class="img-thumbnail"
-                                                                                 src="../../public/img/without.jpg ?>"/>
-
-                                                                        <?php } ?>
-                                                                    </td>
-                                                                    <td><?php echo $p->id ?></td>
-                                                                    <td><?php echo $p->name ?></td>
-                                                                    <td><?php echo $p->valor ?></td>
-                                                                    <td>
-                                                                        <?php
-                                                                        $cate = $cat->getById($p->categoria);
-                                                                        echo $cate->nombre; ?>
-                                                                    </td>
-
-                                                                    <td><?php echo $p->stock ?></td>
+                                                                    <td><?php echo $o->name ?></td>
+                                                                    <td><?php echo $o->valor ?></td>
+                                                                    <td><?php echo $o->borrar ?></td>
+                                                                    <td><?php echo $o->estado ?></td>
                                                                     <td>
 
-
+                                                                        <?php if($o->borrar=='si'){?>
                                                                         <a class="btn btn-danger btn-options"
                                                                            data-toggle="modal"
                                                                            data-target="#eliminarModal"
                                                                            title="Eliminar producto"><i
                                                                                     class="fa fa-trash"></i></a>
-
+                                                                        <?php } ?>
                                                                         <a class="btn btn-warning btn-options"
-                                                                           data-toggle="tooltip" title="Editar producto"
-                                                                           href="editProducto.php?id=<?php echo $p->id ?>">
+                                                                           data-toggle="tooltip" title="Editar Ajuste"
+                                                                           href="editAjuste.php?id=<?php echo $o->id ?>">
                                                                             <i class="fas fa-pencil-alt"></i></a>
                                                                         <div class="modal fade" id="eliminarModal"
                                                                              tabindex="-1" role="dialog"

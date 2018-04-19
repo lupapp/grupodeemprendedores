@@ -227,4 +227,8 @@ class Producto extends Mysqli
         $update=$this->con->query($query);
         return $update;
     }
+    public function delete($id){
+        $query=$this->con->query("DELETE FROM productos WHERE id=$id");
+        return $query;
+    }
 }

@@ -325,9 +325,9 @@ jQuery(function ($) {
             self.sliderRange();
             self.inputFile();
             self.placeholder();
-            self.inputNumber();
+            /*self.inputNumber();
             self.inputNumberMore();
-            self.inputNumberLess();
+            self.inputNumberLess();*/
             $(window).on('resize', function () {
                 self.resize();
             });
@@ -398,7 +398,7 @@ jQuery(function ($) {
         placeholder: function () {
             $('input, textarea').placeholder();
         },
-        inputNumber: function () {
+        /*inputNumber: function () {
             $('input[type=number]').each(function () {
                 var el = $(this);
                 $('<div class="input-number-box"></div>').insertAfter(el);
@@ -490,7 +490,7 @@ jQuery(function ($) {
                 var inputNumber = el.closest('.input-number-box').find('[type=number]');
                 inputNumber.val(newValue);
             });
-        },
+        },*/
         resize: function () {
             $(".file_upload input").triggerHandler("change");
         }

@@ -141,7 +141,8 @@ if(isset($_GET['id'])){
                                     </div>-->
                                     <div class="b-news-item__article">
                                         <span class="f-news-item__price f-primary-b b-left">$ <?php echo $pr->valor ?></span>
-                                        <div class="b-btn f-btn b-right b-btn-sm-md f-btn-sm-md f-primary-b button-xs addCart" data-cantidad="<?php echo 1 ?>" data-img="<?php echo $img[0]->imagen ?>" data-id="<?php echo $pr->id ?>" data-valor="<?php echo $pr->valor ?>" data-nombre="<?php echo $pr->name ?>">
+                                        <input type="hidden" class="cantidad" value="1">
+                                        <div class="b-btn f-btn b-right b-btn-sm-md f-btn-sm-md f-primary-b button-xs addCart" data-img="<?php echo $img[0]->imagen ?>" data-id="<?php echo $pr->id ?>" data-valor="<?php echo $pr->valor ?>" data-nombre="<?php echo $pr->name ?>">
                                             <div class="cargando hidden"><i class="fa fa-spinner fa-pulse"></i></div>
                                             añadir  <i class="fa fa-shopping-cart"></i>
                                         </div>

@@ -63,7 +63,8 @@
         <div class="b-top-nav__dropdomn">
             <ul class="b-top-nav__2level_wrap">
                 <li class="b-top-nav__2level_title f-top-nav__2level_title"><a href="GE-portafolio_servicios.php">Todos</a></li>
-                <?php foreach ($ca as $c){ ?>
+                <?php
+                foreach ($ca as $c){ ?>
                 <li class="b-top-nav__2level f-top-nav__2level f-primary"><a href="GE-portafolio_servicios.php?id=<?php echo $c->id ?>"><i class="<?php echo $c->img ?>"></i> <?php echo $c->nombre ?></a>
                 </li>
                 <?php } ?>
@@ -102,7 +103,7 @@
               </nav>
               <div class="b-option-total-cart">
                   <div class="b-option-total-cart__goods">
-                      <a href="#" class="f-option-total-cart__numbers b-option-total-cart__numbers"><i class="fa fa-shopping-cart"></i> Carro [ <span class="cantItems"><?php if(isset($_SESSION['cantidad'])){echo $_SESSION['cantidad'];}else{echo 0;} ?></span> ] item</a>
+                      <a href="GE-shop_cart.php" class="f-option-total-cart__numbers b-option-total-cart__numbers"><i class="fa fa-shopping-cart"></i> Carro [ <span class="cantItems"><?php if(isset($_SESSION['cantidad'])){echo $_SESSION['cantidad'];}else{echo 0;} ?></span> ] item</a>
                       <div class="b-option-cart__items">
                           <div class="b-option-cart__items__title f-option-cart__items__title f-default-l">Artículos agregados recientemente</div>
                           <ul class="itemCart">
@@ -148,7 +149,8 @@
                                     <li>
                                         <center>No hay productos</center>
                                     </li>
-                                <?php }?>
+                                <?php }
+                              ini_set("display_errors",1);?>
                           </ul>
                           <div class="b-option-cart__btn">
                               <button class="button-xs button-gray-light cancelCart">Cancelar</button>

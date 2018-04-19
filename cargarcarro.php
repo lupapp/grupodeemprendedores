@@ -93,7 +93,8 @@ if(isset($_SESSION['carrito'])){
             'nombre'=>$nombre,
             'cant'=>$cant,
             'price'=>$price,
-            'img'=>$img
+            'img'=>$img,
+            'total'=>$cant*$price
         );
         array_push($arreglo, $arregloNuevo);
         $_SESSION['carrito']=$arreglo;
@@ -113,7 +114,8 @@ if(isset($_SESSION['carrito'])){
 				'nombre'=>$nombre,
 				'cant'=>$cant,
 				'price'=>$price,
-				'img'=>$img
+				'img'=>$img,
+                'total'=>$cant*$price
 				);
 		
 		$_SESSION['carrito']=$arreglo;

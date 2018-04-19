@@ -5,7 +5,7 @@ jQuery(function ($) {
         var valor= $(this).data('valor');
         var name=$(this).data('nombre');
         var img =$(this).data('img');
-        var cantidad=$(this).data('cantidad');
+        var cantidad=$('.cantidad').val();
         $.ajax({
             type: "POST",
             url: "cargarcarro.php",
@@ -54,6 +54,49 @@ jQuery(function ($) {
                 $('.itemCart').html(data);
                 $('.cargando').fadeOut();
                 $(".cantItems").load("actualizarcantidad.php");
+
+            }
+        });
+    });
+    $('.itemsCart').on('click', '.quitar' ,function(){
+        $('.cargando').fadeIn();
+        var id_prod = $(this).data('id');
+        $.ajax({
+            type: 'POST',
+            url: 'cargarcarro2.php',
+            data: {
+                'id-delete' : id_prod
+            },
+            dataType: 'html',
+            error: function(){
+                alert('error petición ajax');
+            },
+            success:function(data){
+                $('.itemsCart').html(data);
+                $('.cargando').fadeOut();
+                $(".totalCart").load("GE-actualizartotal.php");
+            }
+        });
+    });
+    $('.itemsCart').on('change', '.cantid' ,function(){
+        $('.cargando').fadeIn();
+        var id_prod = $(this).data('id');
+        var cant=$(this).val();
+        $.ajax({
+            type: 'POST',
+            url: 'cargarcarro2.php',
+            data: {
+                'id_prod' : id_prod,
+                'cant':cant
+            },
+            dataType: 'html',
+            error: function(){
+                alert('error petición ajax');
+            },
+            success:function(data){
+                $('.itemsCart').html(data);
+                $('.cargando').fadeOut();
+                $(".totalCart").load("GE-actualizartotal.php");
 
             }
         });

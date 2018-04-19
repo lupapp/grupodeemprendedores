@@ -2,7 +2,9 @@
 spl_autoload_register(function ($clase) {
     include 'Administer/class/'.$clase.'/'.$clase.'.php';
 });
-$con=new Conexion(); ?>
+$con=new Conexion();
+$options=new Options($con);
+$dolar=$options->getByName('valor_dolar');?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +54,7 @@ $con=new Conexion(); ?>
 </head>
 <body >
     <div class="mask-l" style="background-color: #fff; width: 100%; height: 100%; position: fixed; top: 0; left:0; z-index: 9999999;"></div> <!--removed by integration-->
-<?php include("GE-cabezote.php"); ?>
+<?php include("GE-cabezoteCart.php"); ?>
 
 <div class="j-menu-container"></div>
 
@@ -83,7 +85,7 @@ $con=new Conexion(); ?>
                             <div class="f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent">Carro de Compras</div>
                             <div class="b-product-cart b-default-top-indent b-table-reset j-price-count-box">
                                 <table>
-                                    <tbody>
+                                    <tbody class="itemsCart">
                                         <tr>
                                             <th><span class="f-primary-b">Producto</span></th>
                                             <th width="130"><span class="f-primary-b">Precio</span></th>
@@ -92,29 +94,46 @@ $con=new Conexion(); ?>
                                             <th width="70"><span class="f-center"><a class="btn-close-o" href=""><i class="fa fa-times"></i></a></span></th>
                                         </tr>
 
-                                        <?php $datos=$_SESSION['carrito'];
-                                        foreach ($datos as $d){?>
-                                        <tr>
-                                            <td>
-                                                <div class="b-href-with-img">
-                                                    <a class="c-primary" href="shop_detail.html">
-                                                        <img data-retina="" style="width:8%" src="Administer/public/img/<?php echo $d['img'] ?>" alt="">
-                                                        <p>
-                                                            <span class="f-title-small "><?php echo $d['nombre'] ?> </span>
-                                                        </p>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td><span class="f-primary-b c-default f-title-medium">$<span class="j-product-price"><?php echo $d['price'] ?></span></span></td>
-                                            <td class="f-center">
-                                                <div class="b-product-card__info_count">
-                                                    <input type="number" min="1" class="form-control form-control--secondary j-product-count" value="<?php echo $d['cant'] ?>">
-                                                </div>
-                                            </td>
-                                            <td><span class="f-primary-b c-default f-title-medium">$<span class="j-product-total "></span></span></td>
-                                            <td><span class="f-center"><a class="btn-close-o" href=""><i class="fa fa-times"></i></a></span></td>
-                                        </tr>
-                                        <?php } ?>
+                                        <?php
+                                        if(isset($_SESSION['carrito'])) {
+                                            $datos = $_SESSION['carrito'];
+                                            foreach ($datos as $d) {
+                                                ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="b-href-with-img">
+                                                            <a class="c-primary" href="shop_detail.html">
+                                                                <img data-retina="" style="width:8%"
+                                                                     src="Administer/public/img/<?php echo $d['img'] ?>"
+                                                                     alt="">
+                                                                <p>
+                                                                    <span class="f-title-small "><?php echo $d['nombre'] ?> </span>
+                                                                </p>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="f-primary-b c-default f-title-medium">$<span
+                                                                    class="j-product-price"><?php echo $d['price'] ?></span></span>
+                                                    </td>
+                                                    <td class="f-center">
+                                                        <div class="b-product-card__info_count ">
+                                                            <input type="number" min="1"
+                                                                   class="form-control form-control--secondary j-product-count cantid"
+                                                                   name="cant" value="<?php echo $d['cant'] ?>"
+                                                                   data-id="<?php echo $d['id'] ?>"/>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="f-primary-b c-default f-title-medium">$<span
+                                                                    class="j-product-total "><?php echo $d['total']  ?></span></span>
+                                                    </td>
+                                                    <td><span class="f-center"><a class="btn-close-o quitar"
+                                                                                  data-id="<?php echo $d['id'] ?>"><i
+                                                                        class="fa fa-times"></i></a></span></td>
+                                                </tr>
+                                            <?php }
+                                        }else{ ?>
+                                            <tr><td colspan="5" align='center'>No hay productos en el carro de compras</td></tr>
+                                        <?php }?>
                                     </tbody>
                                 </table>
 
@@ -130,7 +149,9 @@ $con=new Conexion(); ?>
                                             <div class="checkbox">
                                                 <label><input type="radio" name="metodoPago" checked value="paypal"> <strong>PayPal</strong></label>
                                                 <p>Pago con tarjeta de credito.</p>
+                                                <?php echo round(1.9303, 5); ?>
                                                 <input type="hidden" name="precio" value="<?php echo $_SESSION['total'] ?>">
+                                                <input type="hidden" name="dolar" value="<?php echo $dolar->valor ?>">
                                             </div>
                                             <div class="checkbox">
                                                 <label><input type="radio" name="metodoPago" value="deposito"> <strong>Deposito bancario</strong></label>
@@ -178,13 +199,13 @@ $con=new Conexion(); ?>
                                                                 <input type="text" name="pass" id="create_account_password" class="form-control" />
                                                             </div>
                                                         </div>
-                                                        <div class="b-form-row">
+                                                        <!--<div class="b-form-row">
                                                             <div class="b-form-horizontal__label"></div>
                                                             <label for="contact_form_copy" class="b-contact-form__window-form-row-label">
                                                                 <input type="checkbox" id="contact_form_copy" class="b-form-checkbox" />
                                                                 <span>Recordarme</span>
                                                             </label>
-                                                        </div>
+                                                        </div>-->
                                                         <div class="b-form-row">
                                                             <div class="b-form-horizontal__label"></div>
                                                             <div class="b-form-horizontal__input">
@@ -286,7 +307,7 @@ $con=new Conexion(); ?>
 
                             <div class="col-md-6">
                                 <div class="f-primary-b c-default f-uppercase b-title-b-hr f-title-b-hr">total a pagar
-                                    <span class="j-price-total pull-right">$ <?php echo $_SESSION['total'] ?></span>
+                                    <span class="j-price-total pull-right totalCart">$ <?php if(isset($_SESSION['carrito'])){echo $_SESSION['total']; }?></span>
                                 </div>
                             </div>
                         </div>

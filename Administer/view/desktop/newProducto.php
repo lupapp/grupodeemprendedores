@@ -6,9 +6,7 @@ spl_autoload_register(function ($clase) {
 $con=new Conexion();
 $producto = new Producto($con);
 $categoria=new Categoria($con);
-$clasificacion=new Clasificacion($con);
 $cat=$categoria->getAll();
-$clas=$clasificacion->getAll();
 ?>
 <!doctype html>
 <html class="fixed">
@@ -43,8 +41,7 @@ $clas=$clasificacion->getAll();
             $producto->setValor($valor);
             $producto->setDescripcion($descripcion);
             $producto->setDetalle($_POST['deslarga']);
-            $producto->setCategoria($_POST['categoria']);
-            $producto->setClasificacion($_POST['clasificacion']);
+            $producto->setCategoria($_POST['idCat']);
             $producto->setEsp($espJason);
             $producto->setStock($_POST['stock']);
             $resul = $producto->save();
@@ -109,13 +106,13 @@ $clas=$clasificacion->getAll();
                                     <div class="card-body ">
                                         <form id="loginForm" action="newProducto.php" method="POST"  class="form-horizontal" >
                                             <div class="form-row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="exampleInputUser"><span class="text-label">*Nombre del producto</span></label>
                                                         <input class="form-control" id="exampleInputUser" type="text" name="name" aria-describedby="usuario" placeholder="Nombre de usuario">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-label">Categoría</span></label>
                                                         <select class="form-control" name="idCat" id="exampleFormControlSelect1">
@@ -125,16 +122,7 @@ $clas=$clasificacion->getAll();
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label><span class="text-label">Clasificación</span></label>
-                                                        <select class="form-control" name="idClasi" id="exampleFormControlSelect1">
-                                                            <?php foreach ($clas as $c){?>
-                                                                <option value="<?php echo $c->id ?>"><?php echo $c->nombre ?></option>
-                                                            <?php } ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
+
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="exampleInputUser"><span class="text-label">*Stock</span></label>

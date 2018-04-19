@@ -113,6 +113,17 @@
 										</a>
 
 									</li>
+                                    <li>
+
+                                        <a href="ajustes.php">
+
+                                            <i class="fas fa-cogs" aria-hidden="true"></i>
+
+                                            <span>Ajustes</span>
+
+                                        </a>
+
+                                    </li>
 
 									
 

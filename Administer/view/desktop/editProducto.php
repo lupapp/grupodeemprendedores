@@ -77,7 +77,6 @@ spl_autoload_register(function ($clase) {
             $producto->setDescripcion($descripcion);
             $producto->setDetalle($detalle);
             $producto->setCategoria($_POST['idCat']);
-            $producto->setClasificacion($_POST['idClasi']);
             $producto->setEsp($espJason);
             $producto->setStock($_POST['stock']);
             $resul = $producto->update($_GET['id']);
@@ -172,13 +171,13 @@ spl_autoload_register(function ($clase) {
                                         ?>
                                         <form id="loginForm" action="editProducto.php?id=<?php echo $_GET['id'] ?>" method="POST"  class="form-horizontal" >
                                             <div class="form-row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="exampleInputUser"><span class="text-label">*Nombre del producto</span></label>
                                                         <input class="form-control" id="exampleInputUser" type="text" name="name" aria-describedby="usuario" value="<?php echo $prod->name ?>">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-label">Categoría</span></label>
                                                         <select class="form-control" name="idCat" id="exampleFormControlSelect1">
@@ -191,19 +190,7 @@ spl_autoload_register(function ($clase) {
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label><span class="text-label">Clasificación</span> </label>
-                                                        <select class="form-control" name="idClasi" id="exampleFormControlSelect1">
-                                                            <?php
-                                                            $cl=$clasificacion->getById($prod->clasificacion); ?>
-                                                            <option value="<?php echo $cl->id?>"><?php echo $cl->nombre ?></option>
-                                                            <?php foreach ($clas as $c){?>
-                                                                <option value="<?php echo $c->id ?>"><?php echo $c->nombre ?></option>
-                                                            <?php } ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
+
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="exampleInputUser"><span class="text-label">*Stock</span></label>

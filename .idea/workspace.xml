@@ -2,217 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e56de1ab-f6f4-48d6-98e1-db734745a443" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PayPal.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paypal/bootstrap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paypal/common.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paypal/comprar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/.github/ISSUE_TEMPLATE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Address.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Agreement.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/AgreementDetails.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/AgreementStateDescriptor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/AgreementTransaction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/AgreementTransactions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/AlternatePayment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Amount.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Authorization.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/BankAccount.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/BankAccountsList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/BankToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/BaseAddress.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Billing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/BillingAgreementToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/BillingInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CancelNotification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Capture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CarrierAccount.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CarrierAccountToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CartBase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ChargeModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Cost.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CountryCode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CreateProfileResponse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Credit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CreditCard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CreditCardHistory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CreditCardList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CreditCardToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CreditFinancingOffered.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Currency.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CurrencyConversion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CustomAmount.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/DetailedRefund.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Details.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Error.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ErrorDetails.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ExtendedBankAccount.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ExternalFunding.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/FileAttachment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/FlowConfig.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/FmfDetails.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/FundingDetail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/FundingInstrument.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/FundingOption.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/FundingSource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/FuturePayment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/HyperSchema.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Incentive.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/InputFields.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/InstallmentInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/InstallmentOption.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Invoice.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/InvoiceAddress.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/InvoiceItem.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/InvoiceNumber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/InvoiceSearchResponse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Item.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ItemList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Links.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Measurement.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/MerchantInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/MerchantPreferences.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Metadata.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/NameValuePair.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Notification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/OpenIdAddress.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/OpenIdError.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/OpenIdSession.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/OpenIdTokeninfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/OpenIdUserinfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Order.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/OverrideChargeModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Participant.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Patch.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PatchRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Payee.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Payer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PayerInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Payment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentCard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentCardToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentDefinition.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentDetail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentExecution.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentHistory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentInstruction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentOptions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentSummary.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentTerm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Payout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PayoutBatch.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PayoutBatchHeader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PayoutItem.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PayoutItemDetails.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PayoutSenderBatchHeader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Phone.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Plan.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PlanList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PotentialPayerInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Presentation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/PrivateLabelCard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ProcessorResponse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/RecipientBankingInstruction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/RedirectUrls.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Refund.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/RefundDetail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/RefundRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/RelatedResources.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Sale.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Search.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ShippingAddress.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ShippingCost.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ShippingInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Tax.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Template.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/TemplateData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/TemplateSettings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/TemplateSettingsMetadata.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Templates.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Terms.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Transaction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/TransactionBase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Transactions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/VerifyWebhookSignature.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/VerifyWebhookSignatureResponse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/WebProfile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Webhook.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/WebhookEvent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/WebhookEventList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/WebhookEventType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/WebhookEventTypeList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/WebhookList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Auth/OAuthTokenCredential.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Cache/AuthorizationCache.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Common/ArrayUtil.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Common/PayPalModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Common/PayPalResourceModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Common/PayPalUserAgent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Common/ReflectionUtil.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Converter/FormatConverter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalConfigManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalConstants.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalCredentialManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalHttpConfig.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalHttpConnection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalLoggingManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Core/cacert.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Exception/PayPalConfigurationException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Exception/PayPalConnectionException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Exception/PayPalInvalidCredentialException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Exception/PayPalMissingCredentialException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Handler/IPayPalHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Handler/OauthHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Handler/RestHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Log/PayPalDefaultLogFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Log/PayPalLogFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Log/PayPalLogger.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Rest/ApiContext.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Rest/IResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Security/Cipher.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Transport/PayPalRestCall.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Validation/ArgumentValidator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Validation/JsonValidator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Validation/NumericValidator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Validation/UrlValidator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/phpunit.integration.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/AbstractLogger.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/InvalidArgumentException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LogLevel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LoggerAwareInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LoggerAwareTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LoggerInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/LoggerTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/NullLogger.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/Psr/Log/Test/LoggerInterfaceTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/psr/log/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/grupoemp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/grupoemp.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Administer/class/Options/Options.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/ajustes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/editAjuste.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/newAjuste.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/pedidos.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GE-actualizartotal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GE-cabezoteCart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cargarcarro2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GE-pedido-cliente-mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-pedido-cliente-mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GE-procesar-pedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-procesar-pedido.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/class/Imagen/Imagen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/class/Imagen/Imagen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/class/Producto/Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/class/Producto/Producto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/public/img/3936670382_338a65d5f4_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/public/img/imagenesdepaisajes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/public/img/imagenesdepaisajes11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/public/img/imagenesdepaisajes12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/public/img/imagenesdepaisajes8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/view/desktop/articulos.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/view/desktop/articulos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/view/desktop/editProducto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/view/desktop/editProducto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/view/desktop/newProducto.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/view/desktop/newProducto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GE-cabezote.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-cabezote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GE-inicio-sesion.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-inicio-sesion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GE-portafolio_servicios.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-portafolio_servicios.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GE-shop_cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-shop_cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GE-shop_detalle.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-shop_detalle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PayPal.log" beforeDir="false" afterPath="$PROJECT_DIR$/PayPal.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cargarcarro.php" beforeDir="false" afterPath="$PROJECT_DIR$/cargarcarro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/paypal/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal/comprar.php" beforeDir="false" afterPath="$PROJECT_DIR$/paypal/comprar.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -224,7 +45,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
@@ -232,92 +53,76 @@
       <file leaf-file-name="GE-shop_cart.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GE-shop_cart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="130" column="91" selection-start-line="130" selection-start-column="91" selection-end-line="130" selection-end-column="91" />
+            <state relative-caret-position="204">
+              <caret line="126" column="116" selection-start-line="126" selection-start-column="116" selection-end-line="126" selection-end-column="116" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comprar.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="comprar.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/paypal/comprar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1615">
-              <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
-              <folding>
-                <element signature="e#310#332#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GE-procesar-pedido.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GE-procesar-pedido.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GE-pedido-cliente-mail.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GE-pedido-cliente-mail.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="58" column="75" selection-start-line="58" selection-start-column="75" selection-end-line="58" selection-end-column="75" />
-              <folding>
-                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#td#0;n#tr#4;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#td#0;n#tr#4;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemList.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ItemList.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Amount.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Amount.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="cargarcarro.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cargarcarro.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2533">
-              <caret line="149" column="8" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="8" />
+            <state relative-caret-position="102">
+              <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Item.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Item.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="130" column="23" selection-start-line="130" selection-start-column="23" selection-end-line="130" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Currency.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Currency.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-51" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Options.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Administer/class/Options/Options.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="123" column="74" selection-start-line="123" selection-start-column="74" selection-end-line="123" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editAjuste.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Administer/view/desktop/editAjuste.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="110" column="98" selection-start-line="110" selection-start-column="98" selection-end-line="110" selection-end-column="98" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cargarcarro.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cargarcarro.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-82">
+              <caret line="96" column="33" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cargarcarro2.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cargarcarro2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="18" column="74" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pedidos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Administer/view/desktop/pedidos.php">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="Details.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Details.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3434">
-              <caret line="204" column="32" selection-start-line="202" selection-start-column="7" selection-end-line="204" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomAmount.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CustomAmount.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="20" selection-start-line="42" selection-start-column="5" selection-end-line="46" selection-end-column="20" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -354,6 +159,12 @@
       <find>navbar</find>
       <find>b-shortcode</find>
       <find>form</find>
+      <find>input-number</find>
+      <find>inputNumber</find>
+      <find>sandbox</find>
+      <find>sand</find>
+      <find>formatToPrice</find>
+      <find>formatTo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -362,17 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Administer/class/Imagen/Imagen.php" />
-        <option value="$PROJECT_DIR$/Administer/class/Calasificacion/Clasificacion.php" />
-        <option value="$PROJECT_DIR$/Administer/nav.php" />
-        <option value="$PROJECT_DIR$/Administer/class/Clasificacion/Clasificacion.php" />
-        <option value="$PROJECT_DIR$/Administer/assets/js/scripts.js" />
-        <option value="$PROJECT_DIR$/Administer/view/desktop/articulos.php" />
-        <option value="$PROJECT_DIR$/Administer/view/desktop/newProducto.php" />
-        <option value="$PROJECT_DIR$/Administer/assets/stylesheets/theme.css" />
-        <option value="$PROJECT_DIR$/Administer/view/desktop/categorias.php" />
-        <option value="$PROJECT_DIR$/Administer/view/desktop/clasificaciones.php" />
-        <option value="$PROJECT_DIR$/Administer/class/Icono/icono.php" />
         <option value="$PROJECT_DIR$/Administer/view/desktop/newCategoria.php" />
         <option value="$PROJECT_DIR$/Administer/class/Icono/Icono.php" />
         <option value="$PROJECT_DIR$/Administer/view/desktop/editCategoria.php" />
@@ -380,20 +180,12 @@
         <option value="$PROJECT_DIR$/Administer/view/desktop/editClasificacion.php" />
         <option value="$PROJECT_DIR$/Administer/class/Conexion/Conexion.php" />
         <option value="$PROJECT_DIR$/Administer/class/Categoria/Categoria.php" />
-        <option value="$PROJECT_DIR$/Administer/class/Producto/Producto.php" />
-        <option value="$PROJECT_DIR$/js/user.js" />
         <option value="$PROJECT_DIR$/actualizarcantidad.php" />
-        <option value="$PROJECT_DIR$/Administer/view/desktop/editProducto.php" />
         <option value="$PROJECT_DIR$/footer.php" />
         <option value="$PROJECT_DIR$/Administer/class/Pedido/Pedido.php" />
         <option value="$PROJECT_DIR$/GE-pie.php" />
         <option value="$PROJECT_DIR$/Administer/class/Conexion/config.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/GE-shop_detalle.php" />
         <option value="$PROJECT_DIR$/Administer/class/LineaPedido/LineaPedido.php" />
-        <option value="$PROJECT_DIR$/GE-portafolio_servicios.php" />
-        <option value="$PROJECT_DIR$/cargarcarro.php" />
-        <option value="$PROJECT_DIR$/js/cart.js" />
         <option value="$PROJECT_DIR$/Administer/class/Login/Login.php" />
         <option value="$PROJECT_DIR$/GE-login.php" />
         <option value="$PROJECT_DIR$/css/bootstrap.min.css" />
@@ -403,16 +195,35 @@
         <option value="$PROJECT_DIR$/GE-pedido-finalizado.php" />
         <option value="$PROJECT_DIR$/Administer/class/User/User.php" />
         <option value="$PROJECT_DIR$/GE-registro.php" />
-        <option value="$PROJECT_DIR$/GE-cabezote.php" />
         <option value="$PROJECT_DIR$/css/main-default.css" />
         <option value="$PROJECT_DIR$/GE-crear-cuenta.php" />
-        <option value="$PROJECT_DIR$/GE-inicio-sesion.php" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/paypal/bootstrap.php" />
-        <option value="$PROJECT_DIR$/GE-shop_cart.php" />
-        <option value="$PROJECT_DIR$/paypal/comprar.php" />
         <option value="$PROJECT_DIR$/GE-pedido-cliente-mail.php" />
         <option value="$PROJECT_DIR$/GE-procesar-pedido.php" />
+        <option value="$PROJECT_DIR$/GE-portafolio_servicios.php" />
+        <option value="$PROJECT_DIR$/GE-shop_detalle.php" />
+        <option value="$PROJECT_DIR$/GE-cabezoteCart.php" />
+        <option value="$PROJECT_DIR$/js/user.js" />
+        <option value="$PROJECT_DIR$/GE-actualizartotal.php" />
+        <option value="$PROJECT_DIR$/js/cart.js" />
+        <option value="$PROJECT_DIR$/GE-cabezote.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/paypal/bootstrap.php" />
+        <option value="$PROJECT_DIR$/GE-inicio-sesion.php" />
+        <option value="$PROJECT_DIR$/Administer/class/Imagen/Imagen.php" />
+        <option value="$PROJECT_DIR$/Administer/class/Producto/Producto.php" />
+        <option value="$PROJECT_DIR$/Administer/view/desktop/editProducto.php" />
+        <option value="$PROJECT_DIR$/Administer/view/desktop/articulos.php" />
+        <option value="$PROJECT_DIR$/Administer/view/desktop/newProducto.php" />
+        <option value="$PROJECT_DIR$/Administer/nav.php" />
+        <option value="$PROJECT_DIR$/Administer/view/desktop/newAjuste.php" />
+        <option value="$PROJECT_DIR$/Administer/view/desktop/ajustes.php" />
+        <option value="$PROJECT_DIR$/Administer/class/Options/Options.php" />
+        <option value="$PROJECT_DIR$/Administer/view/desktop/editAjuste.php" />
+        <option value="$PROJECT_DIR$/cargarcarro.php" />
+        <option value="$PROJECT_DIR$/cargarcarro2.php" />
+        <option value="$PROJECT_DIR$/GE-shop_cart.php" />
+        <option value="$PROJECT_DIR$/paypal/comprar.php" />
       </list>
     </option>
   </component>
@@ -429,7 +240,7 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="757" />
     <option name="y" value="2" />
     <option name="width" value="608" />
@@ -457,6 +268,19 @@
               <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
               <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Administer" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Administer" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Administer" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="class" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -478,6 +302,13 @@
               <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Administer" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="class" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Imagen" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Administer" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="class" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="LineaPedido" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -492,7 +323,21 @@
               <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Administer" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="class" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Options" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Administer" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="class" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Pedido" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Administer" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="class" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Producto" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
@@ -524,23 +369,12 @@
             <path>
               <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
               <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="paypal" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
               <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="composer" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
@@ -601,17 +435,17 @@
     <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\grupoemp\Administer\view\desktop" />
+      <recent name="C:\xampp\htdocs\grupoemp" />
+      <recent name="C:\xampp\htdocs\grupoemp\Administer\class\Calasificacion" />
+      <recent name="C:\xampp\htdocs\grupoemp\Administer" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\grupoemp\Administer\class\Conexion" />
       <recent name="C:\xampp\htdocs\grupoemp\Administer\class\Icono" />
       <recent name="C:\xampp\htdocs\grupoemp\Administer\view\login" />
       <recent name="C:\xampp\htdocs\grupoemp\Administer\view\desktop" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\grupoemp" />
-      <recent name="C:\xampp\htdocs\grupoemp\Administer\view\desktop" />
-      <recent name="C:\xampp\htdocs\grupoemp\Administer\class\Calasificacion" />
-      <recent name="C:\xampp\htdocs\grupoemp\Administer" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -654,26 +488,28 @@
       <workItem from="1523874139199" duration="1725000" />
       <workItem from="1523960608311" duration="15074000" />
       <workItem from="1524002791596" duration="3367000" />
+      <workItem from="1524054272806" duration="39695000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244948000" />
+    <option name="totallyTimeSpent" value="284643000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21669106" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21669106" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3296875" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -682,25 +518,24 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3296875" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21669106" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3296875" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -713,93 +548,120 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/paypal/comprar.php">
+    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CustomAmount.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="782">
+          <caret line="46" column="20" selection-start-line="42" selection-start-column="5" selection-end-line="46" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GE-procesar-pedido.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GE-portafolio_servicios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="143" column="40" selection-start-line="143" selection-start-column="40" selection-end-line="143" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="204" column="32" selection-start-line="202" selection-start-column="7" selection-end-line="204" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ItemList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GE-cabezoteCart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="102" column="14" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#310#332#0#PHP" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/Imagen/Imagen.php">
+    <entry file="file://$PROJECT_DIR$/js/breakpoints.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/audioplayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="106" column="75" selection-start-line="106" selection-start-column="75" selection-end-line="106" selection-end-column="75" />
+        <state relative-caret-position="-816" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/timeline.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/modules/animate-numbers.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/modules/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-819" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/j.placeholder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2655">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="21" />
+        <state relative-caret-position="188">
+          <caret line="490" column="27" selection-start-line="490" selection-start-column="16" selection-end-line="490" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/assets/javascripts/theme.js">
+    <entry file="file://$PROJECT_DIR$/GE-pedido-cliente-mail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67150">
-          <caret line="3950" column="51" selection-start-line="3950" selection-start-column="45" selection-end-line="3950" selection-end-column="51" />
+        <state relative-caret-position="272">
+          <caret line="58" column="75" selection-start-line="58" selection-start-column="75" selection-end-line="58" selection-end-column="75" />
+          <folding>
+            <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#td#0;n#tr#4;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/Producto/Producto.php">
+    <entry file="file://$PROJECT_DIR$/js/cart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="218" column="24" selection-start-line="218" selection-start-column="24" selection-end-line="218" selection-end-column="24" />
+        <state relative-caret-position="221">
+          <caret line="76" column="63" selection-start-line="76" selection-start-column="63" selection-end-line="76" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/actualizarcantidad.php" />
-    <entry file="file://$PROJECT_DIR$/Administer/footer.php">
+    <entry file="file://$PROJECT_DIR$/GE-shop_detalle.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        <state relative-caret-position="139">
+          <caret line="150" column="73" selection-start-line="150" selection-start-column="73" selection-end-line="150" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/footer.php" />
-    <entry file="file://$PROJECT_DIR$/geo.js" />
-    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/editProducto.php">
+    <entry file="file://$PROJECT_DIR$/GE-actualizartotal.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3502">
-          <caret line="215" column="83" lean-forward="true" selection-start-line="215" selection-start-column="63" selection-end-line="215" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/Pedido/Pedido.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="222" column="94" selection-start-line="222" selection-start-column="94" selection-end-line="222" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/Conexion/Conexion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-pie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/Conexion/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+        <state relative-caret-position="170">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -810,245 +672,206 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-portafolio_servicios.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="140" column="45" selection-start-line="140" selection-start-column="45" selection-end-line="140" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="9" column="60282" selection-start-line="9" selection-start-column="60282" selection-end-line="9" selection-end-column="60282" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/view/login/logout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-micuenta2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="162" column="26" selection-start-line="162" selection-start-column="26" selection-end-line="162" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-micuenta2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="105" column="56" selection-start-line="105" selection-start-column="56" selection-end-line="105" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Administer/class/Categoria/Categoria.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="118" column="5" lean-forward="true" selection-start-line="85" selection-start-column="3" selection-end-line="118" selection-end-column="5" />
+        <state relative-caret-position="187">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/editCategoria.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="114" column="46" lean-forward="true" selection-start-line="106" selection-start-column="36" selection-end-line="114" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/view/login/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/User/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="219" column="81" selection-start-line="219" selection-start-column="34" selection-end-line="219" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/Login/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2669">
-          <caret line="157" column="53" selection-start-line="157" selection-start-column="26" selection-end-line="157" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-shop_detalle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4216">
-          <caret line="248" column="111" selection-start-line="248" selection-start-column="28" selection-end-line="248" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-pedido-finalizado.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="141" selection-start-line="92" selection-start-column="141" selection-end-line="92" selection-end-column="141" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1734">
-          <caret line="24" column="2" selection-end-line="24" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main-default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="2272" column="12" selection-start-line="2272" selection-start-column="12" selection-end-line="2272" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-registro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="59" selection-end-line="59" />
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GE-cabezote.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2618">
-          <caret line="154" column="52" selection-start-line="154" selection-start-column="52" selection-end-line="154" selection-end-column="52" />
+        <state relative-caret-position="1037">
+          <caret line="109" column="3" lean-forward="true" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GE-micuenta.php">
+    <entry file="file://$PROJECT_DIR$/Administer/class/Conexion/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="414" selection-start-line="414" selection-end-line="414" selection-end-column="29" />
+        <state relative-caret-position="102">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GE-crear-cuenta.php">
+    <entry file="file://$PROJECT_DIR$/Administer/class/Login/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="59" selection-start-line="59" selection-end-line="61" selection-end-column="7" />
+        <state relative-caret-position="275">
+          <caret line="157" column="53" selection-start-line="157" selection-start-column="26" selection-end-line="157" selection-end-column="53" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_real.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Payment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9129" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GE-inicio-sesion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+        <state relative-caret-position="204">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/RedirectUrls.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/paypal/common.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-697" />
+        <state relative-caret-position="51">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/paypal/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="97" selection-start-line="23" selection-start-column="97" selection-end-line="23" selection-end-column="97" />
+        <state relative-caret-position="1462">
+          <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+          <folding>
+            <element signature="e#870#907#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Agreement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/CustomAmount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="20" selection-start-line="42" selection-start-column="5" selection-end-line="46" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Details.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3434">
-          <caret line="204" column="32" selection-start-line="202" selection-start-column="7" selection-end-line="204" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Amount.php">
+    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/cargarcarro.php">
+    <entry file="file://$PROJECT_DIR$/GE-crear-cuenta.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2533">
-          <caret line="149" column="8" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="8" />
+        <state relative-caret-position="646">
+          <caret line="59" selection-start-line="59" selection-end-line="61" selection-end-column="7" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/assets/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/class/Imagen/Imagen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="116" column="5" lean-forward="true" selection-start-line="113" selection-start-column="4" selection-end-line="116" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/editProducto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="179" column="68" selection-start-line="179" selection-start-column="68" selection-end-line="179" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/articulos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/llamadoshead.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="119" column="65" selection-start-line="119" selection-start-column="65" selection-end-line="119" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/class/Producto/Producto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="213" column="5" lean-forward="true" selection-start-line="207" selection-start-column="4" selection-end-line="213" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/newProducto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="122" column="58" lean-forward="true" selection-start-line="115" selection-start-column="52" selection-end-line="122" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/newAjuste.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/ajustes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="101" column="117" selection-start-line="101" selection-start-column="117" selection-end-line="101" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/pedidos.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/class/Options/Options.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="123" column="74" selection-start-line="123" selection-start-column="74" selection-end-line="123" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/editAjuste.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="110" column="98" selection-start-line="110" selection-start-column="98" selection-end-line="110" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Currency.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Item.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/ItemList.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+        <state relative-caret-position="307">
+          <caret line="130" column="23" selection-start-line="130" selection-start-column="23" selection-end-line="130" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cargarcarro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-82">
+          <caret line="96" column="33" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cargarcarro2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="74" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GE-shop_cart.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="130" column="91" selection-start-line="130" selection-start-column="91" selection-end-line="130" selection-end-column="91" />
+        <state relative-caret-position="204">
+          <caret line="126" column="116" selection-start-line="126" selection-start-column="116" selection-end-line="126" selection-end-column="116" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/paypal/comprar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
-          <folding>
-            <element signature="e#310#332#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-pedido-cliente-mail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="58" column="75" selection-start-line="58" selection-start-column="75" selection-end-line="58" selection-end-column="75" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#td#0;n#tr#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#td#0;n#tr#4;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-procesar-pedido.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        <state relative-caret-position="102">
+          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
         </state>
       </provider>
     </entry>

@@ -92,6 +92,7 @@ class Imagen extends Mysqli
         }
         return $resultset;
     }
+
     public function getFirst($id){
         $query=$this->con->query("SELECT * FROM imagenes WHERE producto=$id LIMIT 1");
         if($row=$query->fetch_object()){
