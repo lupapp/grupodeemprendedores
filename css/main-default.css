@@ -909,7 +909,10 @@ body .b-btn-type-square [class*='btn-'], body .b-btn-type-square [class*='button
 .button-gray:hover {
   background-color: #0d473a;
   border-color: #d05a25; }
-
+.btn-activo{
+  background-color: #0d473a;
+  border-color: #d05a25;
+}
 .b-btn-transparent {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -12791,3 +12794,12 @@ textarea.b-product-card-textarea {
   display: block;
   visibility: visible; }
 .quitar{cursor:pointer;}
+.cursor-pointer{
+  cursor:pointer;
+}
+.comen{
+  margin-top: 20px;
+}
+.itemcoments{
+  margin-top: 0px;
+}

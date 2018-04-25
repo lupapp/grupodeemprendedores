@@ -137,7 +137,7 @@
                                                         x $<?php echo $datos[$i]['price'] ?></span>
                                                 </div>
                                                 <i class='fa fa-times b-icon--fa quitar'
-                                                   data-id="<?php echo $datos[$i]['id'] ?>"></i>
+                                                   data-id="<?php echo $datos[$i]['id'] ?>" data-idcla="<?php echo $datos[$i]['idclasif'] ?>"></i>
                                             </li>
                                         <?php } ?>
                                     <?php } else { ?>

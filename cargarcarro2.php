@@ -8,8 +8,9 @@ if(isset($_SESSION['carrito'])){
             $arreglo=$_SESSION['carrito'];
             $id=$_POST['id_prod'];
             $cant=$_POST['cant'];
+            $id_cla=$_POST['id_cla'];
             for($i=0;$i<count($arreglo);$i++){
-                if($arreglo[$i]['id']==$id ) {
+                if($arreglo[$i]['id']==$id AND $arreglo[$i]['idclasif']==$id_cla ) {
                     if ($_POST['cant'] == 0) {
                         unset($arreglo[$i]);
                         $arreglo = array_values($arreglo);
@@ -27,9 +28,9 @@ if(isset($_SESSION['carrito'])){
     if(isset($_POST['id-delete'])){
         $arreglo=$_SESSION['carrito'];
         $idDelete=$_POST['id-delete'];
-
+        $id_cla=$_POST['id_cla'];
         for($i=0;$i<count($arreglo);$i++){
-            if($arreglo[$i]['id']==$idDelete ){
+            if($arreglo[$i]['id']==$idDelete AND $arreglo[$i]['idclasif']==$id_cla ){
                 unset($arreglo[$i]);
                 $arreglo=array_values($arreglo);
                 $_SESSION['carrito']=$arreglo;
@@ -88,11 +89,11 @@ if(isset($_SESSION['carrito'])){
         <td><span class="f-primary-b c-default f-title-medium">$<span class="j-product-price">'.$d['price'].'</span></span></td>
         <td class="f-center">
             <div class="b-product-card__info_count "  >
-                <input type="number"   min="1" class="form-control form-control--secondary j-product-count cantid"  value="'.$d['cant'].'"  data-id="'.$d['id'].'" />
+                <input type="number"   min="1" class="form-control form-control--secondary j-product-count cantid"  value="'.$d['cant'].'"  data-id="'.$d['id'].'" data-idcla="'.$d['idclasif'].'"/>
             </div>
         </td>
         <td><span class="f-primary-b c-default f-title-medium">$<span class="j-product-total ">'.$d['price']*$d['cant'].'</span></span></td>
-        <td><span class="f-center"><a class="btn-close-o quitar" data-id="'.$d['id'].'"><i class="fa fa-times"></i></a></span></td>
+        <td><span class="f-center"><a class="btn-close-o quitar" data-id="'.$d['id'].'" data-idcla="'.$d['idclasif'].'"><i class="fa fa-times"></i></a></span></td>
     </tr>';
     }
 

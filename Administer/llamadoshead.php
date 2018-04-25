@@ -38,5 +38,6 @@ if(isset($_SESSION['user']) and $_SESSION['user']['tipo']==1){
 <!-- Theme Custom CSS -->
 <link rel="stylesheet" href="../../assets/stylesheets/theme-custom.css">
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
 <!-- Head Libs -->
 <script src="../../assets/vendor/modernizr/modernizr.js"></script>

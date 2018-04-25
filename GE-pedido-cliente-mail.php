@@ -56,7 +56,7 @@ $mensaje='<table align="center" border="0" cellpadding="0" cellspacing="0" width
                 <tr>
                     <td style="padding:10px 0 10px 0" width="260"></td>
                     <td><strong>Método pago</strong></td>
-                    <td align="right" style="padding:0 15px 0 0"><strong>'.$_SESSION['metodo'].'</strong></td>
+                    <td align="right" style="padding:0 15px 0 0"><strong>'.$metodo.'</strong></td>
                 </tr>
                 <tr >
                     <td colspan="3" style="padding:20px 15px 20px 15px">

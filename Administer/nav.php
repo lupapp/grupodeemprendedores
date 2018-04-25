@@ -29,7 +29,7 @@
 								<ul class="nav nav-main">
                                     <li>
 
-                                    <a href="articulos.php">
+                                    <a href="usuarios.php">
 
                                         <i class="fas fa-users" aria-hidden="true"></i>
 
@@ -40,7 +40,7 @@
                                     </li>
                                 	<li>
 
-										<a href="index.php">
+										<a href="pedidos.php">
 
 											<i class="fas fa-shopping-cart" aria-hidden="true"></i>
 
@@ -104,7 +104,7 @@
 									
 									<li>
 
-										<a href="perfil_editar.php">
+										<a href="comentarios.php">
 
 											<i class="fas fa-comment" aria-hidden="true"></i>
 

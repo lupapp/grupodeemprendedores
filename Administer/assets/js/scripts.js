@@ -66,5 +66,35 @@ $('document').ready(function(){
             }
         });
     });
+    $('#dataTable').DataTable({
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Ningun resultado",
+            "info": "página _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(Filtrado de _MAX_ total registros)",
+            "decimal":        "",
+            "emptyTable":     "No hay datos disponibles en la tabla",
+            "infoPostFix":    "",
+            "thousands":      ",",
+            "loadingRecords": "Leyendo...",
+            "processing":     "Procesando...",
+            "search":         "Buscar:",
+            "paginate": {
+                "first":      "Primero",
+                "last":       "Último",
+                "next":       "Siguiente",
+                "previous":   "Anterior"
+            },
+            "aria": {
+                "sortAscending":  ": activar para ordenar la columna ascendente",
+                "sortDescending": ": activar para ordenar la columna descendiente"
+            }
+        },
+        "dom":"<'row datatables-header form-inline'<'col-sm-6 col-md-5'l><'col-sm-12 col-md-5'f>>" +
+            "<'table-responsive'<'col-sm-12 col-md-12'tr>>" +
+        "<'row datatables-footer'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+    });
+
 
 });

@@ -8,7 +8,59 @@ $producto=new Producto($con);
 $pro=$producto->getById($_GET['id']);
 $imagen=new Imagen($con);
 $img=$imagen->getByProd($pro->id);
-
+$clasificacion = new Clasificacion($con);
+$clas=$clasificacion->getAll();
+$comentario=new Comentario($con);
+$com=$comentario->getByIdProducto($pro->id);
+$usuario=new User($con);
+if(isset($_POST['enviocoment'])){
+    $coment= isset($_POST['comentario']) ? $_POST['comentario'] : '';
+    $fecha = date('Y') . "-" . date('m') . "-" . date('d');
+    $hora = date('g') . ":" . date('i') . " " . date('A');
+    if (empty($coment)){
+        $param=[
+            'ms'=>'Envie un comentario',
+            'clase'=>'alert-danger',
+            'alert'=>'Error'
+        ];
+    }else {
+        $comentario->setComentario($coment);
+        $comentario->setCliente($_SESSION['user']['id']);
+        $comentario->setProducto($_GET['id']);
+        $comentario->setEstado('1');
+        $comentario->setFecha($fecha);
+        $comentario->setHora($hora);
+        $comentario->save();
+        $param=[
+            'ms'=>'Comentario registrado',
+            'clase'=>'alert-success',
+            'alert'=>'Exito'
+        ];
+    }
+}
+if(isset($_POST['submit'])){
+    $pass= isset($_POST['pass']) ? $_POST['pass'] : '';
+    $user= isset($_POST['user']) ? $_POST['user'] : '';
+    if (empty($pass) or empty($user)){
+        $param=[
+            'ms'=>'Lle escriba usuario o email y la contraseña correcta',
+            'clase'=>'alert-danger',
+            'alert'=>'Error'
+        ];
+    }else {
+        $login = new Login(new Conexion());
+        $login->setPass($pass);
+        $login->setUser($user);
+        $login->setMail($user);
+        $resul = $login->signIn();
+        $_SESSION['user'] = $resul['user'];
+        $param=[
+            'ms'=>'Ingreso correctamente',
+            'clase'=>'alert-success',
+            'alert'=>'Exito'
+        ];
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -88,6 +140,18 @@ $img=$imagen->getByProd($pro->id);
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 ">
+                        <?php
+                        if(!isset($ms)) {
+                            $ms = $pass = isset($_GET['ms']) ? $_GET['ms'] : '';
+                        }
+                        if (empty($ms)){}else{?>
+
+                            <div class="alert <?php echo $_GET['clase'] ?>">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <strong><?php echo $_GET['alert'].":"; ?></strong> <?php echo $ms ?>
+                                <a href="clasificaciones.php" class="btn btn-primary pull-right cursor-pointer mr-1" >Finalizar</a>
+                            </div>
+                        <?php }?>
                         <div class="b-shortcode-example">
                             <?php $ca=$cat->getById($pro->categoria);?>
                             <div class="f-secondary-b b-title-b-hr f-title-b-hr b-null-top-indent"><i class="<?php echo $ca->img ?>"></i> <i class="b-dotted f-dotted"></i> <?php echo $ca->nombre ?></div>
@@ -121,9 +185,11 @@ $img=$imagen->getByProd($pro->id);
                                 <div class="b-news-item__article b-color-picker b-news___color-picker f-news___color-picker f-uppercase f-h4-special ">
                                     <span class="f-news___color-picker_title ">Para:</span>
                                     <div class="b-color-picker__box">
-                                        <div class="b-btn f-btn b-btn-light f-btn-light button-gray is-active"><i class=" fa fa-suitcase"></i></div>
-                                        <div class="b-btn f-btn b-btn-light f-btn-light button-gray" title="Grupos"><i class="fa fa-users"></i></div>
-                                        <div class="b-btn f-btn b-btn-light f-btn-light button-gray"><i class="fa fa-user"></i></div>
+                                        <?php foreach ($clas as $c){?>
+                                        <div class="b-btn f-btn b-btn-light f-btn-light button-gray is-active clasif" data-toggle="tooltip" title="<?php echo $c->nombre ?>" data-idclasif="<?php echo $c->id ?>" data-min="<?php echo $c->min ?>" data-max="<?php echo $c->max ?>" data-por="<?php echo $c->porcentaje ?>">
+                                            <i class="<?php echo $c->icono ?>"></i>
+                                        </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                     <div class="b-product-card__info_row ">
@@ -144,15 +210,15 @@ $img=$imagen->getByProd($pro->id);
                                     </div>
                                     <div class="b-product-card__info_row">
                                         <div class="b-product-card__info_title f-primary-b f-title-smallest">Valor</div>
-                                        <span class="f-product-card__info_price c-default f-primary-b">$ <?php echo $pro->valor ?>  </span>
+                                        <span class="f-product-card__info_price c-default f-primary-b">$ <span class="valor" data-valor="<?php echo $pro->valor ?>"><?php echo $pro->valor ?></span>  </span>
                                     </div>
                                     <div class="b-product-card__info_row">
                                         <div class="b-product-card__info_count">
-                                            <input type="number" min="1" class="form-control form-control--secondary cantidad" placeholder="1">
+                                            <input type="number" min="1" class="form-control form-control--secondary cantidad" >
                                         </div>
-                                        <div class="b-product-card__info_add b-margin-right-standard">
-                                            <div class=" b-btn f-btn b-btn-sm-md f-btn-sm-md">
-                                                <a class="addCart" data-img="<?php echo $pro->imagen ?>" data-id="<?php echo $pro->id ?>" data-valor="<?php echo $pro->valor ?>" data-nombre="<?php echo $pro->name ?>">añadir <i class="fa fa-shopping-cart"></i> </a>
+                                        <div class="b-product-card__info_add b-margin-right-standard anadir">
+                                            <div class=" b-btn f-btn b-btn-sm-md f-btn-sm-md btn-anadir">
+                                                <a class="addCart"  data-img="<?php echo $img[0]->imagen ?>" data-id="<?php echo $pro->id ?>" data-valor="<?php echo $pro->valor ?>" data-nombre="<?php echo $pro->name ?>" data-idclasif="0" data-modi="modi">añadir <i class="fa fa-shopping-cart"></i> </a>
                                             </div>
                                         </div>
                                         <!--<div class="b-product-card__info_like  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
@@ -216,28 +282,34 @@ $img=$imagen->getByProd($pro->id);
                     </div>
                     <div class="b-overview__comment">
                     <div class="f-secondary-b f-title-b-hr f-h4-special f-title-medium">Comentario</div>
+                        <?php $ultimo=$comentario->getUltimoRegistroByProducto($pro->id);
+                        if(isset($ultmo)){?>
                         <div class="b-mention-short-item">
-  <div class="b-mention-short-item__comment">
-    <div class="f-mention-short-item__comment_name f-primary-b">Really great work</div>
-    <div class="b-mention-short-item__comment_text f-mention-short-item__comment_text c-29">usce eu nisi risus. Vestibulum mattis, velit nec pellentesque varius, mi est dignissim massa, at volutpat mi augue quis risus. </div>
-    <div class="b-stars-group f-stars-group">
-      <i class="fa fa-star is-active-stars"></i>
-      <i class="fa fa-star is-active-stars"></i>
-      <i class="fa fa-star is-active-stars"></i>
-      <i class="fa fa-star is-active-stars"></i>
-      <i class="fa fa-star"></i>
-    </div>
-  </div>
-  <div class="b-mention-short-item__user">
-    <div class="b-mention-short-item__user_img b-right">
-      <img class="fade-in-animate" data-retina src="img/users/user.png" alt=""/>
-    </div>
-    <div class="b-mention-short-item__user_info f-right">
-      <div class="f-mention-short-item__user_name f-primary-b">Mark Alexis</div>
-      <div class="f-mention-short-item__user_position">MSc Money Finance - Students</div>
-    </div>
-  </div>
-</div>
+                          <div class="b-mention-short-item__comment">
+                              <?php
+                                  $user = $usuario->getById($ultimo->cliente);
+                              ?>
+                                <div class="b-mention-short-item__comment_text f-mention-short-item__comment_text c-29"><?php echo $ultimo->comentario ?> </div>
+                                <div class="b-stars-group f-stars-group">
+                                  <i class="fa fa-star is-active-stars"></i>
+                                  <i class="fa fa-star is-active-stars"></i>
+                                  <i class="fa fa-star is-active-stars"></i>
+                                  <i class="fa fa-star is-active-stars"></i>
+                                  <i class="fa fa-star"></i>
+                                </div>
+                          </div>
+                          <div class="b-mention-short-item__user">
+
+                            <div class="b-mention-short-item__user_info f-right">
+
+                              <div class="f-mention-short-item__user_name f-primary-b"><?php echo $user->nombre ?></div>
+
+                            </div>
+                          </div>
+                        </div>
+                        <?php }else{ ?>
+
+                        <?php } ?>
                     </div>
                 </div>
                                 
@@ -258,189 +330,129 @@ $img=$imagen->getByProd($pro->id);
                 </div>
             </div>
             <div id="tabs-32" class="clearfix">
-                <div class="b-comment-blog-box col-md-9" id="comment">
+                <div class="b-comment-blog-box col-md-12" id="comment">
                     <div class="b-comments-box">
+
                         <div class="b-comment__title f-comment__title">
-                            <span class="b-comment__title__name f-primary-b">32 Comentarios</span>
-                            <a href="#" class="b-comment__now f-comment__now">
-                                <i class="fa fa-comments-o"></i> Deja un comentario ahora
+                            <span class="b-comment__title__name f-primary-b"><?php echo count($com) ?> Comentarios</span>
+                            <a class="b-comment__now f-comment__now cursor-pointer abrircoment">
+                                <i class="fas fa-comments"></i> Deja un comentario ahora
                             </a>
                         </div>
                         <div class="b-comment__list">
-                            <ul>
-                                <li  class="b-comment-item">
-                                    <div class="b-comment-item">
-                                        <div class="b-comment__img">
-                                            <img data-retina src="img/users/comment_img.jpg" alt="">
-                                        </div>
-                                        <div class="b-comment__descr">
-                                            <div class="b-comment__descr__data">
-                                                <div class="b-comment__descr__name f-comment__descr__name f-primary-b">John Doe</div>
-                                                <div class="b-review_title-stars pull-right">
-                                                    <span class="b-stars-group f-stars-group">
-                                                        <i class="fa fa-star is-active-stars"></i>
-                                                        <i class="fa fa-star is-active-stars"></i>
-                                                        <i class="fa fa-star is-active-stars"></i>
-                                                        <i class="fa fa-star is-active-stars"></i>
-                                                        <i class="fa fa-star is-active-stars"></i>
-                                                    </span>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="row comen">
+                                        <?php if(!isset($_SESSION['user'])){?>
+
+                                            <form action="GE-shop_detalle.php?id=<?php echo $pro->id ?>" method="post">
+                                            <div class="col-md-6">
+                                                <div class="b-form-row">
+                                                    <label class="b-form-horizontal__label" for="create_account_email">Tu Email o Usuario</label>
+                                                    <div class="b-form-horizontal__input">
+                                                        <input type="text" name="user" id="create_account_email" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="b-form-row">
+                                                    <label class="b-form-horizontal__label" for="create_account_password">Tu Contraseña</label>
+                                                    <div class="b-form-horizontal__input">
+                                                        <input type="text" name="pass" id="create_account_password" class="form-control" />
+                                                    </div>
                                                 </div>
 
                                             </div>
-                                            <div class="f-comment__descr__txt">
-                                                <p>Pellentesque pulvinar dolor eu erat aliquet iaculis. Ut lacus lectus, scelerisque at mi id, pharetra mollis elit. Fusce diam mi, laoreet non luctus et, iaculis a risus. Phasellus volutpat ipsum id facilisis sagittis. Integer eget laoreet nibh. Nullam fringilla sem rhoncus felis suscipit accumsan.</p>
-                                            </div>
-                                         <div class="b-comment__descr__data">
-                                             <div class="b-comment__descr__info f-comment__descr__info">
-                                                    <span class="f-comment__date">20:30 PM - 15 November, 2013</span> <i class="b-comment__infp__slash">/</i>
-                                                    <a href="#" class="f-comment-link-color ">Report</a> <i class="b-comment__infp__slash">/</i>
-                                                    <a href="#" class="f-comment-link-color f-more">Reply</a>
-                                                </div>
-                                         </div>
-                                        </div>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <div class="b-comment-item">
-                                                <div class="b-comment__img">
-                                                    <img data-retina src="img/users/comment_img.jpg" alt="">
-                                                </div>
-                                                <div class="b-comment__descr">
-                                                    <div class="b-comment__descr__data">
-                                                        <div class="b-comment__descr__name f-comment__descr__name f-primary-b">Oliver Twister</div>
-                                                        <div class="b-comment__descr__info f-comment__descr__info">
-                                                            <span class="f-comment__date">20:30 PM - 15 November, 2013</span> <i class="b-comment__infp__slash">/</i>
-                                                            <a href="#" class="f-comment-link-color">Report</a> <i class="b-comment__infp__slash">/</i>
-                                                            <a href="#" class="f-comment-link-color">Reply</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="f-comment__descr__txt">
-                                                        <p>Pellentesque pulvinar dolor eu erat aliquet iaculis. Ut lacus lectus, scelerisque at mi id, pharetra mollis elit. Fusce diam mi, laoreet non luctus et, iaculis a risus. Phasellus volutpat ipsum id facilisis sagittis. Integer eget laoreet nibh. Nullam fringilla sem rhoncus felis suscipit accumsan.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="b-comment-item">
-                                                <div class="b-comment__img">
-                                                    <img data-retina src="img/blog/ann.jpg" alt="">
-                                                </div>
-                                                <div class="b-comment__descr">
-                                                    <div class="b-comment__descr__data">
-                                                        <div class="b-comment__descr__name f-comment__descr__name f-primary-b">Mary Ana</div>
-                                                        <div class="b-comment__descr__info f-comment__descr__info">
-                                                            <span class="f-comment__date">20:30 PM - 15 November, 2013</span> <i class="b-comment__infp__slash">/</i>
-                                                            <a href="#" class="f-comment-link-color">Report</a> <i class="b-comment__infp__slash">/</i>
-                                                            <a href="#" class="f-comment-link-color">Reply</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="f-comment__descr__txt">
-                                                        <p>Pellentesque pulvinar dolor eu erat aliquet iaculis. Ut lacus lectus, scelerisque at mi id, pharetra mollis elit. Fusce diam mi, laoreet non luctus et, iaculis a risus. Phasellus volutpat ipsum id facilisis sagittis. Integer eget laoreet nibh. Nullam fringilla sem rhoncus felis suscipit accumsan.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="b-comment-item">
-                                    <div class="b-comment-item">
-                                        <div class="b-comment__img">
-                                            <img data-retina src="img/users/comment_img.jpg" alt="">
-                                        </div>
-                                        <div class="b-comment__descr">
-                                            <div class="b-comment__descr__data">
-                                                <div class="b-comment__descr__name f-comment__descr__name f-primary-b">John Doe</div>
-                                                <div class="b-review_title-stars pull-right">
-                                                    <span class="b-stars-group f-stars-group">
-                                                        <i class="fa fa-star is-active-stars"></i>
-                                                        <i class="fa fa-star is-active-stars"></i>
-                                                        <i class="fa fa-star is-active-stars"></i>
-                                                        <i class="fa fa-star is-active-stars"></i>
-                                                        <i class="fa fa-star is-active-stars"></i>
-                                                    </span>
-                                                </div>
+                                            <a href="GE-registro.php" class="button-sm button-gray">Registrame</a>
+                                            <button class="btn b-btn f-btn b-btn-md b-btn-default f-primary-b " name="submit">Iniciar Sesión</button>
+                                        <?php } ?>
 
-                                            </div>
-                                            <div class="f-comment__descr__txt">
-                                                <p>Pellentesque pulvinar dolor eu erat aliquet iaculis. Ut lacus lectus, scelerisque at mi id, pharetra mollis elit. Fusce diam mi, laoreet non luctus et, iaculis a risus. Phasellus volutpat ipsum id facilisis sagittis. Integer eget laoreet nibh. Nullam fringilla sem rhoncus felis suscipit accumsan.</p>
-                                            </div>
-                                         <div class="b-comment__descr__data">
-                                             <div class="b-comment__descr__info f-comment__descr__info">
-                                                    <span class="f-comment__date">20:30 PM - 15 November, 2013</span> <i class="b-comment__infp__slash">/</i>
-                                                    <a href="#" class="f-comment-link-color ">Report</a> <i class="b-comment__infp__slash">/</i>
-                                                    <a href="#" class="f-comment-link-color f-more">Reply</a>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <form action="GE-new-comentario.php" method="post" class="comen hidden">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlTextarea3 ">Comentario</label>
+                                                    <textarea class="form-control textcomentario" name="comentario" id="exampleFormControlTextarea3" rows="4"></textarea>
                                                 </div>
-                                         </div>
+                                                <input type="hidden" name="idpro" value="<?php echo $pro->id ?>">
+                                                <button class="btn btn-warning btn-sm pull-right enivarcoment" name="enviocoment">Enviar</button>
+                                            </form>
+                                            <ul class="itemcoments">
+                                                <?php
+                                                if(count($com)>0) {
+                                                    foreach ($com as $cm) {
+                                                        $us = $usuario->getById($cm->cliente); ?>
+
+                                                        <li class="b-comment-item">
+                                                            <div class="b-comment-item">
+
+                                                                <div class="b-comment__descr">
+                                                                    <div class="b-comment__descr__data">
+                                                                        <div class="b-comment__descr__name f-comment__descr__name f-primary-b"><?php echo $us->nombre ?></div>
+                                                                        <div class="b-review_title-stars pull-right">
+                                                                    <span class="b-stars-group f-stars-group">
+                                                                        <i class="fa fa-star is-active-stars"></i>
+                                                                        <i class="fa fa-star is-active-stars"></i>
+                                                                        <i class="fa fa-star is-active-stars"></i>
+                                                                        <i class="fa fa-star is-active-stars"></i>
+                                                                        <i class="fa fa-star is-active-stars"></i>
+                                                                    </span>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="f-comment__descr__txt">
+                                                                        <p><?php echo $cm->comentario ?></p>
+                                                                    </div>
+                                                                    <div class="b-comment__descr__data">
+                                                                        <div class="b-comment__descr__info f-comment__descr__info">
+                                                                            <span class="f-comment__date"><?php echo $cm->fecha ?></span>
+                                                                            <i class="b-comment__infp__slash">/</i> <?php echo $cm->hora ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    <?php }
+                                                }?>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <?php if(isset($_SESSION['user'])){?>
+                                            <table  class=" b-table-primary f-table-primary f-center">
+                                                <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th><span><i class="fa fa-star"></i></span></th>
+                                                    <th><span><i class="fa fa-star"></i></span></th>
+                                                    <th><span><i class="fa fa-star"></i></span></th>
+                                                    <th><span><i class="fa fa-star"></i></span></th>
+                                                    <th><span><i class="fa fa-star"></i></span></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td><strong class="f-information-box__name b-information-box__name f-secondary-b">Calificar </strong></td>
+                                                    <label>
+                                                        <td><input type="radio" name="califica" value="1" id="califica_1"></td>
+                                                        <td><input type="radio" name="califica" value="2" id="califica_2"></td>
+                                                        <td><input type="radio" name="califica" value="3" id="califica_3"></td>
+                                                        <td><input type="radio" name="califica" value="4" id="califica_4"></td>
+                                                        <td><input type="radio" name="califica" value="5" id="califica_5" checked="checked" required></td>
+                                                    </label>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <?php } ?>
                                         </div>
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                    <div class="col-md-3">
-                        <div>
-                              <table  class=" b-table-primary f-table-primary f-center">
-                                  <thead>
-                                      <tr>
-                                          <th></th>
-                                          <th><span>1  <i class="fa fa-star"></i></span></th>
-                                          <th><span>2  <i class="fa fa-star"></i></span></th>
-                                          <th><span>3  <i class="fa fa-star"></i></span></th>
-                                          <th><span>4  <i class="fa fa-star"></i></span></th>
-                                          <th><span>5  <i class="fa fa-star"></i></span></th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td><strong class="f-information-box__name b-information-box__name f-secondary-b">Calificar </strong></td>
-                                          <label>
-                                          <td><input type="radio" name="califica" value="1" id="califica_1"></td>
-                                          <td><input type="radio" name="califica" value="2" id="califica_2"></td>
-                                          <td><input type="radio" name="califica" value="3" id="califica_3"></td>
-                                          <td><input type="radio" name="califica" value="4" id="califica_4"></td>
-                                          <td><input type="radio" name="califica" value="5" id="califica_5" checked="checked" required></td>
-                                          </label>
-                                      </tr>
-
-                                  </tbody>
-                              </table>
-                        </div>
-                        <div class="b-form-row">
-                            <label class="b-form-vertical__label" for="create_account_email">Email</label>
-                            <div class="b-form-vertical__input">
-                                <input type="text" id="create_account_email" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="b-form-row">
-                            <label class="b-form-vertical__label" for="create_account_password">Contraseña</label>
-                            <div class="b-form-vertical__input">
-                                <input type="text" id="create_account_password" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="b-form-row">
-                            <label class="b-form-vertical__label" for="create_account_confirm">Confirmar contraseña</label>
-                            <div class="b-form-vertical__input">
-                                <input type="text" id="create_account_confirm" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="b-form-row">
-                            <label class="b-form-vertical__label" for="create_account_phone">Celular</label>
-                            <div class="b-form-vertical__input">
-                                <input type="text" id="create_account_phone" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="b-form-row b-form--contact-size">
-                            <label class="b-form-vertical__label" for="create_account_phone">Mensaje</label>
-                            <textarea class="form-control" rows="5"></textarea>
-                        </div>
-                        <div class="b-form-row">
-                            <a href="#" class="b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100">Registrarme y enviar</a>
-                        </div>
-                    </div>
-
             </div>
 
         </div>

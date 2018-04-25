@@ -16966,3 +16966,10 @@ html.dark .thumbnail {
 .cursor-pointer{
 	cursor:pointer;
 }
+.border-1{
+	border:1px solid #3c3c3c !important;
+}
+.text-white{
+    color:#ffffff;
+}
+

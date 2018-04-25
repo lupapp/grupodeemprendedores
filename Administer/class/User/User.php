@@ -230,10 +230,56 @@ class User extends Mysqli
         }
         return $resultset;
     }
+    public function delete($id){
+        $query=$this->con->query("DELETE FROM usuarios WHERE id=$id");
+        return $query;
+    }
     public function update($id){
         $query="UPDATE usuarios SET nombre='".$this->nombre."',mail='".$this->mail."',clave='".$this->pass."'"
             .",telefono='".$this->telefono."',movil='".$this->celular."',direccion='".$this->direccion."'"
             .",ciudad='".$this->ciudad."',pais='".$this->pais."',tipo='".$this->tipo."' WHERE id=$id";
+        $update=$this->con->query($query);
+        return $update;
+    }
+    public function gPass(){
+        $opc_letras = TRUE; //  FALSE para quitar las letras
+        $opc_numeros = TRUE; // FALSE para quitar los números
+        $opc_letrasMayus = TRUE; // FALSE para quitar las letras mayúsculas
+        $opc_especiales = FALSE; // FALSE para quitar los caracteres especiales
+        $longitud = 12;
+        $password = [];
+        $letras ="abcdefghijklmnopqrstuvwxyz";
+        $numeros = "1234567890";
+        $letrasMayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $especiales ="|@#~$%()=^*+[]{}-_";
+        $listado = "";
+        $pass="";
+
+        if ($opc_letras == TRUE) {
+            $listado .= $letras; }
+        if ($opc_numeros == TRUE) {
+            $listado .= $numeros; }
+        if($opc_letrasMayus == TRUE) {
+            $listado .= $letrasMayus; }
+        if($opc_especiales == TRUE) {
+            $listado .= $especiales; }
+
+        str_shuffle($listado);
+        for( $i=1; $i<=$longitud; $i++) {
+            $password[$i] = $listado[rand(0,strlen($listado)-1)];
+            str_shuffle($listado);
+        }
+
+        foreach ($password as $dato_password) {
+            $pass=$pass."".$dato_password;
+            //return $dato_password;
+        }
+        $passmd5=array("passmd5"=>md5($pass),"pass"=>$pass);
+        return $passmd5;
+
+    }
+    public function reset($id){
+        $query="UPDATE usuarios SET clave='".$this->pass."' WHERE id=$id";
         $update=$this->con->query($query);
         return $update;
     }

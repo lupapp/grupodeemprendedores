@@ -51,9 +51,9 @@ if(isset($_SESSION['carrito'])){
     if(isset($_POST['id-delete'])){
         $arreglo=$_SESSION['carrito'];
         $idDelete=$_POST['id-delete'];
-
+        $idCla=$_POST['id_cla'];
         for($i=0;$i<count($arreglo);$i++){
-            if($arreglo[$i]['id']==$idDelete ){
+            if($arreglo[$i]['id']==$idDelete AND $arreglo[$i]['idclasif']==$idCla ){
                 unset($arreglo[$i]);
                 $arreglo=array_values($arreglo);
                 $_SESSION['carrito']=$arreglo;
@@ -72,7 +72,7 @@ if(isset($_SESSION['carrito'])){
         $numero=0;
         $contador=0;
         for($i=0;$i<count($arreglo);$i++){		
-                if($arreglo[$i]['nombre']==$_POST['nombre'] ){	
+                if($arreglo[$i]['id']==$_POST['id'] AND $arreglo[$i]['idclasif']==$_POST['idclasif'] ){
                     $encontrado=true;
                     $numero=$i;
                 }
@@ -88,12 +88,16 @@ if(isset($_SESSION['carrito'])){
         $cant=$_POST['cantidad'];
         $price=$_POST['valor'];
         $img=$_POST['img'];
+        $clasf=$_POST['idclasif'];
+        $modi=$_POST['modi'];
         $arregloNuevo=array(
             'id'=>$id,
             'nombre'=>$nombre,
             'cant'=>$cant,
             'price'=>$price,
             'img'=>$img,
+            'idclasif'=>$clasf,
+            'modi'=>$modi,
             'total'=>$cant*$price
         );
         array_push($arreglo, $arregloNuevo);
@@ -108,13 +112,14 @@ if(isset($_SESSION['carrito'])){
 		$cant=$_POST['cantidad'];
 		$price=$_POST['valor'];
 		$img=$_POST['img'];
-
+        $clasf=$_POST['idclasif'];
 		$arreglo[]=array(
 				'id'=>$id,
 				'nombre'=>$nombre,
 				'cant'=>$cant,
 				'price'=>$price,
 				'img'=>$img,
+                'idclasif'=>$clasf,
                 'total'=>$cant*$price
 				);
 		
@@ -147,7 +152,7 @@ if(isset($_SESSION['carrito'])){
               <strong class='b-option-cart__descr__title f-option-cart__descr__title'><a href='#'>".$datos[$i]['nombre']."</a></strong>
               <span class='b-option-cart__descr__cost f-option-cart__descr__cost'>".$datos[$i]['cant']." x $".$datos[$i]['price']."</span>
           </div>
-          <i class='fa fa-times b-icon--fa quitar' data-id='".$datos[$i]['id']."' ></i>
+          <i class='fa fa-times b-icon--fa quitar' data-id='".$datos[$i]['id']."' data-idcla='".$datos[$i]['idclasif']."'></i>
         </li>
         ";
 

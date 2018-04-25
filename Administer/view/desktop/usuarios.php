@@ -10,14 +10,34 @@ spl_autoload_register(function ($clase) {
 
 	<?php include("../../llamadoshead.php");
 	$cone=new Conexion();
-	$pedido=new Pedido($cone);
-	$pedidos=$pedido->getAll();
 	$usuario=new User($cone);
+    if(isset($_POST['reset'])){
+        $id=$_POST['id'];
+        $pass=$usuario->gPass();
+        $usuario->setPass($pass['pass']);
+        $usuario->reset($id);
+        include '../mensajes/resetPass.php';
+        $to = $mail;
+        $from = 'MIME-Version: 1.0' . "\r\n";
+        $from .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $from .= 'To:' . $mail . '' . "\r\n";
+        $from .= 'From: Do_Not_reply@grupodeemprendedores.com' . "\r\n";
+        date_default_timezone_set('America/Bogota');
+        $tema = "Reseteo de Contraseña";
+
+        @mail($to, $tema, utf8_decode($mensaje), $from);
+        $param = [
+            'ms' => 'Se reseteo la contraseña',
+            'clase' => 'alert-success',
+            'alert' => 'Exito'
+        ];
+
+    }
+	$user=$usuario->getAll();
     if(isset($_GET['id'])){
         $id=$_GET["id"];
-
-
-        header('location:pedidos.php');
+        $usuario->delete($id);
+        header('location:usuarios.php');
     }
 	?>
 	</head>
@@ -40,15 +60,27 @@ spl_autoload_register(function ($clase) {
 					</header>
 
 						<section class="panel">
+                            <?php
 
+                            if (!isset($param)){}else{?>
+
+                                <div class="alert <?php echo $param['clase'] ?>">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <strong><?php echo $param['alert'].":"; ?></strong> <?php echo $param['ms'] ?>
+                                </div>
+                            <?php } ?>
                             <div class="container-fluid">
                                 <!-- Breadcrumbs-->
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
                                         <a href="index.php"><i class="fas fa-home"></i> Inicio</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Pedidos</li>
-
+                                    <li class="breadcrumb-item active">Usuarios</li>
+                                    <li>
+                                        <div class="btn-group pb-2">
+                                            <a type="button" class="btn btn-success" href="newUsuario.php"><i class="fas fa-plus"></i> Nuevo Usuario</a>
+                                        </div>
+                                    </li>
                                 </ol>
 
                                 <!-- Example DataTables Card-->
@@ -58,76 +90,66 @@ spl_autoload_register(function ($clase) {
                                                 <table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                     <thead>
                                                     <tr>
-                                                        <th>No. pedido</th>
-                                                        <th>Fecha</th>
-                                                        <th>Metodo de pago</th>
-                                                        <th>Ciudad</th>
-                                                        <th>Cliente</th>
-                                                        <th>Valor</th>
-                                                        <th>Estado</th>
+                                                        <th>Usuario</th>
+                                                        <th>Nombre</th>
+                                                        <th>Mail</th>
+                                                        <th>Teléfonos</th>
+                                                        <th>Doirección</th>
+                                                        <th>Tipo de usuario</th>
                                                         <th></th>
                                                     </tr>
                                                     </thead>
                                                     <tfoot>
                                                     <tr>
-                                                        <th>No. pedido</th>
-                                                        <th>Fecha</th>
-                                                        <th>Metodo de pago</th>
-                                                        <th>Ciudad</th>
-                                                        <th>Cliente</th>
-                                                        <th>Valor</th>
-                                                        <th>Estado</th>
+                                                        <th>Usuario</th>
+                                                        <th>Nombre</th>
+                                                        <th>Mail</th>
+                                                        <th>Teléfonos</th>
+                                                        <th>Doirección</th>
+                                                        <th>Tipo de usuario</th>
                                                         <th></th>
                                                     </tr>
                                                     </tfoot>
                                                     <tbody>
                                                         <?php
-                                                        if(count($pedidos)>0) {
-                                                            foreach ($pedidos as $p) {
+                                                        if(count($user)>0) {
+                                                            foreach ($user as $u) {
                                                                 ?>
                                                                 <tr>
-                                                                    <td><?php echo $p->id ?></td>
-                                                                    <td><?php echo $p->fecha." ".$p->hora ?> </td>                                                                   </td>
-                                                                    <td><?php echo $p->metodoPago ?></td>
-                                                                    <td><?php echo $p->ciudad ?></td>
-                                                                    <td><?php
-                                                                        $user=$usuario->getById($p->cliente);
-                                                                        echo $user->nombre; ?></td>
-                                                                    <td>$  <?php echo $p->total ?>
+                                                                    <td class="w-10">
+                                                                        <?php echo $u->usuario ?>
                                                                     </td>
-
-                                                                    <td><?php
-                                                                        switch($p->estado){
-                                                                            case 0:
-                                                                                echo '<div class="btn btn-danger estado" data-toggle="tooltip" title="Pedido pendiente"><a href="../../controller/cambioEstado.php?id='.$p->id.'&estado=0" class="text-white">P</a></div>
-                                                                                <div class="btn btn-default estado" data-e="1" data-toggle="tooltip" title="Pedido Despachado"><a href="../../controller/cambioEstado.php?id='.$p->id.'&estado=1" class="text-dark">D</a></div>
-                                                                                <div class="btn btn-default estado" data-e="2" data-toggle="tooltip" title="Pedido Anulado"><a href="../../controller/cambioEstado.php?id='.$p->id.'&estado=2" class="text-dark">A</a></div>';
-                                                                            break;
-                                                                            case 1:
-                                                                                echo '<div class="btn btn-default estado" data-e="0" data-toggle="tooltip" title="Pedido pendiente"><a href="../../controller/cambioEstado.php?id='.$p->id.'&estado=0" class="text-dark">P</a></div>
-                                                                                <div class="btn btn-success estado" data-e="1" data-toggle="tooltip" title="Pedido Despachado"><a href="../../controller/cambioEstado.php?id='.$p->id.'&estado=1" class="text-white">D</a></div>
-                                                                                <div class="btn btn-default estado" data-e="2" data-toggle="tooltip" title="Pedido Anulado"><a href="../../controller/cambioEstado.php?id='.$p->id.'&estado=2" class="text-dark">A</a></div>';
-                                                                            break;
-                                                                            case 2:
-                                                                                echo '<div class="btn btn-default estado" data-e="0" data-toggle="tooltip" title="Pedido pendiente"><a href="../../controller/cambioEstado.php?id='.$p->id.'&estado=0" class="text-dark">P</a></div>
-                                                                                <div class="btn btn-default estado"data-e="1"  data-toggle="tooltip" title="Pedido Despachado"><a href="../../controller/cambioEstado.php?id='.$p->id.'&estado=1" class="text-drak">D</a></div>
-                                                                                <div class="btn btn-warning estado" data-e="2" data-toggle="tooltip" title="Pedido Anulado"><a href="../../controller/cambioEstado.php?id='.$p->id.'&estado=2" class="text-white">A</a></div>';
-                                                                                break;
-                                                                        }
-                                                                        ?>
-
-                                                                    </td>
+                                                                    <td><?php echo $u->nombre ?></td>
+                                                                    <td><?php echo $u->mail ?></td>
+                                                                    <td><?php echo $u->telefono." | ".$u->movil ?></td>
+                                                                    <td><?php echo $u->direccion ?></td>
                                                                     <td>
+                                                                        <?php
+                                                                        switch ($u->tipo){
+                                                                            case 1: $tipo='Admin';
+                                                                            break;
+                                                                            case 2:$tipo='Básico';
+                                                                            break;
+                                                                        }
+                                                                        echo $tipo; ?>
+                                                                    </td>
+
+                                                                    <td>
+
+                                                                        <form action="usuarios.php" method="post" class=" pull-left" data-toggle="tooltip" title="Resetear Contraseña">
+                                                                            <input type="hidden" name="id" value="<?php echo $u->id ?>">
+                                                                            <button class="btn btn-info btn-options" name="reset"><i class="fas fa-redo"></i></button>
+                                                                        </form>
                                                                         <a class="btn btn-danger btn-options"
                                                                            data-toggle="modal"
                                                                            data-target="#eliminarModal"
-                                                                           title="Eliminar pedido"><i
+                                                                           title="Eliminar usuario"><i
                                                                                     class="fa fa-trash"></i></a>
 
                                                                         <a class="btn btn-warning btn-options"
-                                                                           data-toggle="tooltip" title="Editar pedido"
-                                                                           href="editPedido.php?id=<?php echo $p->id ?>">
-                                                                            <i class="fas fa-eye"></i></a>
+                                                                           data-toggle="tooltip" title="Editar usuario"
+                                                                           href="editUsuario.php?id=<?php echo $u->id ?>">
+                                                                            <i class="fas fa-pencil-alt"></i></a>
                                                                         <div class="modal fade" id="eliminarModal"
                                                                              tabindex="-1" role="dialog"
                                                                              aria-labelledby="eliminarModalLabel"
@@ -137,7 +159,7 @@ spl_autoload_register(function ($clase) {
                                                                                     <div class="modal-header">
                                                                                         <h5 class="modal-title text-danger"
                                                                                             id="exampleModalLabel">
-                                                                                            Eliminar Pedido</h5>
+                                                                                            Eliminar Usuario</h5>
                                                                                         <button type="button"
                                                                                                 class="close"
                                                                                                 data-dismiss="modal"
@@ -147,7 +169,7 @@ spl_autoload_register(function ($clase) {
                                                                                     </div>
                                                                                     <div class="modal-body">
                                                                                         Esta seguro de eliminar el
-                                                                                        pedido?
+                                                                                        usuario?
                                                                                     </div>
                                                                                     <div class="modal-footer">
                                                                                         <button type="button"
@@ -157,8 +179,8 @@ spl_autoload_register(function ($clase) {
                                                                                         </button>
                                                                                         <a class="btn btn-danger btn-options"
                                                                                            data-toggle="tooltip"
-                                                                                           title="Eliminar pedido"
-                                                                                           href="pedidos.php?id=<?php echo $p->id ?>"><i
+                                                                                           title="Eliminar usuario"
+                                                                                           href="usuarios.php?id=<?php echo $u->id ?>"><i
                                                                                                     class="fa fa-trash"></i></a>
                                                                                     </div>
                                                                                 </div>
@@ -190,7 +212,6 @@ spl_autoload_register(function ($clase) {
 
 		<!-- Vendor -->
         <?php include("../../footer.php"); ?>
-
 
 	</body>
 </html>

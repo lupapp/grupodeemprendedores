@@ -182,7 +182,7 @@ class LineaPedido extends Mysqli
     public function getByIdPedido($id){
         $resultset=[];
         $query=$this->con->query("SELECT * FROM lineaspedido WHERE pedido=$id");
-        if($row=$query->fetch_object()){
+        while($row=$query->fetch_object()){
             $resultset[]=$row;
         }
         return $resultset;

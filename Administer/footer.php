@@ -10,9 +10,9 @@
 <script src="../../assets/vendor/jquery-autosize/jquery.autosize.js"></script>
 <script src="../../assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
 <script src="../../assets/vendor/jquery-validation/jquery.validate.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-<script src="../../assets/js/sb-admin-datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+
 <script src="../../assets/js/scripts.js"></script>
 
 <!-- Theme Base, Components and Settings -->

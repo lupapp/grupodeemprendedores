@@ -32,14 +32,14 @@ $items=array();
 $subtotal=0;
 foreach ($datos as $d) {
     $item = new Item();
-    $price=$d['total']/$dolar;
+    $price=$d['price']/$dolar;
     $item->setName($d['nombre'])
         ->setCurrency('USD')
-        ->setQuantity(1)
+        ->setQuantity($d['cant'])
         ->setSku($d['id'])// Similar to `item_number` in Classic API
-        ->setPrice($price);
+        ->setPrice(round($price, 1));
     $items[]=$item;
-    $subtotal=$price+$subtotal;
+    $subtotal=round($price,1)*$d['cant']+round($subtotal,1);
 }
 
 $itemList = new ItemList();
@@ -57,7 +57,8 @@ $details->setShipping(0)
     ->setTax(0)
     ->setSubtotal($subtotal);
 
-$total=$subtotal+$envio+$tax;
+$totales=$subtotal+$envio+$tax;
+$total =round($totales,1);
 $amount = new Amount();
 $amount->setCurrency("USD")
     ->setTotal($total)

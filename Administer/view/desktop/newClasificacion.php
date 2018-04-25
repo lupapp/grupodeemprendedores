@@ -18,7 +18,8 @@ spl_autoload_register(function ($clase) {
         $porcentaje= isset($_POST['porcentaje']) ? $_POST['porcentaje'] : '';
         $icono= isset($_POST['icono']) ? $_POST['icono'] : '';
         $min= isset($_POST['min']) ? $_POST['min'] : '';
-        if (empty($nombre) or empty($porcentaje) or empty($icono) or empty($min)){
+        $max= isset($_POST['max']) ? $_POST['max'] : 0;
+        if (empty($nombre) or empty($icono) or empty($min)){
             $param=[
                     'ms'=>'Llene todos los campos con asterísco (obligatorio)',
                     'clase'=>'alert-danger',
@@ -31,7 +32,7 @@ spl_autoload_register(function ($clase) {
             $clas->setPorcentaje($porcentaje);
             $clas->setIcono($icono);
             $clas->setMin($min);
-            $clas->setMax($_POST['max']);
+            $clas->setMax($max);
             $resul = $clas->save();
             $param=[
                 'ms'=>'Clasificación registrada exitosamente',
@@ -40,7 +41,7 @@ spl_autoload_register(function ($clase) {
             ];
             $clasi=$clas->getUltimoRegistro();
 
-           header('Location: editClasificacion.php?id='.$clasi->id);
+           header('Location: clasificaciones.php');
 
         }
     }
@@ -110,7 +111,7 @@ spl_autoload_register(function ($clase) {
                                                 </div>
                                                 <div class="col-md-6 col-md-offset-3">
                                                     <div class="form-group">
-                                                        <label><span class="text-label">*Porcentaje de descuento</span></label>
+                                                        <label><span class="text-label">Porcentaje de descuento</span></label>
                                                         <input class="form-control" type="text" name="porcentaje" placeholder="Porcentaje de descuento">
                                                     </div>
                                                 </div>

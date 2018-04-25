@@ -249,7 +249,7 @@ class Pedido extends Mysqli
         return $resultset;
     }
     public function update($id){
-        $query="UPDATE categorias SET estado='".$this->estado."' WHERE id=$id";
+        $query="UPDATE pedidos SET estado='".$this->estado."' WHERE id=$id";
         $update=$this->con->query($query);
         return $update;
     }

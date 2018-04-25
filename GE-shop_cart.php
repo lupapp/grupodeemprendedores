@@ -117,17 +117,24 @@ $dolar=$options->getByName('valor_dolar');?>
                                                     </td>
                                                     <td class="f-center">
                                                         <div class="b-product-card__info_count ">
+                                                            <?php if($d['modi']=='modi'){ ?>
                                                             <input type="number" min="1"
                                                                    class="form-control form-control--secondary j-product-count cantid"
                                                                    name="cant" value="<?php echo $d['cant'] ?>"
-                                                                   data-id="<?php echo $d['id'] ?>"/>
+                                                                   data-id="<?php echo $d['id'] ?>" data-idcla="<?php echo $d['idclasif'] ?>"/>
+                                                            <?php }else{ ?>
+                                                                <input type="number" min="1"
+                                                                       class="form-control form-control--secondary j-product-count cantid"
+                                                                       name="cant" value="<?php echo $d['cant'] ?>"
+                                                                       data-id="<?php echo $d['id'] ?>" disabled/>
+                                                            <?php }?>
                                                         </div>
                                                     </td>
                                                     <td><span class="f-primary-b c-default f-title-medium">$<span
                                                                     class="j-product-total "><?php echo $d['total']  ?></span></span>
                                                     </td>
                                                     <td><span class="f-center"><a class="btn-close-o quitar"
-                                                                                  data-id="<?php echo $d['id'] ?>"><i
+                                                                                  data-id="<?php echo $d['id'] ?>" data-idcla="<?php echo $d['idclasif'] ?>"><i
                                                                         class="fa fa-times"></i></a></span></td>
                                                 </tr>
                                             <?php }
@@ -142,25 +149,30 @@ $dolar=$options->getByName('valor_dolar');?>
                         <div class="clearfix"></div>
                        <div class="row b-col-default-indent">
                             <div class="col-md-6 ">
-                                <?php if(isset($_SESSION['user'])){ ?>
-                                    <form action="paypal/comprar.php" method="post">
+                                <?php if(isset($_SESSION['user'])){
+                                    if(isset($_SESSION['carrito'])){?>
+                                    <form action="GE-procesar-pedido.php" method="post" class="formPago">
                                         <div class="f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent">Forma de pago</div>
                                         <div class="b-shortcode-example">
                                             <div class="checkbox">
-                                                <label><input type="radio" name="metodoPago" checked value="paypal"> <strong>PayPal</strong></label>
+                                                <label><input type="radio"  class="payu" name="metodoPago" checked value="payu"> <strong>Payu</strong></label>
+                                                <p>Pago con tarjeta de credito, transferencia bancaria.</p>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="radio" class="noPayu" name="metodoPago" value="paypal"> <strong>PayPal</strong></label>
                                                 <p>Pago con tarjeta de credito.</p>
-                                                <?php echo round(1.9303, 5); ?>
                                                 <input type="hidden" name="precio" value="<?php echo $_SESSION['total'] ?>">
                                                 <input type="hidden" name="dolar" value="<?php echo $dolar->valor ?>">
                                             </div>
                                             <div class="checkbox">
-                                                <label><input type="radio" name="metodoPago" value="deposito"> <strong>Deposito bancario</strong></label>
+                                                <label><input type="radio" class="noPayu" name="metodoPago" value="deposito"> <strong>Deposito bancario</strong></label>
                                                 <p>Debe consignar en la cuenta que bancaria que le llegará al correo electrónico junto con el pedido despues de hacer el deposito envia al correo info@gmail.com la copia del recibo.</p>
                                             </div>
                                         </div>
                                         <button href="GE-procesar-pedido.php" name="submit" class="b-btn f-btn b-btn-lg f-btn-lg b-btn-default f-primary-b button-gray pull-right">Completar compra <i class="fas fa-arrow-right"></i></button>
                                     </form>
-                                <?php }else{ ?>
+                                <?php }
+                                     }else{ ?>
                                 <div class="b-product-cart-small">
                                     <div class="b-product-cart-small__header">
                                         <div class="f-primary-b c-default f-uppercase b-title-b-hr f-title-b-hr">DATOS DEL USUARIO
