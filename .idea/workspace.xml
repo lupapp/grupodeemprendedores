@@ -2,46 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e56de1ab-f6f4-48d6-98e1-db734745a443" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Administer/class/Calificacion/Calificacion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Administer/class/Comentario/Comentario.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Administer/class/Cupon/Cupon.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Administer/controller/cambioEstado.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/comentarios.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/editPedido.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/editUsuario.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/newUsuario.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/usuarios.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Administer/view/mensajes/mensajeNuevoUser.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Administer/view/mensajes/resetPass.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GE-new-comentario.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/cupones.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Administer/view/desktop/newCupon.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GE-calificacion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GE-new-calificacion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GE-verificarcupon.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/assets/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/assets/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/assets/stylesheets/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/assets/stylesheets/theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/class/LineaPedido/LineaPedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/class/LineaPedido/LineaPedido.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/class/Pedido/Pedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/class/Pedido/Pedido.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/class/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/class/User/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/llamadoshead.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/llamadoshead.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/class/Calificacion/Calificacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/class/Calificacion/Calificacion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/class/Cupon/Cupon.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/class/Cupon/Cupon.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Administer/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/public/img/paisaje-artificial.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/public/img/stalpob.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/view/desktop/editClasificacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/view/desktop/editClasificacion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/view/desktop/newClasificacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/view/desktop/newClasificacion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Administer/view/desktop/pedidos.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/view/desktop/pedidos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GE-cabezote.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-cabezote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GE-pedido-cliente-mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-pedido-cliente-mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GE-portafolio_servicios.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-portafolio_servicios.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GE-procesar-pedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-procesar-pedido.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GE-shop_cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-shop_cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/view/desktop/articulos.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/view/desktop/articulos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Administer/view/desktop/calificaciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/Administer/view/desktop/calificaciones.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GE-shop_detalle.php" beforeDir="false" afterPath="$PROJECT_DIR$/GE-shop_detalle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PayPal.log" beforeDir="false" afterPath="$PROJECT_DIR$/PayPal.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cargarcarro.php" beforeDir="false" afterPath="$PROJECT_DIR$/cargarcarro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cargarcarro2.php" beforeDir="false" afterPath="$PROJECT_DIR$/cargarcarro2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main-default.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main-default.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paypal/comprar.php" beforeDir="false" afterPath="$PROJECT_DIR$/paypal/comprar.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -58,29 +33,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GE-shop_detalle.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GE-shop_detalle.php">
+      <file leaf-file-name="GE-shop_cart.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GE-shop_cart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="153" column="33" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
+            <state relative-caret-position="2904">
+              <caret line="308" lean-forward="true" selection-start-line="308" selection-end-line="308" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GE-new-comentario.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GE-new-comentario.php">
+      <file leaf-file-name="cargarcarro.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cargarcarro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="459">
+              <caret line="75" column="100" selection-start-line="75" selection-start-column="100" selection-end-line="75" selection-end-column="100" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Calificacion.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Administer/class/Calificacion/Calificacion.php">
+      <file leaf-file-name="cupones.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Administer/view/desktop/cupones.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="125" column="37" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
+            <state relative-caret-position="119">
+              <caret line="103" column="95" selection-start-line="103" selection-start-column="95" selection-end-line="103" selection-end-column="95" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GE-procesar-pedido.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GE-procesar-pedido.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="59" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cart.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/cart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="103" column="57" selection-start-line="103" selection-start-column="57" selection-end-line="103" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GE-verificarcupon.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GE-verificarcupon.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="articulos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Administer/view/desktop/articulos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="5" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -88,60 +99,17 @@
       <file leaf-file-name="Cupon.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Administer/class/Cupon/Cupon.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2414">
-              <caret line="147" column="5" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
+            <state relative-caret-position="269">
+              <caret line="141" column="75" selection-start-line="141" selection-start-column="75" selection-end-line="141" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newProducto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Administer/view/desktop/newProducto.php">
+      <file leaf-file-name="GE-shop_detalle.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GE-shop_detalle.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="24" column="117" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="117" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GE-shop_cart.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GE-shop_cart.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="225" column="62" selection-start-line="201" selection-start-column="56" selection-end-line="225" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Comentario.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Administer/class/Comentario/Comentario.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="137" column="3" selection-start-line="137" selection-start-column="3" selection-end-line="184" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comentarios.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Administer/view/desktop/comentarios.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1649">
-              <caret line="97" column="77" selection-start-line="97" selection-start-column="77" selection-end-line="97" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Administer/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="llamadoshead.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Administer/llamadoshead.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="109" selection-start-line="40" selection-start-column="109" selection-end-line="40" selection-end-column="109" />
+            <state relative-caret-position="276">
+              <caret line="231" column="115" selection-start-line="231" selection-start-column="115" selection-end-line="231" selection-end-column="115" />
             </state>
           </provider>
         </entry>
@@ -158,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>accesscheck</find>
       <find>../../assets/</find>
       <find>form-gro</find>
       <find>dropzone</find>
@@ -188,6 +155,7 @@
       <find>media</find>
       <find>@media</find>
       <find>&quot;dom&quot;:</find>
+      <find>valora</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,13 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/paypal/bootstrap.php" />
-        <option value="$PROJECT_DIR$/GE-inicio-sesion.php" />
-        <option value="$PROJECT_DIR$/Administer/class/Imagen/Imagen.php" />
-        <option value="$PROJECT_DIR$/Administer/class/Producto/Producto.php" />
-        <option value="$PROJECT_DIR$/Administer/view/desktop/editProducto.php" />
-        <option value="$PROJECT_DIR$/Administer/view/desktop/articulos.php" />
-        <option value="$PROJECT_DIR$/Administer/view/desktop/newProducto.php" />
         <option value="$PROJECT_DIR$/Administer/view/desktop/newAjuste.php" />
         <option value="$PROJECT_DIR$/Administer/view/desktop/ajustes.php" />
         <option value="$PROJECT_DIR$/Administer/view/desktop/editAjuste.php" />
@@ -216,8 +177,6 @@
         <option value="$PROJECT_DIR$/Administer/view/desktop/newClasificacion.php" />
         <option value="$PROJECT_DIR$/GE-portafolio_servicios.php" />
         <option value="$PROJECT_DIR$/GE-cabezote.php" />
-        <option value="$PROJECT_DIR$/cargarcarro.php" />
-        <option value="$PROJECT_DIR$/GE-shop_cart.php" />
         <option value="$PROJECT_DIR$/cargarcarro2.php" />
         <option value="$PROJECT_DIR$/Administer/view/mensajes/mensajeNuevoUser.php" />
         <option value="$PROJECT_DIR$/Administer/class/User/User.php" />
@@ -236,17 +195,26 @@
         <option value="$PROJECT_DIR$/Administer/controller/cambioEstado.php" />
         <option value="$PROJECT_DIR$/Administer/view/desktop/pedidos.php" />
         <option value="$PROJECT_DIR$/Administer/view/desktop/editPedido.php" />
-        <option value="$PROJECT_DIR$/Administer/nav.php" />
         <option value="$PROJECT_DIR$/Administer/view/desktop/comentarios.php" />
         <option value="$PROJECT_DIR$/GE-validarlogin.php" />
         <option value="$PROJECT_DIR$/GE-login.php" />
-        <option value="$PROJECT_DIR$/js/cart.js" />
-        <option value="$PROJECT_DIR$/css/main-default.css" />
         <option value="$PROJECT_DIR$/Administer/class/Comentario/Comentario.php" />
-        <option value="$PROJECT_DIR$/GE-shop_detalle.php" />
         <option value="$PROJECT_DIR$/GE-new-comentario.php" />
-        <option value="$PROJECT_DIR$/Administer/class/Cupon/Cupon.php" />
+        <option value="$PROJECT_DIR$/css/main-default.css" />
+        <option value="$PROJECT_DIR$/GE-calificacion.php" />
+        <option value="$PROJECT_DIR$/GE-new-calificacion.php" />
         <option value="$PROJECT_DIR$/Administer/class/Calificacion/Calificacion.php" />
+        <option value="$PROJECT_DIR$/Administer/view/desktop/articulos.php" />
+        <option value="$PROJECT_DIR$/Administer/view/desktop/calificaciones.php" />
+        <option value="$PROJECT_DIR$/Administer/nav.php" />
+        <option value="$PROJECT_DIR$/Administer/view/desktop/newCupon.php" />
+        <option value="$PROJECT_DIR$/GE-shop_cart.php" />
+        <option value="$PROJECT_DIR$/Administer/view/desktop/cupones.php" />
+        <option value="$PROJECT_DIR$/Administer/class/Cupon/Cupon.php" />
+        <option value="$PROJECT_DIR$/GE-verificarcupon.php" />
+        <option value="$PROJECT_DIR$/GE-shop_detalle.php" />
+        <option value="$PROJECT_DIR$/cargarcarro.php" />
+        <option value="$PROJECT_DIR$/js/cart.js" />
       </list>
     </option>
   </component>
@@ -263,7 +231,7 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="757" />
     <option name="y" value="2" />
     <option name="width" value="608" />
@@ -325,19 +293,8 @@
               <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
               <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Administer" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Administer" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="desktop" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="grupoemp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="class" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="User" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="grupoemp" type="b2602c69:ProjectViewProjectNode" />
@@ -370,21 +327,21 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="copyright" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\grupoemp\Administer\class\Conexion" />
-      <recent name="C:\xampp\htdocs\grupoemp\Administer\class\Icono" />
-      <recent name="C:\xampp\htdocs\grupoemp\Administer\view\login" />
-      <recent name="C:\xampp\htdocs\grupoemp\Administer\view\desktop" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\grupoemp" />
       <recent name="C:\xampp\htdocs\grupoemp\Administer\view\desktop" />
       <recent name="C:\xampp\htdocs\grupoemp\Administer\class\Comentarios" />
       <recent name="C:\xampp\htdocs\grupoemp\Administer\view\mensajes" />
       <recent name="C:\xampp\htdocs\grupoemp\Administer\class\Calasificacion" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\grupoemp\Administer\class\Conexion" />
+      <recent name="C:\xampp\htdocs\grupoemp\Administer\class\Icono" />
+      <recent name="C:\xampp\htdocs\grupoemp\Administer\view\login" />
+      <recent name="C:\xampp\htdocs\grupoemp\Administer\view\desktop" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -435,12 +392,12 @@
       <workItem from="1524509979644" duration="41112000" />
       <workItem from="1524648245250" duration="10010000" />
       <workItem from="1524660060647" duration="5739000" />
-      <workItem from="1524681106233" duration="5760000" />
+      <workItem from="1524681106233" duration="40649000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="384814000" />
+    <option name="totallyTimeSpent" value="419703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -495,42 +452,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Administer/class/Options/Options.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="115" column="49" selection-start-line="115" selection-start-column="49" selection-end-line="115" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/Login/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2669">
-          <caret line="157" column="53" selection-start-line="157" selection-start-column="26" selection-end-line="157" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="10" selection-start-line="3" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/index.html" />
-    <entry file="file://$PROJECT_DIR$/paypal/comprar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="75" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/assets/css/reset.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Administer/view/desktop/editClasificacion.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -542,13 +463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="144" column="198" selection-start-line="144" selection-start-column="198" selection-end-line="144" selection-end-column="198" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cargarcarro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="55" column="81" selection-start-line="55" selection-start-column="81" selection-end-line="55" selection-end-column="81" />
         </state>
       </provider>
     </entry>
@@ -598,13 +512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3043">
           <caret line="179" column="68" selection-start-line="179" selection-start-column="68" selection-end-line="179" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/articulos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-411">
-          <caret line="129" column="117" lean-forward="true" selection-start-line="129" selection-start-column="117" selection-end-line="129" selection-end-column="117" />
         </state>
       </provider>
     </entry>
@@ -699,20 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/User/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="235" column="5" lean-forward="true" selection-start-line="232" selection-start-column="4" selection-end-line="235" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/nav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="106" column="60" selection-start-line="106" selection-start-column="60" selection-end-line="106" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Administer/view/desktop/editPedido.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -742,34 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main-default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217651">
-          <caret line="12803" column="14" selection-start-line="12803" selection-start-column="14" selection-end-line="12803" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-procesar-pedido.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="58" selection-start-line="7" selection-start-column="3" selection-end-line="8" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/Pedido/Pedido.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4182">
-          <caret line="251" column="30" selection-start-line="251" selection-start-column="30" selection-end-line="251" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Administer/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-255" />
@@ -789,31 +654,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GE-shop_cart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="225" column="62" selection-start-line="201" selection-start-column="56" selection-end-line="225" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Administer/view/desktop/newProducto.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="24" column="117" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-shop_detalle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="153" column="33" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GE-new-comentario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -824,17 +668,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Administer/class/Cupon/Cupon.php">
+    <entry file="file://$PROJECT_DIR$/GE-new-comentario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2414">
-          <caret line="147" column="5" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GE-calificacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Administer/class/Calificacion/Calificacion.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
-          <caret line="125" column="37" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
+          <caret line="141" column="38" selection-start-line="141" selection-start-column="38" selection-end-line="141" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/calificaciones.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="143" column="116" selection-start-line="143" selection-start-column="116" selection-end-line="143" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="91" column="56" selection-start-line="91" selection-start-column="56" selection-end-line="91" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main-default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="12806" column="16" selection-start-line="12806" selection-start-column="8" selection-end-line="12806" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/class/Pedido/Pedido.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="251" column="30" selection-start-line="251" selection-start-column="30" selection-end-line="251" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/class/User/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="235" column="5" lean-forward="true" selection-start-line="232" selection-start-column="4" selection-end-line="235" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/newCupon.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/articulos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GE-procesar-pedido.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="59" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GE-new-calificacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/class/Cupon/Cupon.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="141" column="75" selection-start-line="141" selection-start-column="75" selection-end-line="141" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GE-shop_cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2904">
+          <caret line="308" lean-forward="true" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Administer/view/desktop/cupones.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="103" column="95" selection-start-line="103" selection-start-column="95" selection-end-line="103" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GE-verificarcupon.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GE-shop_detalle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="231" column="115" selection-start-line="231" selection-start-column="115" selection-end-line="231" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cargarcarro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="75" column="100" selection-start-line="75" selection-start-column="100" selection-end-line="75" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="103" column="57" selection-start-line="103" selection-start-column="57" selection-end-line="103" selection-end-column="57" />
         </state>
       </provider>
     </entry>

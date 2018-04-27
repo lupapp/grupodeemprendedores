@@ -118,15 +118,17 @@ spl_autoload_register(function ($clase) {
 
                                                                     <td><?php echo $p->stock ?></td>
                                                                     <td>
-
-
+                                                                        <a class="btn btn-warning btn-options"
+                                                                           data-toggle="tooltip" title="Valoración del producto"
+                                                                           href="calificaciones.php?id=<?php echo $p->id ?>">
+                                                                            <i class="fa fa-star"></i></a>
                                                                         <a class="btn btn-danger btn-options"
                                                                            data-toggle="modal"
                                                                            data-target="#eliminarModal"
                                                                            title="Eliminar producto"><i
                                                                                     class="fa fa-trash"></i></a>
 
-                                                                        <a class="btn btn-warning btn-options"
+                                                                        <a class="btn btn-info btn-options"
                                                                            data-toggle="tooltip" title="Editar producto"
                                                                            href="editProducto.php?id=<?php echo $p->id ?>">
                                                                             <i class="fas fa-pencil-alt"></i></a>

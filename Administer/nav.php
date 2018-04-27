@@ -89,7 +89,7 @@
 
                                     <li>
 
-										<a href="album.php">
+										<a href="cupones.php">
 
 											<i class="fas fa-ticket-alt" aria-hidden="true"></i>
 

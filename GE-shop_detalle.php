@@ -13,6 +13,9 @@ $clas=$clasificacion->getAll();
 $comentario=new Comentario($con);
 $com=$comentario->getByIdProducto($pro->id);
 $usuario=new User($con);
+$calificacion=new Calificacion($con);
+$cantidad=$calificacion->getByIdProducto($pro->id);
+$promedio=$calificacion->getPromedio($pro->id);
 if(isset($_POST['enviocoment'])){
     $coment= isset($_POST['comentario']) ? $_POST['comentario'] : '';
     $fecha = date('Y') . "-" . date('m') . "-" . date('d');
@@ -192,16 +195,14 @@ if(isset($_POST['submit'])){
                                         <?php } ?>
                                     </div>
                                 </div>
-                                    <div class="b-product-card__info_row ">
+                                    <div class="b-product-card__info_row valoracion">
                                         <div class="b-product-card__info_title f-primary-b f-title-smallest">Valoración</div>
                                         <div class="b-stars-group f-stars-group b-margin-right-standard">
+                                        <?php for($i=1;$i<=$promedio;$i++) { ?>
                                             <i class="fa fa-star is-active-stars"></i>
-                                            <i class="fa fa-star is-active-stars"></i>
-                                            <i class="fa fa-star is-active-stars"></i>
-                                            <i class="fa fa-star is-active-stars"></i>
-                                            <i class="fa fa-star"></i>
+                                        <?php } ?>
                                         </div>
-                                        <span class="f-primary-b c-tertiary f-title-smallest"> <a href="#">(12 opiniones)</a></span>
+                                        <span class="f-primary-b c-tertiary f-title-smallest"> (<?php echo count($cantidad)?> opiniones)</span>
                                     </div>
                                     <div class="b-product-card__info_row">
                                         <div class="b-product-card__info_description f-product-card__info_description">
@@ -214,7 +215,7 @@ if(isset($_POST['submit'])){
                                     </div>
                                     <div class="b-product-card__info_row">
                                         <div class="b-product-card__info_count">
-                                            <input type="number" min="1" class="form-control form-control--secondary cantidad" >
+                                            <input type="number" min="1" class="form-control form-control--secondary cantidad" value="1">
                                         </div>
                                         <div class="b-product-card__info_add b-margin-right-standard anadir">
                                             <div class=" b-btn f-btn b-btn-sm-md f-btn-sm-md btn-anadir">
@@ -227,11 +228,13 @@ if(isset($_POST['submit'])){
                                     </div>
                                     <div class="b-product-card__info_row">
                                         <div class="b-product-card__info_code">
-                                            <input type="text" class="form-control form-control--secondary" placeholder="Ingrese su código de cupón">
+                                            <input type="text" class="form-control form-control--secondary cup" placeholder="Ingrese su código de cupón">
+                                            <input type="hidden" class="form-control form-control--secondary cupon">
                                         </div>
                                         <div class="b-product-card__info_submit  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
                                             <i class="fa fa-arrow-right"></i>
                                         </div>
+                                        <div class="alert-cupon"><?php print_r($_SESSION['carrito']) ?></div>
                                     </div>
                                     <!--<div class="b-product-card__info_row">
                                         <div class="b-product-card__info_title f-primary-b f-title-smallest">Categorias</div>
@@ -419,31 +422,72 @@ if(isset($_POST['submit'])){
                                             </ul>
                                         </div>
                                         <div class="col-md-3">
-                                            <?php if(isset($_SESSION['user'])){?>
+                                            <?php if(isset($_SESSION['user'])){
+                                                $valida=$calificacion->verificar($_GET['id'],$_SESSION['user']['id']);
+                                                ?>
                                             <table  class=" b-table-primary f-table-primary f-center">
+                                                <?php if(empty($valida)){ ?>
+                                                    <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th><span><i class="fa fa-star star" id="califica_1"></i></span></th>
+                                                        <th><span><i class="fa fa-star star" id="califica_2"></i></span></th>
+                                                        <th><span><i class="fa fa-star star" id="califica_3"></i></span></th>
+                                                        <th><span><i class="fa fa-star star" id="califica_4"></i></span></th>
+                                                        <th><span><i class="fa fa-star star" id="califica_5"></i></span></th>
+
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><strong class="f-information-box__name b-information-box__name f-secondary-b">Calificar </strong></td>
+                                                        <label>
+                                                            <input type="hidden" class="id" value="">
+                                                            <input type="hidden" class="idpro" value="<?php echo $_GET['id'] ?>">
+                                                            <input type="hidden" class="iduser" value="<?php echo $_SESSION['user']['id'] ?>">
+                                                            <td><input type="radio" name="califica" value="1" id="cal_1" class="califica" ></td>
+                                                            <td><input type="radio" name="califica" value="2" id="cal_2" class="califica"></td>
+                                                            <td><input type="radio" name="califica" value="3" id="cal_3" class="califica"></td>
+                                                            <td><input type="radio" name="califica" value="4" id="cal_4" class="califica"></td>
+                                                            <td><input type="radio" name="califica" value="5" id="cal_5" class="califica"></td>
+                                                        </label>
+                                                    </tr>
+
+                                                    </tbody>
+                                                <?php }else{ ?>
+
                                                 <thead>
                                                 <tr>
                                                     <th></th>
-                                                    <th><span><i class="fa fa-star"></i></span></th>
-                                                    <th><span><i class="fa fa-star"></i></span></th>
-                                                    <th><span><i class="fa fa-star"></i></span></th>
-                                                    <th><span><i class="fa fa-star"></i></span></th>
-                                                    <th><span><i class="fa fa-star"></i></span></th>
+                                                    <?php
+                                                    $cali=$valida->calificacion;
+                                                    for($i=1;$i<=$cali;$i++){?>
+
+                                                        <th><span><i class="fa fa-star star" style="color:#fcb92d;" id="califica_<?php echo $i ?>"></i></span></th>
+                                                    <?php }
+                                                    $resta=5-$cali;
+                                                    for($i=$cali+1;$i<=5;$i++){ ?>
+                                                        <th><span><i class="fa fa-star star" id="califica_<?php echo $i ?>"></i></span></th>
+                                                    <?php } ?>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
                                                     <td><strong class="f-information-box__name b-information-box__name f-secondary-b">Calificar </strong></td>
                                                     <label>
-                                                        <td><input type="radio" name="califica" value="1" id="califica_1"></td>
-                                                        <td><input type="radio" name="califica" value="2" id="califica_2"></td>
-                                                        <td><input type="radio" name="califica" value="3" id="califica_3"></td>
-                                                        <td><input type="radio" name="califica" value="4" id="califica_4"></td>
-                                                        <td><input type="radio" name="califica" value="5" id="califica_5" checked="checked" required></td>
+                                                        <input type="hidden" class="id" value="<?php echo $valida->id ?>">
+                                                        <input type="hidden" class="idpro" value="<?php echo $_GET['id'] ?>">
+                                                        <input type="hidden" class="iduser" value="<?php echo $_SESSION['user']['id'] ?>">
+                                                        <td><input type="radio" name="califica" value="1" id="cal_1" class="califica" ></td>
+                                                        <td><input type="radio" name="califica" value="2" id="cal_2" class="califica"></td>
+                                                        <td><input type="radio" name="califica" value="3" id="cal_3" class="califica"></td>
+                                                        <td><input type="radio" name="califica" value="4" id="cal_4" class="califica"></td>
+                                                        <td><input type="radio" name="califica" value="5" id="cal_5" class="califica"></td>
                                                     </label>
                                                 </tr>
 
                                                 </tbody>
+                                                <?php } ?>
                                             </table>
                                             <?php } ?>
                                         </div>

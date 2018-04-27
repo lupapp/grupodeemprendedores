@@ -71,6 +71,7 @@ if(isset($_SESSION['carrito'])){
         $encontrado=false;
         $numero=0;
         $contador=0;
+
         for($i=0;$i<count($arreglo);$i++){		
                 if($arreglo[$i]['id']==$_POST['id'] AND $arreglo[$i]['idclasif']==$_POST['idclasif'] ){
                     $encontrado=true;
@@ -81,8 +82,9 @@ if(isset($_SESSION['carrito'])){
         if($encontrado==true){
                 $arreglo[$numero]['cant']=$arreglo[$numero]['cant']+$_POST['cantidad'];
                 $_SESSION['carrito']=$arreglo;
-        }else{	
+        }else{
         $arreglo=$_SESSION['carrito'];
+        $cupon=$_POST['cupon'];
         $id=$_POST['id'];
         $nombre=$_POST['nombre'];
         $cant=$_POST['cantidad'];
@@ -98,6 +100,7 @@ if(isset($_SESSION['carrito'])){
             'img'=>$img,
             'idclasif'=>$clasf,
             'modi'=>$modi,
+            'cupon'=>$cupon,
             'total'=>$cant*$price
         );
         array_push($arreglo, $arregloNuevo);
@@ -107,12 +110,14 @@ if(isset($_SESSION['carrito'])){
     }
 }else{
 	if(isset($_POST['nombre']) and $_POST['nombre']!=''){
+        $cupon=$_POST['cupon'];
         $id=$_POST['id'];
 		$nombre=$_POST['nombre'];
 		$cant=$_POST['cantidad'];
 		$price=$_POST['valor'];
 		$img=$_POST['img'];
         $clasf=$_POST['idclasif'];
+        $modi=$_POST['modi'];
 		$arreglo[]=array(
 				'id'=>$id,
 				'nombre'=>$nombre,
@@ -120,6 +125,8 @@ if(isset($_SESSION['carrito'])){
 				'price'=>$price,
 				'img'=>$img,
                 'idclasif'=>$clasf,
+                'modi'=>$modi,
+                'cupon'=>$cupon,
                 'total'=>$cant*$price
 				);
 		
@@ -150,7 +157,7 @@ if(isset($_SESSION['carrito'])){
           </div>
           <div class='b-option-cart__items__descr'>
               <strong class='b-option-cart__descr__title f-option-cart__descr__title'><a href='#'>".$datos[$i]['nombre']."</a></strong>
-              <span class='b-option-cart__descr__cost f-option-cart__descr__cost'>".$datos[$i]['cant']." x $".$datos[$i]['price']."</span>
+              <span class='b-option-cart__descr__cost f-option-cart__descr__cost'>".$datos[$i]['cupon']." ".$datos[$i]['cant']." x $".$datos[$i]['price']."</span>
           </div>
           <i class='fa fa-times b-icon--fa quitar' data-id='".$datos[$i]['id']."' data-idcla='".$datos[$i]['idclasif']."'></i>
         </li>

@@ -10,10 +10,13 @@ spl_autoload_register(function ($clase) {
 
 	<?php include("../../llamadoshead.php");
 	$cone=new Conexion();
-	$calificacion=new Calificacion($cone);
-	$user=new User($cone);
-	$pro=new Producto($cone);
-	$id=$_GET['id'];
+	$cupon=new Cupon($cone);
+    if(isset($_GET['id'])){
+        $id=$_GET["id"];
+        $cupon->delete($id);
+
+        header('location:cupones.php');
+    }
 	?>
 	</head>
 	<body>
@@ -50,9 +53,11 @@ spl_autoload_register(function ($clase) {
                                     <li class="breadcrumb-item">
                                         <a href="index.php"><i class="fas fa-home"></i> Inicio</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Calificación</li>
+                                    <li class="breadcrumb-item active">Cupones</li>
                                     <li>
-                                        <?php $p=$pro->getById($id); echo $p->name;?>
+                                        <div class="btn-group pb-2">
+                                            <a type="button" class="btn btn-success" href="newCupon.php"><i class="fas fa-plus"></i> Generar cupones</a>
+                                        </div>
                                     </li>
                                 </ol>
 
@@ -63,41 +68,51 @@ spl_autoload_register(function ($clase) {
                                                 <table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                     <thead>
                                                     <tr>
-                                                        <th>Usuario</th>
-                                                        <th>Producto</th>
-                                                        <th>Valoración</th>
+                                                        <th>Cupón</th>
+                                                        <th>Fecha</th>
+                                                        <th>Descuento</th>
+                                                        <th>Estado</th>
                                                         <th></th>
                                                     </tr>
                                                     </thead>
                                                     <tfoot>
                                                     <tr>
-                                                        <th>Usuario</th>
-                                                        <th>Producto</th>
-                                                        <th>Valoración</th>
+                                                        <th>Cupón</th>
+                                                        <th>Fecha</th>
+                                                        <th>Descuento</th>
+                                                        <th>Estado</th>
                                                         <th></th>
                                                     </tr>
                                                     </tfoot>
                                                     <tbody>
                                                         <?php
-                                                        $cal=$calificacion->getByIdProducto($id);
-                                                        if(count($cal)>0) {
-                                                            foreach ($cal as $c) {
+                                                        $cup=$cupon->getAll();
+                                                        if(count($cup)>0) {
+                                                            foreach ($cup as $c) {
                                                                 ?>
                                                                 <tr>
                                                                     <td class="w-10">
                                                                         <?php
-                                                                        $u=$user->getById($c->user);
-                                                                        echo $u->nombre ?>
+                                                                        echo $c->cupon;
+                                                                       ?>
                                                                     </td>
                                                                     <td><?php
-                                                                        $p=$pro->getById($c->producto);
-                                                                        echo $p->name ?></td>
-                                                                    <td><?php echo $c->calificacion ?></td>
+
+                                                                        echo $c->fecha ?></td>
+                                                                    <td><?php echo $c->descuento ?></td>
+                                                                    <td>
+                                                                        <?php switch($c->estado){
+                                                                            case 0: $estado='Disponible';
+                                                                                break;
+                                                                            case 1: $estado='Usado';
+                                                                                break;
+                                                                        } echo $estado;?>
+                                                                    </td>
                                                                     <td>
                                                                         <a class="btn btn-danger btn-options"
                                                                            data-toggle="modal"
                                                                            data-target="#eliminarModal"
-                                                                           title="Eliminar calificación"><i
+                                                                           title="Eliminar cupón"><i
                                                                                     class="fa fa-trash"></i></a>
 
                                                                         <div class="modal fade" id="eliminarModal"
@@ -109,7 +124,7 @@ spl_autoload_register(function ($clase) {
                                                                                     <div class="modal-header">
                                                                                         <h5 class="modal-title text-danger"
                                                                                             id="exampleModalLabel">
-                                                                                            Eliminar Calificación</h5>
+                                                                                            Eliminar cupón</h5>
                                                                                         <button type="button"
                                                                                                 class="close"
                                                                                                 data-dismiss="modal"
@@ -118,8 +133,7 @@ spl_autoload_register(function ($clase) {
                                                                                         </button>
                                                                                     </div>
                                                                                     <div class="modal-body">
-                                                                                        Esta seguro de eliminar la
-                                                                                        calificación?
+                                                                                        Esta seguro de eliminar el cupón?
                                                                                     </div>
                                                                                     <div class="modal-footer">
                                                                                         <button type="button"
@@ -129,8 +143,8 @@ spl_autoload_register(function ($clase) {
                                                                                         </button>
                                                                                         <a class="btn btn-danger btn-options"
                                                                                            data-toggle="tooltip"
-                                                                                           title="Eliminar calificacion"
-                                                                                           href="calificaciones.php?id=<?php echo $c->id ?>"><i
+                                                                                           title="Eliminar cupón"
+                                                                                           href="cupones.php?id=<?php echo $c->id ?>"><i
                                                                                                     class="fa fa-trash"></i></a>
                                                                                     </div>
                                                                                 </div>
@@ -141,7 +155,7 @@ spl_autoload_register(function ($clase) {
                                                                 </tr>
                                                             <?php }
                                                         }else{ ?>
-                                                            <tr><td colspan="8" align="center">No hay calificaciones</td></tr>
+                                                            <tr><td colspan="8" align="center">No hay cupones</td></tr>
                                                         <?php }?>
                                                     </tbody>
                                                 </table>

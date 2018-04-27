@@ -86,6 +86,22 @@ class Calificacion extends Mysqli
         $save=$this->con->query($query);
         return $save;
     }
+    public function getPromedio($id){
+        $query=$this->con->query("SELECT SUM(calificacion)/COUNT(id) AS promedio FROM calificaciones WHERE producto=$id");
+        $row=$query->fetch_object();
+        $promedio=$row->promedio;
+        $prom=round($promedio,0);
+        return $prom;
+    }
+    public function verificar($idpro,$iduser){
+        $resulset='';
+        $query=$this->con->query("SELECT * FROM calificaciones WHERE producto=$idpro AND user=$iduser");
+        if($row=$query->fetch_object()){
+            $resulset=$row;
+        }
+
+        return $resulset;
+    }
     public function getAll(){
         $resultset=[];
         $query=$this->con->query("SELECT * FROM calificaciones");

@@ -13,6 +13,7 @@ class Cupon extends Mysqli
     private $fecha;
     private $vencimiento;
     private $descuento;
+    private $estado;
 
     public function __construct(Conexion $con)
     {
@@ -92,6 +93,22 @@ class Cupon extends Mysqli
     }
 
     /**
+     * @return mixed
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * @param mixed $estado
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+    }
+
+    /**
      * @param mixed $descuento
      */
     public function setDescuento($descuento)
@@ -99,22 +116,30 @@ class Cupon extends Mysqli
         $this->descuento = $descuento;
     }
     public function save(){
-        $query="INSERT INTO comentarios (id, cliente, producto, fecha, hora, comentario, estado)"
-            ."VALUES (NULL, '".$this->cliente."', '".$this->producto."',"
-            ."'".$this->fecha."', '".$this->hora."','".$this->comentario."', '".$this->estado."')";
+        $query="INSERT INTO cupones (id, cupon, fecha, vencimiento, descuento, estado)"
+            ."VALUES (NULL, '".$this->cupon."', '".$this->fecha."',"
+            ."'".$this->vencimiento."', '".$this->descuento."', '".$this->estado."')";
         $save=$this->con->query($query);
         return $save;
     }
     public function getAll(){
         $resultset=[];
-        $query=$this->con->query("SELECT * FROM comentarios");
+        $query=$this->con->query("SELECT * FROM cupones");
         while($row=$query->fetch_object()){
             $resultset[]=$row;
         }
         return $resultset;
     }
-    public function getUltimoRegistroByProducto($id){
-        $query=$this->con->query("SELECT * FROM comentarios WHERE producto=$id ORDER BY id DESC LIMIT 1");
+    public function getExiste($cupon){
+        $existe='no';
+        $query=$this->con->query("SELECT * FROM cupones WHERE cupon='$cupon'");
+        if($row=$query->fetch_object()){
+            $existe='si';
+        }
+        return $existe;
+    }
+    public function getByCupon($cupon){
+        $query=$this->con->query("SELECT * FROM cupones WHERE cupon='$cupon'");
         if($row=$query->fetch_object()){
             $resultset=$row;
         }else{
@@ -122,27 +147,19 @@ class Cupon extends Mysqli
         }
         return $resultset;
     }
-    public function getByIdProducto($id){
-        $resultset=[];
-        $query=$this->con->query("SELECT * FROM comentarios WHERE producto=$id");
-        while($row=$query->fetch_object()){
-            $resultset[]=$row;
-        }
-        return $resultset;
-    }
     public function getById($id){
-        $query=$this->con->query("SELECT * FROM comentarios WHERE id=$id");
+        $query=$this->con->query("SELECT * FROM cupones WHERE id=$id");
         if($row=$query->fetch_object()){
             $resultset=$row;
         }
         return $resultset;
     }
     public function delete($id){
-        $query=$this->con->query("DELETE FROM comentarios WHERE id=$id");
+        $query=$this->con->query("DELETE FROM cupones WHERE id=$id");
         return $query;
     }
     public function update($id){
-        $query="UPDATE comentarios SET estado='".$this->estado."' WHERE id=$id";
+        $query="UPDATE cupones SET estado='".$this->estado."' WHERE id=$id";
         $update=$this->con->query($query);
         return $update;
     }

@@ -8,6 +8,7 @@ jQuery(function ($) {
         var cantidad=$('.cantidad').val();
         var modi=$(this).attr('data-modi');
         var idClasif=$(this).attr('data-idclasif');
+        var cupon=$('.cupon').val();
         alert(idClasif);
         alert(modi);
         $.ajax({
@@ -20,7 +21,8 @@ jQuery(function ($) {
                 "img":img,
                 'cantidad':cantidad,
                 'idclasif':idClasif,
-                'modi':modi
+                'modi':modi,
+                'cupon':cupon
             },
             dataType: "html",
             error: function(){
@@ -66,29 +68,80 @@ jQuery(function ($) {
             }
         });
     });
-    $('.abrircoment').click(function(){
-        $('.comen').toggleClass('hidden');
-    });
-    $('.enviarcoment').on('click', '.quitar' ,function(){
-        $('.cargando').fadeIn();
-        var id_prod = $('.').data('id');
-        var id_cla=$(this).data('idcla');
+    $('.cup').focusout(function(){
+        var cupon = $(this).val();
+        var valor =$('.valor').data('valor');
+        alert(cupon);
         $.ajax({
             type: 'POST',
-            url: 'cargarcarro.php',
+            url: 'GE-verificarcupon.php',
             data: {
-                'id-delete' : id_prod,
-                'id_cla':id_cla
+                'cupon' : cupon,
+                'valor':valor
             },
             dataType: 'html',
             error: function(){
                 alert('error petición ajax');
             },
             success:function(data){
-                $('.itemCart').html(data);
-                $('.cargando').fadeOut();
-                $(".cantItems").load("actualizarcantidad.php");
+                alert(data);
+                if(data==0){
+                    $(this).val('');
+                    $('.valor').text(valor);
+                    $('.addCart').attr('data-valor', valor);
+                    $('.alert-cupon').fadeIn().html('<div class="alert alert-danger">\n' +
+                        '                                <strong>Error</strong> Cupon invalido\n' +
+                        '                            </div>');
+                }else{
+                    if(data==1) {
+                        $(this).val('');
+                        $('.valor').text(valor);
+                        $('.addCart').attr('data-valor', valor);
+                        $('.alert-cupon').fadeIn().html('<div class="alert alert-warning">\n' +
+                            '                                <strong>Alerta</strong> Cupon ya usado\n' +
+                            '                            </div>');
+                    }else{
+                        $(this).attr('disabled','disabled');
+                        $('.cupon').val(cupon);
+                        $('.valor').text(data);
+                        $('.addCart').attr('data-valor', data);
+                        $('.alert-cupon').fadeIn().html('<div class="alert alert-success">\n' +
+                            '                                <strong>Exito</strong> Cupon válido\n' +
+                            '                            </div>');
+                    }
+                }
 
+            }
+        });
+    });
+    $('.abrircoment').click(function(){
+        $('.comen').toggleClass('hidden');
+    });
+    $('.califica').click(function(){
+        $('.cargando').fadeIn();
+        var califica = $(this).val();
+        var idpro=$('.idpro').val();
+        var iduser=$('.iduser').val();
+        var id=$('.id').val();
+        $('.star').css({color:'#ffffff'})
+        for(var i=1;i<=califica;i++){
+            $('#califica_'+i).css({color:'#fcb92d'})
+        }
+        $.ajax({
+            type: 'POST',
+            url: 'GE-new-calificacion.php',
+            data: {
+                'califica':califica,
+                'idpro' : idpro,
+                'iduser':iduser,
+                'id':id
+            },
+            dataType: 'html',
+            error: function(){
+                alert('error petición ajax');
+            },
+            success:function(data){
+                $(".valoracion").load("GE-calificacion.php?id="+idpro);
             }
         });
     });
