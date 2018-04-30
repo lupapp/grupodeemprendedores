@@ -4,6 +4,8 @@ spl_autoload_register(function ($clase) {
     include 'Administer/class/'.$clase.'/'.$clase.'.php';
 });
 $con=new Conexion();
+$cat=new Categoria($con);
+$producto=new Producto($con);
 ?>
 
 <!DOCTYPE html>

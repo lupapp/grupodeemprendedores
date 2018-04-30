@@ -2,17 +2,27 @@
 //Concepto de compra
 $concepto = "Carrito de compras";
 
-//URL's de retorno
-/*$regreso   = "http://localhost:801/grupoemp/GE-procesar-pedido.php";
-$cancelado = "http://localhost:801/grupoemp/GE-shop_cart.php";*/
-$regreso   = "http://grupodeemprendedores.com/index/GE-procesar-pedido.php";
-$cancelado = "http://grupodeemprendedores.com/index/GE-shop_cart.php";
-
 //El total
 $tax=0;
 $envio=0;
 $dolar=$_POST['dolar'];
-//$total=$_SESSION['total']/$dolar;
+$des=$_POST['des']/$dolar;
+if(isset($_SESSION['total'])) {
+    $total = $_SESSION['total'] / $dolar;
+    $regreso   = "http://grupodeemprendedores.com/index/GE-procesar-pedido.php?des=".$_POST['des']."&precio=".$total."&cupon=".$cupon;
+    $cancelado = "http://grupodeemprendedores.com/index/GE-shop_cart.php";
+}else{
+    $total=$_POST['precio']/$dolar;
+    $regreso   = "http://grupodeemprendedores.com/index/GE-pedido-finalizado.php";
+    $cancelado = "http://grupodeemprendedores.com/index/GE-portafolio_servicios.php";
+}
+$cupon=$_POST['cupon'];
+//URL's de retorno
+/*$regreso   = "http://localhost:801/grupoemp/GE-procesar-pedido.php";
+$cancelado = "http://localhost:801/grupoemp/GE-shop_cart.php";*/
+$regreso   = "http://grupodeemprendedores.com/index/GE-procesar-pedido.php?des=".$_POST['des']."&precio=".$total."&cupon=".$cupon;
+$cancelado = "http://grupodeemprendedores.com/index/GE-shop_cart.php";
+
 //NO MODIFICAR
 require 'bootstrap.php';
 use PayPal\Api\Amount;
@@ -26,13 +36,12 @@ use PayPal\Api\Transaction;
 
 $payer = new Payer();
 $payer->setPaymentMethod("paypal");
-
-$datos=$_SESSION['carrito'];
+/*$datos=$_SESSION['carrito'];
 $items=array();
 $subtotal=0;
 foreach ($datos as $d) {
     $item = new Item();
-    $price=$d['price']/$dolar;
+    $price=$d['price']/$dolar-round($des,1);
     $item->setName($d['nombre'])
         ->setCurrency('USD')
         ->setQuantity($d['cant'])
@@ -40,28 +49,29 @@ foreach ($datos as $d) {
         ->setPrice(round($price, 1));
     $items[]=$item;
     $subtotal=round($price,1)*$d['cant']+round($subtotal,1);
-}
-
-$itemList = new ItemList();
-$itemList->setItems($items);
-
-/*$item1 = new Item();
+}*/
+$subtotal=round($total,1)-round($des, 1);
+$item1 = new Item();
 $item1->setName($concepto)
     ->setCurrency('USD')
     ->setQuantity(1)
     ->setSku("5") // Similar to `item_number` in Classic API
-    ->setPrice($precio);*/
+    ->setPrice($subtotal);
+
+$itemList = new ItemList();
+$itemList->setItems(array($item1));
+
 
 $details = new Details();
 $details->setShipping(0)
     ->setTax(0)
     ->setSubtotal($subtotal);
 
-$totales=$subtotal+$envio+$tax;
+$totales=$subtotal;
 $total =round($totales,1);
 $amount = new Amount();
 $amount->setCurrency("USD")
-    ->setTotal($total)
+    ->setTotal($totales)
     ->setDetails($details);
 
 $transaction = new Transaction();
@@ -90,7 +100,6 @@ try {
 }
 
 $approvalUrl = $payment->getApprovalLink();
-echo $_POST['metodoPago'];
 if($_POST['metodoPago']=='paypal'){
     $_SESSION['metodo']='paypal';
     header("Location: " . $approvalUrl);

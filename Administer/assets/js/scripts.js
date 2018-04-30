@@ -32,7 +32,6 @@ $('document').ready(function(){
         // business rule: you can only add 10 names
         if (newNum == 10)
             $('#btnAdd').attr('disabled','disabled');
-        alert(num);
     });
 
     $('#btnDel').click(function() {

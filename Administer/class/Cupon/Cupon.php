@@ -14,7 +14,7 @@ class Cupon extends Mysqli
     private $vencimiento;
     private $descuento;
     private $estado;
-
+    private $pedido;
     public function __construct(Conexion $con)
     {
         $this->con=$con;
@@ -115,10 +115,27 @@ class Cupon extends Mysqli
     {
         $this->descuento = $descuento;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPedido()
+    {
+        return $this->pedido;
+    }
+
+    /**
+     * @param mixed $pedido
+     */
+    public function setPedido($pedido)
+    {
+        $this->pedido = $pedido;
+    }
+
     public function save(){
-        $query="INSERT INTO cupones (id, cupon, fecha, vencimiento, descuento, estado)"
+        $query="INSERT INTO cupones (id, cupon, fecha, vencimiento, descuento, estado, pedido)"
             ."VALUES (NULL, '".$this->cupon."', '".$this->fecha."',"
-            ."'".$this->vencimiento."', '".$this->descuento."', '".$this->estado."')";
+            ."'".$this->vencimiento."', '".$this->descuento."', '".$this->estado."', '".$this->pedido."')";
         $save=$this->con->query($query);
         return $save;
     }
@@ -131,10 +148,10 @@ class Cupon extends Mysqli
         return $resultset;
     }
     public function getExiste($cupon){
-        $existe='no';
-        $query=$this->con->query("SELECT * FROM cupones WHERE cupon='$cupon'");
+        $existe=0;
+        $query=$this->con->query("SELECT * FROM cupones WHERE cupon='$cupon' AND estado=0");
         if($row=$query->fetch_object()){
-            $existe='si';
+            $existe++;
         }
         return $existe;
     }
@@ -158,8 +175,8 @@ class Cupon extends Mysqli
         $query=$this->con->query("DELETE FROM cupones WHERE id=$id");
         return $query;
     }
-    public function update($id){
-        $query="UPDATE cupones SET estado='".$this->estado."' WHERE id=$id";
+    public function update($cupon){
+        $query="UPDATE cupones SET estado='".$this->estado."', pedido='".$this->pedido."' WHERE cupon='$cupon'";
         $update=$this->con->query($query);
         return $update;
     }

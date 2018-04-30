@@ -3,9 +3,9 @@ spl_autoload_register(function ($clase) {
     include 'Administer/class/'.$clase.'/'.$clase.'.php';
 });
 $con=new Conexion();
-$producto=new Producto($con);
 $imagen=new Imagen($con);
-
+$cat=new Categoria($con);
+$producto=new Producto($con);
 if(isset($_GET['id'])){
     $pro=$producto->getByIdCat($_GET['id']);
 }else{
@@ -88,9 +88,9 @@ if(isset($_GET['id'])){
         <div class="col-md-12">
             <div class="panel panel-success">
                 <!-- Default panel contents -->
-                <div class="panel-heading">Pedido realizado correctamente</div>
+                <div class="panel-heading"><h3>Pedido realizado correctamente</h3></div>
                 <div class="panel-body">
-                    <p>Su pedido fue realizado correctamente, revise su correo electrónico para verificar su pedido y sigua la instrucciones.</p>
+                    <p>Su pedido fue realizado correctamente, revise su correo electrónico para verificar su pedido y siga la instrucciones.</p>
                 </div>
 
                 <!-- Table -->

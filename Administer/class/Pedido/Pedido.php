@@ -16,10 +16,12 @@ class Pedido extends Mysqli
     private $hora;
     private $subtotal;
     private $impuesto;
+    private $descuento;
     private $total;
     private $pais;
     private $departamento;
     private $ciudad;
+    private $cupon;
 
     public function __construct(Conexion $con)
     {
@@ -157,6 +159,22 @@ class Pedido extends Mysqli
     /**
      * @return mixed
      */
+    public function getDescuento()
+    {
+        return $this->descuento;
+    }
+
+    /**
+     * @param mixed $descuento
+     */
+    public function setDescuento($descuento)
+    {
+        $this->descuento = $descuento;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getTotal()
     {
         return $this->total;
@@ -218,11 +236,27 @@ class Pedido extends Mysqli
         $this->ciudad = $ciudad;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCupon()
+    {
+        return $this->cupon;
+    }
+
+    /**
+     * @param mixed $cupon
+     */
+    public function setCupon($cupon)
+    {
+        $this->cupon = $cupon;
+    }
+
     public function save(){
-        $query="INSERT INTO pedidos (id, cliente, metodoPago, estado, fecha, hora, subtotal, impuesto, total, pais, departamento, ciudad)"
+        $query="INSERT INTO pedidos (id, cliente, metodoPago, estado, fecha, hora, subtotal, impuesto, descuento, total, pais, departamento, ciudad, cupon)"
             ."VALUES (NULL, '".$this->cliente."', '".$this->metodoPago."', '".$this->estado."'"
-            .", '".$this->fecha."', '".$this->hora."', '".$this->subtotal."', '".$this->impuesto."', '".$this->total."'"
-            .", '".$this->pais."', '".$this->departamento."', '".$this->ciudad."')";
+            .", '".$this->fecha."', '".$this->hora."', '".$this->subtotal."', '".$this->impuesto."', '".$this->descuento."', '".$this->total."'"
+            .", '".$this->pais."', '".$this->departamento."', '".$this->ciudad."', '".$this->cupon."')";
         $save=$this->con->query($query);
         return $save;
     }
@@ -240,6 +274,14 @@ class Pedido extends Mysqli
             $resultset=$row;
         }
         return $resultset;
+    }
+    public function getExisteCupon($cupon){
+        $existe=0;
+        $query=$this->con->query("SELECT * FROM pedidos WHERE cupon='$cupon'");
+        if($row=$query->fetch_object()){
+            $existe++;
+        }
+        return $existe;
     }
     public function getById($id){
         $query=$this->con->query("SELECT * FROM pedidos WHERE id=$id");

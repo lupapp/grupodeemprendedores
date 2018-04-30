@@ -5,11 +5,16 @@ spl_autoload_register(function ($clase) {
 $con=new Conexion();
 $producto=new Producto($con);
 $imagen=new Imagen($con);
-
+$cat=new Categoria($con);
 if(isset($_GET['id'])){
     $pro=$producto->getByIdCat($_GET['id']);
 }else{
-    $pro=$producto->getAll();
+    if(isset($_GET['criterio'])){
+        $pro=$producto->getSearch($_GET['criterio']);
+    }else {
+        $catPro = $cat->getMembresia();
+        $pro = $producto->getAllNot($catPro->id);
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -139,6 +144,44 @@ if(isset($_GET['id'])){
                                             <?php } ?>
                                         </div>
                                     </div>-->
+                                    <?php
+                                    if($cap->nombre=='Membresias'){
+                                        $options=new Options($con);
+                                        $dolar=$options->getByName('valor_dolar');?>
+                                        <form action="GE-procesar-membresia.php" method="post" class="formPago">
+                                            <input type="hidden" class="des" name="des" >
+                                            <input type="hidden" class="cupon" name="cupon" >
+                                            <input type="hidden" name="dolar" value="<?php echo $dolar->valor ?>" >
+                                            <input type="hidden" name="producto" class="producto"  value="<?php echo $pr->name  ?>">
+                                            <input type="hidden" name="img" class="img"  value="<?php echo $img[0]->imagen  ?>">
+                                            <input type="hidden" name="idpro" class="idpro"  value="<?php echo $pr->id  ?>">
+                                            <input type="hidden" name="precio" value="<?php echo $pr->valor  ?>">
+                                            <div class="f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent">Forma de pago</div>
+                                            <div class="b-shortcode-example">
+                                                <div class="checkbox">
+                                                    <label><input type="radio"   name="metodoPago" checked value="payu">
+                                                        <strong>Payu</strong></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="radio"  name="metodoPago" value="paypal"> <strong>PayPal</strong></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="radio"  name="metodoPago" value="deposito"> <strong>Deposito bancario</strong></label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="b-product-card__info_row pull-right">
+                                                        <span class="f-news-item__price f-primary-b b-left">$ <span class="valor" data-valor="<?php echo $pr->valor ?>"><?php echo $pr->valor ?></span>  </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button name="submit" class="b-btn f-btn b-btn-sm-md f-btn-sm-md btn-anadir">Pagar <i class="fas fa-arrow-right"></i></button>
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    <?php }else{?>
                                     <div class="b-news-item__article">
                                         <span class="f-news-item__price f-primary-b b-left">$ <?php echo $pr->valor ?></span>
                                         <input type="hidden" class="cantidad" value="1">
@@ -147,6 +190,7 @@ if(isset($_GET['id'])){
                                             añadir  <i class="fa fa-shopping-cart"></i>
                                         </div>
                                     </div>
+                                    <?php } ?>
                                 </div>
                                 <div class="b-action-info f-primary-b">
                                     <div class="b-action-info_text f-action-info_text">Nuevo</div>

@@ -1,4 +1,10 @@
 jQuery(function ($) {
+    $('.buscar').focusout(function(){
+        var palabra = $(this).val();
+        if(palabra!='') {
+            window.location.href = "GE-portafolio_servicios.php?criterio=" + palabra;
+        }
+    });
     $(".addCart").click(function(){
         $(this).find('.cargando').fadeIn();
         var id =$(this).data('id');
@@ -9,8 +15,6 @@ jQuery(function ($) {
         var modi=$(this).attr('data-modi');
         var idClasif=$(this).attr('data-idclasif');
         var cupon=$('.cupon').val();
-        alert(idClasif);
-        alert(modi);
         $.ajax({
             type: "POST",
             url: "cargarcarro.php",
@@ -68,10 +72,9 @@ jQuery(function ($) {
             }
         });
     });
-    $('.cup').focusout(function(){
-        var cupon = $(this).val();
-        var valor =$('.valor').data('valor');
-        alert(cupon);
+    $('.aplicar').click(function(){
+        var cupon = $('.cupo').val();
+        var valor =$(this).data('total');
         $.ajax({
             type: 'POST',
             url: 'GE-verificarcupon.php',
@@ -84,31 +87,25 @@ jQuery(function ($) {
                 alert('error petición ajax');
             },
             success:function(data){
-                alert(data);
                 if(data==0){
-                    $(this).val('');
-                    $('.valor').text(valor);
-                    $('.addCart').attr('data-valor', valor);
+                    $('.cupo').attr('value', '');
+                    $('.total').val(valor);
+                    $('.totalCart').text(valor);
                     $('.alert-cupon').fadeIn().html('<div class="alert alert-danger">\n' +
-                        '                                <strong>Error</strong> Cupon invalido\n' +
+                        '                                <strong>Error</strong> Cupon invalido o no disponible\n' +
                         '                            </div>');
                 }else{
-                    if(data==1) {
-                        $(this).val('');
-                        $('.valor').text(valor);
-                        $('.addCart').attr('data-valor', valor);
-                        $('.alert-cupon').fadeIn().html('<div class="alert alert-warning">\n' +
-                            '                                <strong>Alerta</strong> Cupon ya usado\n' +
-                            '                            </div>');
-                    }else{
-                        $(this).attr('disabled','disabled');
-                        $('.cupon').val(cupon);
-                        $('.valor').text(data);
-                        $('.addCart').attr('data-valor', data);
-                        $('.alert-cupon').fadeIn().html('<div class="alert alert-success">\n' +
-                            '                                <strong>Exito</strong> Cupon válido\n' +
-                            '                            </div>');
-                    }
+                    $('.cupo').attr('disabled','disabled');
+                    $('.cupon').attr('value',cupon);
+                    var des=valor-data;
+                    $('.des').val(des);
+                    $('.total').val(data);
+                    $('.descuento').text(des);
+                    $('.totalCart').text(data);
+                    $('.alert-cupon').fadeIn().html('<div class="alert alert-success">\n' +
+                        '                                <strong>Exito</strong> Cupon válido\n' +
+                        '                            </div>');
+
                 }
 
             }
@@ -145,11 +142,18 @@ jQuery(function ($) {
             }
         });
     });
+    function actualizar(clase, url){
+        $(clase).load(url);
+    }
+    function actualizardatatotal(clase){
+        $.get( "GE-actualizartotal.php", function( data ) {
+            $(clase).attr('data-total', data);
+        });
+    }
     $('.itemsCart').on('click', '.quitar' ,function(){
         $('.cargando').fadeIn();
         var id_prod = $(this).data('id');
         var id_cla=$(this).data('idcla');
-        alert(id_cla);
         $.ajax({
             type: 'POST',
             url: 'cargarcarro2.php',
@@ -164,7 +168,9 @@ jQuery(function ($) {
             success:function(data){
                 $('.itemsCart').html(data);
                 $('.cargando').fadeOut();
-                $(".totalCart").load("GE-actualizartotal.php");
+                actualizar('.totalCart', 'GE-actualizartotal.php');
+                actualizar('.descuento', 'GE-actualizardescuento.php');
+                actualizardatatotal('.aplicar');
             }
         });
     });

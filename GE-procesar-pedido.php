@@ -7,20 +7,25 @@ date_default_timezone_set('America/Bogota');
     $pedido = new Pedido(new Conexion());
     $fecha = date('Y') . "-" . date('m') . "-" . date('d');
     $hora = date('g') . ":" . date('i') . " " . date('A');
+    $des=$_REQUEST['des'];
+    $total=$_REQUEST['precio'];
+    $cupon=$_REQUEST['cupon'];
     $cliente = $_SESSION['user']['id'];
+    echo $des."-".$total."-".$cupon;
     if (isset($_SESSION['metodo'])) {
         $metodo = $_SESSION['metodo'];
     } else {
         $metodo = $_POST['metodoPago'];
     }   
-    $total = $_SESSION['total'];
     $pedido->setFecha($fecha);
     $pedido->setHora($hora);
     $pedido->setCliente($cliente);
     $pedido->setMetodoPago($metodo);
     $pedido->setTotal($total);
     $pedido->setEstado(0);
-    $pedido->save();
+    $pedido->setCupon($cupon);
+    $pedido->setDescuento($des);
+    print_r($pedido->save());
     $ped = $pedido->getUltimoRegistro();
     $linea = new LineaPedido(new Conexion());
     $datos = $_SESSION['carrito'];
@@ -35,6 +40,10 @@ date_default_timezone_set('America/Bogota');
         $linea->setTotalLinea($totalLinea);
         $linea->save();
     }
+    $cupones=new Cupon(new Conexion());
+    $cupones->setEstado(1);
+     $cupones->setPedido($ped->id);
+     $cupones->update($cupon);
     include 'GE-pedido-cliente-mail.php';
     $to = $_SESSION['user']['mail'];
     $from = 'MIME-Version: 1.0' . "\r\n";
@@ -55,31 +64,31 @@ date_default_timezone_set('America/Bogota');
     unset($_SESSION['cantidad']);
 
     if ($metodo == 'payu') {
-        $sig = "1XAlMeg5k6vZ3XUjxwHYV3vQP6~719306~" . time() . "~" . $_SESSION['total'] . "~COP";
+        $sig = "1XAlMeg5k6vZ3XUjxwHYV3vQP6~719306~" . time() . "~" . $total . "~COP";
         $sigMd5 = md5($sig);
-        $amount = $_SESSION['total'];
+        $amount = $total;
         unset($_SESSION['total']);
         echo '<form action="https://checkout.payulatam.com/ppp-web-gateway-payu/" method="post" class="formpayu">
-    <input name="merchantId"    type="hidden"  value="719306"   >
-    <input name="accountId"     type="hidden"  value="724178" >
-    <input name="description"   type="hidden"  value="Pago con Payu"  >
-    <input name="referenceCode" type="hidden"  value="' . time() . '" >
-    <input name="amount"        type="hidden"  value="' . $amount . '"   >
-    <input name="tax"           type="hidden"  value="0"  >
-    <input name="taxReturnBase" type="hidden"  value="0" >
-    <input name="currency"      type="hidden"  value="COP" >
-    <input name="signature"     type="hidden"  value="' . $sigMd5 . '"  >
-    <input name="buyerFullName"  type="hidden"  value="' . $_SESSION['user']['nombre'] . '">
-    <input name="shippingAddress"          type="hidden"  value="' . $_SESSION['user']['direccion'] . '">
-    <input name="shippingCity"          type="hidden"  value="' . $_SESSION['user']['ciudad'] . '">
-    <input name="shippingCountry"          type="hidden"  value="' . $_SESSION['user']['pais'] . '">
-    <input name="telephone"          type="hidden"  value="' . $_SESSION['user']['movil'] . '">
-    <input name="buyerEmail"    type="hidden"  value="' . $_SESSION['user']['mail'] . '" >
-    <input name="responseUrl"    type="hidden"  value="http://grupodeemprendedores.com/index/GE-pedido-finalizado.php" >
-    <input name="confirmationUrl"    type="hidden"  value="http://grupodeemprendedores.com/index/GE-pedido-finalizado.php" > 
-    <script>
-    $(".formpayu").submit();
-    </script>';
+        <input name="merchantId"    type="hidden"  value="719306"   >
+        <input name="accountId"     type="hidden"  value="724178" >
+        <input name="description"   type="hidden"  value="Pago con Payu"  >
+        <input name="referenceCode" type="hidden"  value="' . time() . '" >
+        <input name="amount"        type="hidden"  value="' . $amount . '"   >
+        <input name="tax"           type="hidden"  value="0"  >
+        <input name="taxReturnBase" type="hidden"  value="0" >
+        <input name="currency"      type="hidden"  value="COP" >
+        <input name="signature"     type="hidden"  value="' . $sigMd5 . '"  >
+        <input name="buyerFullName"  type="hidden"  value="' . $_SESSION['user']['nombre'] . '">
+        <input name="shippingAddress"          type="hidden"  value="' . $_SESSION['user']['direccion'] . '">
+        <input name="shippingCity"          type="hidden"  value="' . $_SESSION['user']['ciudad'] . '">
+        <input name="shippingCountry"          type="hidden"  value="' . $_SESSION['user']['pais'] . '">
+        <input name="telephone"          type="hidden"  value="' . $_SESSION['user']['movil'] . '">
+        <input name="buyerEmail"    type="hidden"  value="' . $_SESSION['user']['mail'] . '" >
+        <input name="responseUrl"    type="hidden"  value="http://grupodeemprendedores.com/index/GE-pedido-finalizado.php" >
+        <input name="confirmationUrl"    type="hidden"  value="http://grupodeemprendedores.com/index/GE-pedido-finalizado.php" >
+        <script>
+        $(".formpayu").submit();
+        </script>';
     } else {
         unset($_SESSION['total']);
         header('Location: GE-pedido-finalizado.php');

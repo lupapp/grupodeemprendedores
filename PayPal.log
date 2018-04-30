@@ -430,3 +430,157 @@
 [22-04-2018 21:28:30] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
 [22-04-2018 21:28:30] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
 [22-04-2018 21:28:31] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[27-04-2018 19:15:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[27-04-2018 19:15:44] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:15:45] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[27-04-2018 19:15:45] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:15:45] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:15:46] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:15:46] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount.details.tax","issue":"Amount cannot be negative."}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"412bc0101931b"}
+[27-04-2018 19:17:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:17:24] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:17:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[27-04-2018 19:24:21] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:24:21] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:24:22] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:24:22] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"3bd3a727a8550"}
+[27-04-2018 19:29:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:29:01] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:29:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:29:01] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"MALFORMED_REQUEST","message":"Incoming JSON request does not map to API request","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#MALFORMED_REQUEST","debug_id":"4802245c93381"}
+[27-04-2018 19:29:57] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:29:58] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:29:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:29:59] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"MALFORMED_REQUEST","message":"Incoming JSON request does not map to API request","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#MALFORMED_REQUEST","debug_id":"60c80c882a672"}
+[27-04-2018 19:33:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:33:58] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:33:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:33:59] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"c34c3e5936ab2"}
+[27-04-2018 19:35:41] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:35:41] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:35:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:35:44] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"e71da9f9865d4"}
+[27-04-2018 19:37:16] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:37:19] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:37:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:37:23] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"ccb421ae26632"}
+[27-04-2018 19:38:18] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:38:18] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:38:19] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:38:19] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"de555ad859929"}
+[27-04-2018 19:38:56] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:38:56] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:38:57] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:38:57] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"23c8530665952"}
+[27-04-2018 19:40:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:40:14] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:40:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:40:15] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0]","issue":"Item amount must add up to specified amount subtotal (or total if amount details not specified)"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"cab763be49e11"}
+[27-04-2018 19:44:13] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:44:21] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:44:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[27-04-2018 19:47:52] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:47:53] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:47:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[27-04-2018 19:48:37] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:48:37] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:48:38] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:48:38] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"c45c14103cf91"}
+[27-04-2018 19:49:19] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:49:19] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:49:20] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:49:20] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"MALFORMED_REQUEST","message":"Incoming JSON request does not map to API request","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#MALFORMED_REQUEST","debug_id":"8475c95d63126"}
+[27-04-2018 19:51:13] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:51:13] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:51:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:51:14] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"MALFORMED_REQUEST","message":"Incoming JSON request does not map to API request","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#MALFORMED_REQUEST","debug_id":"5c1043ee515ac"}
+[27-04-2018 19:55:46] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:55:47] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:55:48] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[27-04-2018 19:56:18] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:56:20] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:56:21] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:56:21] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"MALFORMED_REQUEST","message":"Incoming JSON request does not map to API request","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#MALFORMED_REQUEST","debug_id":"9ebfa07bedeed"}
+[27-04-2018 19:58:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 19:58:14] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 19:58:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 19:58:15] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"MALFORMED_REQUEST","message":"Incoming JSON request does not map to API request","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#MALFORMED_REQUEST","debug_id":"b6377353f03fa"}
+[27-04-2018 20:48:19] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 20:48:20] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 20:48:21] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 20:48:21] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"MALFORMED_REQUEST","message":"Incoming JSON request does not map to API request","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#MALFORMED_REQUEST","debug_id":"62e1ee4087a0"}
+[27-04-2018 20:48:26] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 20:48:26] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 20:48:27] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[27-04-2018 20:48:27] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"MALFORMED_REQUEST","message":"Incoming JSON request does not map to API request","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#MALFORMED_REQUEST","debug_id":"8efc53b924982"}
+[27-04-2018 20:54:53] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 20:54:53] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 20:54:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[27-04-2018 20:55:06] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[27-04-2018 20:55:06] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[27-04-2018 20:55:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[30-04-2018 18:23:49] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[30-04-2018 18:23:49] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 18:23:51] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[30-04-2018 18:23:51] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 18:23:51] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 18:23:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[30-04-2018 18:23:52] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Amount cannot be zero"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"e782615f3d"}
+[30-04-2018 18:28:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 18:28:43] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 18:28:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[30-04-2018 19:38:40] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:38:41] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:38:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[30-04-2018 19:38:42] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Amount cannot be zero"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"4d224363cf657"}
+[30-04-2018 19:43:26] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:43:27] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:43:28] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[30-04-2018 19:43:28] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Amount cannot be zero"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"db3442c7b8daa"}
+[30-04-2018 19:43:40] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:43:41] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:43:41] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[30-04-2018 19:43:41] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Amount cannot be zero"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"4f31ef43a0e33"}
+[30-04-2018 19:44:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:44:23] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:44:24] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[30-04-2018 19:44:24] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Amount cannot be zero"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"74754f4f5e901"}
+[30-04-2018 19:45:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:45:58] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:45:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[30-04-2018 19:45:59] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Amount cannot be zero"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"845b32b85884f"}
+[30-04-2018 19:50:41] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:50:41] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:50:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[30-04-2018 19:52:37] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:52:38] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:52:39] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[30-04-2018 19:54:16] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:54:16] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:54:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[30-04-2018 19:54:17] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Amount cannot be zero"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"4ddff5865a000"}
+[30-04-2018 19:57:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:57:14] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:57:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[30-04-2018 19:57:15] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Amount cannot be zero"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"c3cd93557b26f"}
+[30-04-2018 19:59:03] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:59:03] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:59:04] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[30-04-2018 19:59:24] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 19:59:24] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 19:59:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[30-04-2018 20:02:17] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 20:02:17] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 20:02:18] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[30-04-2018 20:03:02] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 20:03:03] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 20:03:04] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[30-04-2018 20:05:03] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 20:05:04] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 20:05:04] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[30-04-2018 20:15:13] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 20:15:13] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 20:15:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[30-04-2018 20:22:11] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[30-04-2018 20:22:11] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[30-04-2018 20:22:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201

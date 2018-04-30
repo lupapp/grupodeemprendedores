@@ -98,7 +98,15 @@ class Categoria extends Mysqli
         }
         return $resultset;
     }
+    public function getMembresia(){
+        $query=$this->con->query("SELECT * FROM categorias WHERE nombre='Membresias'");
+        if($row=$query->fetch_object()){
+            $resultset=$row;
+        }
+        return $resultset;
+    }
     public function getUltimoRegistro(){
+        $resultset='';
         $query=$this->con->query("SELECT * FROM categorias ORDER BY id DESC LIMIT 1");
         if($row=$query->fetch_object()){
             $resultset=$row;

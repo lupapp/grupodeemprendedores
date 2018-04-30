@@ -16,6 +16,7 @@ $usuario=new User($con);
 $calificacion=new Calificacion($con);
 $cantidad=$calificacion->getByIdProducto($pro->id);
 $promedio=$calificacion->getPromedio($pro->id);
+$cat=new Categoria($con);
 if(isset($_POST['enviocoment'])){
     $coment= isset($_POST['comentario']) ? $_POST['comentario'] : '';
     $fecha = date('Y') . "-" . date('m') . "-" . date('d');
@@ -209,10 +210,49 @@ if(isset($_POST['submit'])){
                                             <?php echo $pro->descripcion ?>
                                         </div>
                                     </div>
-                                    <div class="b-product-card__info_row">
-                                        <div class="b-product-card__info_title f-primary-b f-title-smallest">Valor</div>
-                                        <span class="f-product-card__info_price c-default f-primary-b">$ <span class="valor" data-valor="<?php echo $pro->valor ?>"><?php echo $pro->valor ?></span>  </span>
-                                    </div>
+
+                                    <?php if($ca->nombre=='Membresias'){
+                                        $options=new Options($con);
+                                        $dolar=$options->getByName('valor_dolar');?>
+                                        <form action="GE-procesar-membresia.php" method="post" class="formPago">
+                                            <input type="hidden" class="des" name="des" >
+                                            <input type="hidden" class="cupon" name="cupon" >
+                                            <input type="hidden" class="producto" name="producto" value="<?php echo $pro->name ?>">
+                                            <input type="hidden" class="img" name="img" value="<?php echo $img[0]->imagen ?>">
+                                            <input type="hidden" class="idpro" name="idpro" value="<?php echo $pro->id ?>">
+                                            <input type="hidden" name="dolar" value="<?php echo $dolar->valor ?>" >
+                                            <input type="hidden" name="precio" value="<?php echo $pro->valor ?>">
+                                            <div class="f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent">Forma de pago</div>
+                                            <div class="b-shortcode-example">
+                                                <div class="checkbox">
+                                                    <label><input type="radio"   name="metodoPago" checked value="payu">
+                                                        <strong>Payu</strong></label>
+                                                    <p>Pago con tarjeta de credito, transferencia bancaria.</p>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="radio"  name="metodoPago" value="paypal"> <strong>PayPal</strong></label>
+                                                    <p>Pago con tarjeta de credito.</p>
+
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="radio"  name="metodoPago" value="deposito"> <strong>Deposito bancario</strong></label>
+                                                    <p>Debe consignar en la cuenta que bancaria que le llegará al correo electrónico junto con el pedido despues de hacer el deposito envia al correo info@gmail.com la copia del recibo.</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="b-product-card__info_row pull-right">
+                                                        <div class="b-product-card__info_title f-primary-b f-title-smallest">Valor</div>
+                                                        <span class="f-product-card__info_price c-default f-primary-b">$ <span class="valor" data-valor="<?php echo $pro->valor ?>"><?php echo $pro->valor ?></span>  </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button name="submit" class="b-btn f-btn b-btn-sm-md f-btn-sm-md btn-anadir">Completar compra <i class="fas fa-arrow-right"></i></button>
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    <?php }else{?>
                                     <div class="b-product-card__info_row">
                                         <div class="b-product-card__info_count">
                                             <input type="number" min="1" class="form-control form-control--secondary cantidad" value="1">
@@ -226,16 +266,8 @@ if(isset($_POST['submit'])){
                                             <i class="fa fa-heart"></i>
                                         </div>-->
                                     </div>
-                                    <div class="b-product-card__info_row">
-                                        <div class="b-product-card__info_code">
-                                            <input type="text" class="form-control form-control--secondary cup" placeholder="Ingrese su código de cupón">
-                                            <input type="hidden" class="form-control form-control--secondary cupon">
-                                        </div>
-                                        <div class="b-product-card__info_submit  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only">
-                                            <i class="fa fa-arrow-right"></i>
-                                        </div>
-                                        <div class="alert-cupon"><?php print_r($_SESSION['carrito']) ?></div>
-                                    </div>
+                                    <?php } ?>
+
                                     <!--<div class="b-product-card__info_row">
                                         <div class="b-product-card__info_title f-primary-b f-title-smallest">Categorias</div>
                                         <a class="f-more f-title-smallest" href="">Dress</a>, <a class="f-more f-title-smallest" href="">Lorem</a>

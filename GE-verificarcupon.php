@@ -5,28 +5,15 @@ spl_autoload_register(function ($clase) {
 });
 $con=new Conexion();
 $cupone=new Cupon($con);
+$pedido=new Pedido($con);
 $cupon=$_POST['cupon'];
 $valor=$_POST['valor'];
 $verif=$cupone->getExiste($cupon);
-$existe='si';
-$numero=0;
-if(isset($_SESSION['carrito'])){
-    $arreglo=$_SESSION['carrito'];
-    for($i=0;$i<count($arreglo);$i++){
-        if($arreglo[$i]['cupon']==$cupon){
-            $existe='no';
-        }
-    }
-}
-if($verif=='si'){
-    if($existe=='si') {
-        $cup = $cupone->getByCupon($cupon);
-        $des = $cup->descuento * $valor / 100;
-        $newvalor = $valor - $des;
-        echo $newvalor;
-    }else{
-        echo 1;
-    }
+if($verif>0){
+    $cup = $cupone->getByCupon($cupon);
+    $des = $cup->descuento * $valor / 100;
+    $newvalor = $valor - $des;
+    echo $newvalor;
 }else{
     echo 0;
 }

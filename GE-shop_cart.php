@@ -4,6 +4,8 @@ spl_autoload_register(function ($clase) {
 });
 $con=new Conexion();
 $options=new Options($con);
+$producto=new Producto($con);
+$cat=new Categoria($con);
 $dolar=$options->getByName('valor_dolar');?>
 <!DOCTYPE html>
 <html>
@@ -143,7 +145,15 @@ $dolar=$options->getByName('valor_dolar');?>
                                         <?php }?>
                                     </tbody>
                                 </table>
-
+                                <div class="b-product-card__info_row">
+                                    <div class="b-product-card__info_code">
+                                        <input type="text" class="form-control form-control--secondary cupo" placeholder="Ingrese su código de cupón">
+                                    </div>
+                                    <div class="b-product-card__info_submit  b-btn f-btn b-btn-sm-md f-btn-sm-md b-btn--icon-only aplicar" data-total="<?php echo $_SESSION['total'] ?>">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </div>
+                                    <div class="alert-cupon"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -152,17 +162,21 @@ $dolar=$options->getByName('valor_dolar');?>
                                 <?php if(isset($_SESSION['user'])){
                                     if(isset($_SESSION['carrito'])){?>
                                     <form action="GE-procesar-pedido.php" method="post" class="formPago">
+                                        <input type="hidden" class="des" name="des" >
+                                        <input type="hidden" class="cupon" name="cupon" >
+                                        <input type="hidden" name="dolar" value="<?php echo $dolar->valor ?>" >
+                                        <input type="hidden" name="precio" class="total" data-total="<?php echo $_SESSION['total'] ?>" value="<?php echo $_SESSION['total'] ?>">
                                         <div class="f-primary-b b-title-b-hr f-title-b-hr b-null-top-indent">Forma de pago</div>
                                         <div class="b-shortcode-example">
                                             <div class="checkbox">
-                                                <label><input type="radio"  class="payu" name="metodoPago" checked value="payu"> <strong>Payu</strong></label>
+                                                <label><input type="radio"  class="payu" name="metodoPago" checked value="payu">
+                                                    <strong>Payu</strong></label>
                                                 <p>Pago con tarjeta de credito, transferencia bancaria.</p>
                                             </div>
                                             <div class="checkbox">
                                                 <label><input type="radio" class="noPayu" name="metodoPago" value="paypal"> <strong>PayPal</strong></label>
                                                 <p>Pago con tarjeta de credito.</p>
-                                                <input type="hidden" name="precio" value="<?php echo $_SESSION['total'] ?>">
-                                                <input type="hidden" name="dolar" value="<?php echo $dolar->valor ?>">
+
                                             </div>
                                             <div class="checkbox">
                                                 <label><input type="radio" class="noPayu" name="metodoPago" value="deposito"> <strong>Deposito bancario</strong></label>
@@ -318,8 +332,11 @@ $dolar=$options->getByName('valor_dolar');?>
                             </div>
 
                             <div class="col-md-6">
+                                <div class="f-primary-b c-default f-uppercase b-title-b-hr f-title-b-hr">Descuento
+                                    $ <span class="j-price-total  descuento pull-right"> 0</span>
+                                </div>
                                 <div class="f-primary-b c-default f-uppercase b-title-b-hr f-title-b-hr">total a pagar
-                                    <span class="j-price-total pull-right totalCart">$ <?php if(isset($_SESSION['carrito'])){echo $_SESSION['total']; }?></span>
+                                    $ <span class="j-price-total  totalCart pull-right"> <?php if(isset($_SESSION['carrito'])){echo $_SESSION['total']; }?></span>
                                 </div>
                             </div>
                         </div>

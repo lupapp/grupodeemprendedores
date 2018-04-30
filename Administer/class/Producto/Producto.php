@@ -198,6 +198,13 @@ class Producto extends Mysqli
         }
         return $resultset;
     }
+    public function getAllNot($id){
+        $query=$this->con->query("SELECT * FROM productos WHERE NOT categoria=$id");
+        while($row=$query->fetch_object()){
+            $resultset[]=$row;
+        }
+        return $resultset;
+    }
     public function getUltimoRegistro(){
         $query=$this->con->query("SELECT * FROM productos ORDER BY id DESC LIMIT 1");
         if($row=$query->fetch_object()){
@@ -215,8 +222,16 @@ class Producto extends Mysqli
     public function getByIdCat($id){
         $resultset=[];
         $query=$this->con->query("SELECT * FROM productos WHERE categoria=$id");
-        if($row=$query->fetch_object()){
+        while($row=$query->fetch_object()){
             $resultset[]=$row;
+        }
+        return $resultset;
+    }
+    public function getSearch($criterio){
+        $resultset=[];
+        $query=$this->con->query("SELECT * FROM productos WHERE name LIKE '%$criterio%' OR descripcion LIKE'%$criterio%' OR detalle LIKE '%$criterio%' OR valor LIKE '%$criterio%'");
+        while($row=$query->fetch_object()) {
+            $resultset[] = $row;
         }
         return $resultset;
     }

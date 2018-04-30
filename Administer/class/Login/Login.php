@@ -152,7 +152,7 @@ class Login
     }
 
     public function signIn() {
-        $query="SELECT * FROM usuarios WHERE usuario='$this->user' OR mail='$this->mail' AND clave='$this->pass'";
+        $query="SELECT * FROM usuarios WHERE usuario='$this->user' AND clave='$this->pass'";
         $resp=$this->con->query($query);
         if($this->con->affected_rows > 0) {
             if ($row=$resp->fetch_array(MYSQLI_ASSOC)) {

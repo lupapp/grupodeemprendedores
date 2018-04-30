@@ -1,6 +1,5 @@
 <header class="b-header--bottom-menu">
   <?php
-  $cat=new Categoria($con);
   $ca=$cat->getAll();
   ?>
   <div class="b-top-options-panel b-header--hide">
@@ -34,9 +33,9 @@
       <div class="container b-header__box b-header--hide">
           <a href="index.php" class="b-left b-logo"><img class="color-theme" data-retina src="img/logo-header-default.png" alt="Logo" /></a>
           <div class="b-right b-header-ico-group f-header-ico-group b-right">
-              <span class="b-header__search-box">
+              <span class="b-header__search-box search">
                   <i class="fa fa-search"></i>
-                  <input type="text" placeholder="Ingresa palabra(s) clave(s)"/>
+                  <input type="text" class="buscar" placeholder="Ingresa palabra(s) clave(s)"/>
               </span>
               <span class="b-header__social-box">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -73,14 +72,18 @@
     </li>
     
     <li class="b-top-nav__1level f-top-nav__1level f-primary-b">
-        <a href="#"><i class="fa fa-trophy b-menu-1level-ico"></i>Membresias<span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
+        <?php $membresia=$cat->getMembresia();
+        ?>
+        <a href="GE-portafolio_servicios.php?id=<?php echo $c->id ?>"><i class="<?php echo $membresia->img ?>"></i> <?php echo $membresia->nombre ?><span class="b-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span></a>
         <div class="b-top-nav__dropdomn">
+            <?php
+
+            $pr=$producto->getByIdCat($membresia->id); ?>
             <ul class="b-top-nav__2level_wrap">
-                <li class="b-top-nav__2level f-top-nav__2level f-primary f-top-nav__2level_title"><a href="#"><i class="fa fa-angle-right"></i>Full</a></li>
-                <li class="b-top-nav__2level f-top-nav__2level f-primary f-top-nav__2level_title"><a href="#"><i class="fa fa-angle-right"></i>Basic</a></li>
-                <li class="b-top-nav__2level f-top-nav__2level f-primary f-top-nav__2level_title"><a href="#"><i class="fa fa-angle-right"></i>Seguimiento</a></li>
-                <li class="b-top-nav__2level f-top-nav__2level f-primary f-top-nav__2level_title"><a href="#"><i class="fa fa-angle-right"></i>cursos Training</a></li>
-            </ul>               
+                <?php foreach ($pr as $p){ ?>
+                    <li class="b-top-nav__2level f-top-nav__2level f-primary f-top-nav__2level_title"><a href="GE-shop_detalle.php?id=<?php echo $p->id ?>"><i class="fa fa-angle-right"></i><?php echo $p->name ?></a></li>
+                <?php } ?>
+            </ul>
             
         </div>
     </li>

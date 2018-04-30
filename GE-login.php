@@ -3,6 +3,8 @@ spl_autoload_register(function ($clase) {
     include 'Administer/class/'.$clase.'/'.$clase.'.php';
 });
 $con = new Conexion();
+$cat=new Categoria($con);
+$producto=new Producto($con);
 if(isset($_POST['submit'])){
     $pass= isset($_POST['pass']) ? $_POST['pass'] : '';
     $user= isset($_POST['user']) ? $_POST['user'] : '';
