@@ -39,8 +39,10 @@ if(isset($_SESSION['user'])) {
 
     date_default_timezone_set('America/Bogota');
     $pedido = new Pedido(new Conexion());
+    $membresia=new Membresia(new Conexion());
     $fecha = date('Y') . "-" . date('m') . "-" . date('d');
     $hora = date('g') . ":" . date('i') . " " . date('A');
+    $vencimiento=$membresia->fechaVencimiento($fecha,1);
     $des = 0;
     $total = $_REQUEST['precio'];
     $cupon = '';
@@ -70,7 +72,13 @@ if(isset($_SESSION['user'])) {
     $linea->setValorPro($total);
     $linea->setTotalLinea($total);
     $linea->save();
-
+    $membresia->setId_pro($idpro);
+    $membresia->setId_user($cliente);
+    $membresia->setValor($total);
+    $membresia->setFecha($fecha);
+    $membresia->setVencimiento($vencimiento);
+    $membresia->setEstado('1');
+    $membresia->save();
     include 'GE-pedido-membresia-mail.php';
     $to = $_SESSION['user']['mail'];
     $from = 'MIME-Version: 1.0' . "\r\n";

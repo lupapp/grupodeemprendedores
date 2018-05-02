@@ -61,7 +61,17 @@
 										</a>
 
 									</li>
+                                    <li>
 
+                                        <a href="membresias.php">
+
+                                            <i class="fas fa-trophy" aria-hidden="true"></i>
+                                            <span>Membresías</span>
+                                            <span data-toggle="tooltip" title="Membresías vencidas" class="btn btn-danger noti">0</span>
+
+                                        </a>
+
+                                    </li>
 									
                                      <li>
 

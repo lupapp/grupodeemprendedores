@@ -4,6 +4,8 @@ spl_autoload_register(function ($clase) {
 });
 $con = new Conexion();
 $user=new User($con);
+$cat=new Categoria($con);
+$producto=new Producto($con);
 if(isset($_POST['submit'])) {
     $usuario = isset($_POST['usuario']) ? $_POST['usuario'] : '';
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';

@@ -16972,4 +16972,11 @@ html.dark .thumbnail {
 .text-white{
     color:#ffffff;
 }
-
+.noti{
+	border-radius:30px;
+	padding:1px 4px;
+	font-size: 8px;
+}
+.bdanger{
+	background:#f3c4c3 !important;
+}

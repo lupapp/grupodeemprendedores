@@ -1,4 +1,8 @@
 $('document').ready(function(){
+    function notificar(){
+        $('.noti').load('../../controller/verificar-fecha.php');
+    }
+    notificar();
     $('.close').click(function(){
         $(this).attr('aria-hidden', true);
     });

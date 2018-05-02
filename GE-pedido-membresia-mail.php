@@ -17,13 +17,14 @@ $mensaje='<table align="center" border="0" cellpadding="0" cellspacing="0" width
 
     </tr>
     <tr >
-        <td align="center" style="background: #eda000; color:#ffffff; padding: 10px 20px 10px 20px"><h3 style="margin:0">Informacion de su pedido</h3></td>
+        <td align="center" style="background: #eda000; color:#ffffff; padding: 10px 20px 10px 20px"><h3 style="margin:0">Informacion de su pedido</h3></td> Fecha de suscripción: '.$fecha.'<td></td><td> Fecha de vencimiento: '.$vencimiento.'</td>
     </tr>
     <tr >
         <td style="padding: 5px 10px 30px 10px;" >
 
             <table cellpadding="0" cellspacing="0" width="100%" >
                 <tr style="color:#05735a;">
+                   
                    <th align="center"colspan="2" style="padding:10px 0 10px 0; ">Producto</th>
                     <th>Valor</th>
                     <th>Cantidad</th>
@@ -32,7 +33,7 @@ $mensaje='<table align="center" border="0" cellpadding="0" cellspacing="0" width
                 <?php foreach ($datos as $d) { ?>
                 <tr style="color:#666666; font-size: 12px;">
                     <td style="padding: 3px 0 3px 0">
-                        <img width="50" src="Administer/public/img/'.$img.'/>
+                        <img width="50" src="Administer/public/img/'.$img.'"/>
                     </td>
                     <td align="left">
                         '.$producto.'
