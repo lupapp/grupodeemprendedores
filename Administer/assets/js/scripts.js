@@ -94,6 +94,7 @@ $('document').ready(function(){
                 "sortDescending": ": activar para ordenar la columna descendiente"
             }
         },
+        "order":[],
         "dom":"<'row datatables-header form-inline'<'col-sm-6 col-md-5'l><'col-sm-12 col-md-5'f>>" +
             "<'table-responsive'<'col-sm-12 col-md-12'tr>>" +
         "<'row datatables-footer'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",

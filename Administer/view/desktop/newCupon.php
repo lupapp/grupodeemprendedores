@@ -40,7 +40,7 @@ spl_autoload_register(function ($clase) {
                 'alert'=>'Exito'
             ];
 
-            header('Location: Cupones.php');
+            header('Location: cupones.php');
 
         }
     }

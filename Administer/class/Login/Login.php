@@ -177,4 +177,39 @@ class Login
         unset($_SESSION['user']);
         header('Location: login.php');
     }
+    public function recordarPass(){
+        $query="SELECT * FROM usuarios WHERE mail='$this->mail'";
+        $resp=$this->con->query($query);
+        if($this->con->affected_rows > 0) {
+            if ($row=$resp->fetch_array(MYSQLI_ASSOC)) {
+                $mensaje= '.<h2>Recuperar contraseña </h2>
+                <ul>
+                <li><strong>Su contraseña es:</strong> '.$row['clave'].'</li>
+                <li>Ingrese <a href="http://www.grupodeemprededores.com/index/GE-login.php" target="_blank">Aqui</a></li>
+                </ul>';
+                $to = $row['mail'];
+                $from = 'MIME-Version: 1.0' . "\r\n";
+                $from .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                $from .= 'To:' . $row['mail'] . '' . "\r\n";
+                $from .= 'From: Do_Not_reply@grupodeemprendedores.com' . "\r\n";
+                date_default_timezone_set('America/Bogota');
+                $tema = "Recuperar Contraseña";
+
+                @mail($to, $tema, utf8_decode($mensaje), $from);
+                $res = array(
+                    'user' => $row,
+                    'existe' => true,
+                    'ms' => 'Contraseña recuperada'
+                );
+            }
+        }else{
+            $res=array(
+                'user'=>'',
+                'existe'=>false,
+                'ms'=>'Correo incorrecto'
+            );
+        }
+        return $res;
+    }
+
 }

@@ -4,7 +4,7 @@
 if(!isset($_SESSION['total'])){
     echo 0;
 }else{
-    $c=$_SESSION['total'];
+    $c=number_format($_SESSION['total'],2,',','.');
     echo $c;
 }
 ?>

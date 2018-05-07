@@ -33,6 +33,7 @@
       <div class="container b-header__box b-header--hide">
           <a href="index.php" class="b-left b-logo"><img class="color-theme" data-retina src="img/logo-header-default.png" alt="Logo" /></a>
           <div class="b-right b-header-ico-group f-header-ico-group b-right">
+
               <span class="b-header__search-box search">
                   <i class="fa fa-search"></i>
                   <input type="text" class="buscar" placeholder="Ingresa palabra(s) clave(s)"/>
@@ -106,7 +107,7 @@
               </nav>
               <div class="b-option-total-cart">
                   <div class="b-option-total-cart__goods">
-                      <a href="GE-shop_cart.php" class="f-option-total-cart__numbers b-option-total-cart__numbers"><i class="fa fa-shopping-cart"></i> Carro [ <span class="cantItems"><?php if(isset($_SESSION['cantidad'])){echo $_SESSION['cantidad'];}else{echo 0;} ?></span> ] item</a>
+                          <a href="GE-shop_cart.php" class="f-option-total-cart__numbers b-option-total-cart__numbers"><i class="fa fa-shopping-cart"></i> Carro [ <span class="cantItems"><?php if(isset($_SESSION['cantidad'])){echo $_SESSION['cantidad'];}else{echo 0;} ?></span> ] item</a>
                       <div class="b-option-cart__items">
                           <div class="b-option-cart__items__title f-option-cart__items__title f-default-l">Artículos agregados recientemente</div>
                           <ul class="itemCart">
@@ -137,7 +138,7 @@
                                                     <strong class='b-option-cart__descr__title f-option-cart__descr__title'><a
                                                                 href='#'><?php echo $datos[$i]['nombre'] ?></a></strong>
                                                     <span class='b-option-cart__descr__cost f-option-cart__descr__cost'><?php echo $datos[$i]['cant'] ?>
-                                                        x $<?php echo $datos[$i]['price'] ?></span>
+                                                        x $<?php echo $valor=number_format($datos[$i]['price'], 0, ',', '.') ?></span>
                                                 </div>
                                                 <i class='fa fa-times b-icon--fa quitar'
                                                    data-id="<?php echo $datos[$i]['id'] ?>" data-idcla="<?php echo $datos[$i]['idclasif'] ?>"></i>

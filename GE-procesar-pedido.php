@@ -2,6 +2,23 @@
 spl_autoload_register(function ($clase) {
     include 'Administer/class/'.$clase.'/'.$clase.'.php';
 });
+echo '<link type="text/css" data-themecolor="default" rel="stylesheet" href="css/main-default.css">
+<div id="myLoading" class="myloading" payu-loading="" style="display: block;">
+    
+        <div class="animate-loading">
+            <img class="animate-image" src="https://s02cdn.payulatam.com/4.9.49/app/dist/images/common/loading-.png">
+            <!--[if lt IE 9]>
+                    <img  src="https://s02cdn.payulatam.com/4.9.49/app/dist/images/common/gif-load.gif" />
+            <![endif]-->
+        </div>
+
+    <div class="message-loading no-show" style="display: block;">
+        <p id="message-loading-text" class="message-loading-text-small ng-binding" style="display: block;"></p>
+        <!--[if lt IE 9]>
+            <p class="message-loading-text-big browsehappy" style="width: 80%;margin:auto;" translate="index.browser_not_supported">La versión de tu navegador no es la ideal para ver correctamente este portal. Por favor actualiza tu navegador o ingresa al portal desde un navegador diferente.</p>
+        <![endif]-->
+    </div>
+</div>';
 echo '<script src="js/jquery/jquery-1.11.1.min.js"></script>';
 date_default_timezone_set('America/Bogota');
     $pedido = new Pedido(new Conexion());
@@ -11,7 +28,6 @@ date_default_timezone_set('America/Bogota');
     $total=$_REQUEST['precio'];
     $cupon=$_REQUEST['cupon'];
     $cliente = $_SESSION['user']['id'];
-    echo $des."-".$total."-".$cupon;
     if (isset($_SESSION['metodo'])) {
         $metodo = $_SESSION['metodo'];
     } else {
@@ -25,7 +41,6 @@ date_default_timezone_set('America/Bogota');
     $pedido->setEstado(0);
     $pedido->setCupon($cupon);
     $pedido->setDescuento($des);
-    print_r($pedido->save());
     $ped = $pedido->getUltimoRegistro();
     $linea = new LineaPedido(new Conexion());
     $datos = $_SESSION['carrito'];
@@ -91,7 +106,7 @@ date_default_timezone_set('America/Bogota');
         </script>';
     } else {
         unset($_SESSION['total']);
-        header('Location: GE-pedido-finalizado.php');
+        //header('Location: GE-pedido-finalizado.php');
     }
 
 ?>

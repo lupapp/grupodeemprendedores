@@ -1,87 +1,74 @@
 <?php session_start();
+$mipagina = "somos";
 spl_autoload_register(function ($clase) {
     include 'Administer/class/'.$clase.'/'.$clase.'.php';
 });
-$con = new Conexion();
+$con=new Conexion();
 $cat=new Categoria($con);
 $producto=new Producto($con);
-if(isset($_POST['submit'])){
-    $pass= isset($_POST['pass']) ? $_POST['pass'] : '';
-    $user= isset($_POST['user']) ? $_POST['user'] : '';
-    if (empty($pass) or empty($user)){
-        $param = [
-            'ms' => 'El usuario o el pasword no pueden estar vacios',
-            'clase' => 'alert-danger',
-            'alert' => 'Error'
-        ];
-    }
-    $login = new Login(new Conexion());
-    $login->setPass($pass);
-    $login->setUser($user);
-    $login->setMail($user);
-    $resul=$login->signIn();
-    $_SESSION['user']=$resul['user'];
-    if($resul['existe']==1){
-        header('Location: index.php');
-    }else{
-        $param = [
-            'ms' => 'El usuario o la cotraseña son incorrectas',
-            'clase' => 'alert-danger',
-            'alert' => 'Error'
-        ];
-    }
-}
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Login | Grupo de Emprendedores</title>
-    <link rel="shortcut icon" href="favicon.ico">
+  <meta charset="utf-8">
+  <title>Somos | Grupo de Emprendedores</title>
+  <link rel="shortcut icon" href="favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- bxslider -->
+
 <link type="text/css" rel='stylesheet' href="js/bxslider/jquery.bxslider.css">
 <!-- End bxslider -->
+
 <!-- flexslider -->
+
 <link type="text/css" rel='stylesheet' href="js/flexslider/flexslider.css">
 <!-- End flexslider -->
 
 <!-- bxslider -->
+
 <link type="text/css" rel='stylesheet' href="js/radial-progress/style.css">
 <!-- End bxslider -->
 
 <!-- Animate css -->
+
 <link type="text/css" rel='stylesheet' href="css/animate.css">
 <!-- End Animate css -->
 
+
 <!-- Bootstrap css -->
+
 <link type="text/css" rel='stylesheet' href="css/bootstrap.min.css">
 <link type="text/css" rel='stylesheet' href="js/bootstrap-progressbar/bootstrap-progressbar-3.2.0.min.css">
 <!-- End Bootstrap css -->
+
 
 <!-- Jquery UI css -->
 <link type="text/css" rel='stylesheet' href="js/jqueryui/jquery-ui.css">
 <link type="text/css" rel='stylesheet' href="js/jqueryui/jquery-ui.structure.css">
 <!-- End Jquery UI css -->
 
+
 <!-- Fancybox -->
 <link type="text/css" rel='stylesheet' href="js/fancybox/jquery.fancybox.css">
 <!-- End Fancybox -->
+
 
 <link type="text/css" rel='stylesheet' href="fonts/fonts.css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
+
 <link type="text/css" data-themecolor="default" rel='stylesheet' href="css/main-default.css">
+
 
 <link type="text/css" rel='stylesheet' href="js/rs-plugin/css/settings.css">
 <link type="text/css" rel='stylesheet' href="js/rs-plugin/css/settings-custom.css">
 <link type="text/css" rel='stylesheet' href="js/rs-plugin/videojs/video-js.css">
 </head>
 <body>
-<div class="mask-l" style="background-color: #fff; width: 100%; height: 100%; position: fixed; top: 0; left:0; z-index: 9999999;"></div> <!--removed by integration-->
+    <div class="mask-l" style="background-color: #fff; width: 100%; height: 100%; position: fixed; top: 0; left:0; z-index: 9999999;"></div> <!--removed by integration-->
 <?php include("GE-cabezote.php"); ?>
 
 <div class="j-menu-container"></div>
@@ -89,84 +76,57 @@ if(isset($_POST['submit'])){
 <div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
   <div class="b-inner-page-header__content">
     <div class="container">
-      <h1 class="f-primary-l c-default">Identificarme</h1>
+      <h1 class="f-primary-l c-default">Quienes Somos</h1>
     </div>
   </div>
 </div>
 <div class="l-main-container">
-    <div class="b-breadcrumbs f-breadcrumbs">
-        <div class="container">
-            <ul>
-                <li><a href="#"><i class="fa fa-home"></i>Inicio</a></li>
-                <li><i class="fa fa-angle-right"></i><span>identificate</span></li>
-            </ul>
-        </div>
+
+<div class="b-breadcrumbs f-breadcrumbs">
+    <div class="container">
+        <ul>
+            <li><a href="#"><i class="fa fa-home"></i>Inicio</a></li>
+            <li><i class="fa fa-angle-right"></i> Quienes Somos</li>
+        </ul>
     </div>
-    <div class="container b-container-login-page">
-        <div class="row">
-            <div class="col-md-6">
-                <?php
-
-                if (!isset($param)){}else{?>
-
-                    <div class="alert <?php echo $param['clase'] ?>">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <strong><?php echo $param['alert'].":"; ?></strong> <?php echo $param['ms'] ?>
-                    </div>
-                <?php } ?>
-                <div class="b-log-in-form">
-                    <div class="f-primary-l f-title-big c-secondary">Identifícate</div>
-                    <p>Consectetur adipiscing elituis sagittis eu mi et pellentesqueurabitur vestibulum</p>
-                    <hr class="b-hr" />
-                    <div class="b-form-row b-form-inline b-form-horizontal">
-                        <form action="GE-login.php" method="post">
-                            <div class="col-xs-12">
-                                <div class="b-form-row">
-                                    <label class="b-form-horizontal__label" for="create_account_email">Tu Email o Usuario</label>
-                                    <div class="b-form-horizontal__input">
-                                        <input type="text" name="user" id="create_account_email" class="form-control" />
-                                    </div>
-                                </div>
-                                <div class="b-form-row">
-                                    <label class="b-form-horizontal__label" for="create_account_password">Tu Contraseña</label>
-                                    <div class="b-form-horizontal__input">
-                                        <input type="text" name="pass" id="create_account_password" class="form-control" />
-                                    </div>
-                                </div>
-                                <div class="b-form-row">
-                                    <div class="b-form-horizontal__label"></div>
-                                    <label for="contact_form_copy" class="b-contact-form__window-form-row-label">
-                                        <a href="GE-recordar-pass.php"><span>Olvidé la contraseña</span></a>
-                                    </label>
-                                </div>
-                                <div class="b-form-row">
-                                    <div class="b-form-horizontal__label"></div>
-                                    <div class="b-form-horizontal__input">
-                                        <input type="submit" name="submit" class="btn b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100" value="Iniciar Sesión">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+</div>
+<section class="b-diagonal-line-bg-light b-infoblock--small ">
+    <div class="container">
+        <div class="row b-col-default-indent">
+            <div class="col-md-6 col-xs-12">
+                <div class="b-slidercontainer b-small-arr f-small-arr b-shadow-container">
+                    <div class="b-slider j-smallslider">
+                        <ul>
+                            <li data-transition="3dcurtain-vertical" data-slotamount="12">
+                                <img data-retina src="img/slider/slider_small_1.jpg">
+                            </li>
+                            <li data-transition="" data-slotamount="12">
+                                <img data-retina src="img/slider/slider-education.jpg">
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="f-primary-l f-title-big c-secondary">Bienvenido a Grupo de Emprendedores</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis eu mi et pellentesque. Curabitur vestibulum convallis orci, quis dapibus elit fringilla eget. Suspendisse posuere diam ut erat convallis, non dictum quam luctus. </p>
-                <div class="b-shortcode-example">
-                    <ul class="b-list-markers f-list-markers">
-                        <li><a href="GE-registro.php"><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> Registrarme, no tengo cuenta</a><a href="GE-registro.php"><button class="button-sm button-gray">Registrarme</button></a> </li>
-                        <li><a href="page_forgot_username_password.html"><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> Olvide mi usuario</a></li>
-                        <li><a href="page_forgot_username_password.html"><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> Olvide mi contraseña</a></li>
-                    </ul>
-                </div>
+            <div class="col-md-6 col-xs-12">
+                <h3 class="f-primary-b">MISIÓN</h3>
+                <p class="f-primary-l">Transformar todas aquellas vidas que deseen una nueva conciencia desde el interior, logrando encontrar el mejor camino a la felicidad y la abundancia en todos los aspectos mente-vida y equilibrio financiero. </p>
+                <hr>
+                
+                <h3 class="f-primary-b">VISIÓN</h3>
+                <p class="f-primary-l">Ser la comunidad con más vidas transformadas en su forma de vivir, aportando las herramientas para lograr la felicidad y el crecimiento financiero. Logrando tener a nivel personal, familiar y de abundancia,  el mejor equilibrio. Creciendo en el ser y la inteligencia financiera desde tu interior, con resultados visibles y medibles. </p>
+               
+
             </div>
         </div>
     </div>
+</section>
+
+
 </div>
 
  <?php include("GE-pie.php"); ?>
- 
+  
+  
 <script src="js/breakpoints.js"></script>
 <script src="js/jquery/jquery-1.11.1.min.js"></script>
 <!-- bootstrap -->
@@ -240,6 +200,7 @@ if(isset($_POST['submit'])){
 <script src="js/loader.js"></script>
 <script src="js/scrollIt/scrollIt.min.js"></script>
 <script src="js/modules/navigation-slide.js"></script>
-<?php include 'footer.php'; ?>
+    <?php include 'footer.php'; ?>
+
 </body>
 </html>

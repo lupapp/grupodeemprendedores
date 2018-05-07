@@ -6,26 +6,27 @@ $con = new Conexion();
 $cat=new Categoria($con);
 $producto=new Producto($con);
 if(isset($_POST['submit'])){
-    $pass= isset($_POST['pass']) ? $_POST['pass'] : '';
-    $user= isset($_POST['user']) ? $_POST['user'] : '';
-    if (empty($pass) or empty($user)){
+    $mail= isset($_POST['mail']) ? $_POST['mail'] : '';
+    if (empty($mail)){
+
         $param = [
-            'ms' => 'El usuario o el pasword no pueden estar vacios',
+            'ms' => 'Escriba un correo válido',
             'clase' => 'alert-danger',
             'alert' => 'Error'
         ];
     }
-    $login = new Login(new Conexion());
-    $login->setPass($pass);
-    $login->setUser($user);
-    $login->setMail($user);
-    $resul=$login->signIn();
-    $_SESSION['user']=$resul['user'];
+    $login = new Login($con);
+    $login->setMail($mail);
+    $resul=$login->recordarPass();
     if($resul['existe']==1){
-        header('Location: index.php');
+        $param = [
+            'ms' => 'Su contraseña fue enviada a su correo electrónico',
+            'clase' => 'alert-success',
+            'alert' => 'Exito'
+        ];
     }else{
         $param = [
-            'ms' => 'El usuario o la cotraseña son incorrectas',
+            'ms' => 'El correo que ingreso no existe',
             'clase' => 'alert-danger',
             'alert' => 'Error'
         ];
@@ -89,7 +90,7 @@ if(isset($_POST['submit'])){
 <div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
   <div class="b-inner-page-header__content">
     <div class="container">
-      <h1 class="f-primary-l c-default">Identificarme</h1>
+      <h1 class="f-primary-l c-default">Recuperar contraseña</h1>
     </div>
   </div>
 </div>
@@ -98,13 +99,12 @@ if(isset($_POST['submit'])){
         <div class="container">
             <ul>
                 <li><a href="#"><i class="fa fa-home"></i>Inicio</a></li>
-                <li><i class="fa fa-angle-right"></i><span>identificate</span></li>
             </ul>
         </div>
     </div>
     <div class="container b-container-login-page">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8 col-md-offset-2">
                 <?php
 
                 if (!isset($param)){}else{?>
@@ -115,34 +115,21 @@ if(isset($_POST['submit'])){
                     </div>
                 <?php } ?>
                 <div class="b-log-in-form">
-                    <div class="f-primary-l f-title-big c-secondary">Identifícate</div>
-                    <p>Consectetur adipiscing elituis sagittis eu mi et pellentesqueurabitur vestibulum</p>
+                    <div class="f-primary-l f-title-big c-secondary">Recuperar contraseña</div>
                     <hr class="b-hr" />
                     <div class="b-form-row b-form-inline b-form-horizontal">
-                        <form action="GE-login.php" method="post">
+                        <form action="GE-recordar-pass.php" method="post">
                             <div class="col-xs-12">
                                 <div class="b-form-row">
-                                    <label class="b-form-horizontal__label" for="create_account_email">Tu Email o Usuario</label>
+                                    <label class="b-form-horizontal__label" for="create_account_email">Correo electrónico registrado</label>
                                     <div class="b-form-horizontal__input">
-                                        <input type="text" name="user" id="create_account_email" class="form-control" />
-                                    </div>
-                                </div>
-                                <div class="b-form-row">
-                                    <label class="b-form-horizontal__label" for="create_account_password">Tu Contraseña</label>
-                                    <div class="b-form-horizontal__input">
-                                        <input type="text" name="pass" id="create_account_password" class="form-control" />
+                                        <input type="mail" name="mail" id="create_account_email" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="b-form-row">
                                     <div class="b-form-horizontal__label"></div>
-                                    <label for="contact_form_copy" class="b-contact-form__window-form-row-label">
-                                        <a href="GE-recordar-pass.php"><span>Olvidé la contraseña</span></a>
-                                    </label>
-                                </div>
-                                <div class="b-form-row">
-                                    <div class="b-form-horizontal__label"></div>
                                     <div class="b-form-horizontal__input">
-                                        <input type="submit" name="submit" class="btn b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100" value="Iniciar Sesión">
+                                        <input type="submit" name="submit" class="btn b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100" value="Enviar">
                                     </div>
                                 </div>
                             </div>
@@ -150,17 +137,7 @@ if(isset($_POST['submit'])){
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="f-primary-l f-title-big c-secondary">Bienvenido a Grupo de Emprendedores</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis eu mi et pellentesque. Curabitur vestibulum convallis orci, quis dapibus elit fringilla eget. Suspendisse posuere diam ut erat convallis, non dictum quam luctus. </p>
-                <div class="b-shortcode-example">
-                    <ul class="b-list-markers f-list-markers">
-                        <li><a href="GE-registro.php"><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> Registrarme, no tengo cuenta</a><a href="GE-registro.php"><button class="button-sm button-gray">Registrarme</button></a> </li>
-                        <li><a href="page_forgot_username_password.html"><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> Olvide mi usuario</a></li>
-                        <li><a href="page_forgot_username_password.html"><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> Olvide mi contraseña</a></li>
-                    </ul>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

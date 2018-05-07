@@ -153,7 +153,7 @@ if(isset($_SESSION['carrito'])){
           </div>
           <div class='b-option-cart__items__descr'>
               <strong class='b-option-cart__descr__title f-option-cart__descr__title'><a href='#'>".$datos[$i]['nombre']."</a></strong>
-              <span class='b-option-cart__descr__cost f-option-cart__descr__cost'>".$datos[$i]['cant']." x $".$datos[$i]['price']."</span>
+              <span class='b-option-cart__descr__cost f-option-cart__descr__cost'>".$datos[$i]['cant']." x $".number_format($datos[$i]['price'], 0, ',', '.')."</span>
           </div>
           <i class='fa fa-times b-icon--fa quitar' data-id='".$datos[$i]['id']."' data-idcla='".$datos[$i]['idclasif']."'></i>
         </li>

@@ -103,7 +103,8 @@ if(isset($_GET['id'])){
             <div class="j-filter-content">
                 <div class="b-col-default-indent">
                     <?php
-                    foreach ($pro as $pr){ ?>
+                    foreach ($pro as $pr){
+                        $valor=number_format($pr->valor, 2, ',', '.');?>
                         <div class="col-md-6 <?php echo $c->nombre ?>">
                             <div class="b-news-item b-news-item--medium-size f-news-item">
                                 <div class="b-news-item__img view view-sixth ">
@@ -172,7 +173,7 @@ if(isset($_GET['id'])){
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="b-product-card__info_row pull-right">
-                                                        <span class="f-news-item__price f-primary-b b-left">$ <span class="valor" data-valor="<?php echo $pr->valor ?>"><?php echo $pr->valor ?></span>  </span>
+                                                        <span class="f-news-item__price f-primary-b b-left">$ <span class="valor" data-valor="<?php echo $pr->valor ?>"><?php echo $valor ?></span>  </span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -183,7 +184,7 @@ if(isset($_GET['id'])){
                                         </form>
                                     <?php }else{?>
                                     <div class="b-news-item__article">
-                                        <span class="f-news-item__price f-primary-b b-left">$ <?php echo $pr->valor ?></span>
+                                        <span class="f-news-item__price f-primary-b b-left">$ <?php echo $valor ?></span>
                                         <input type="hidden" class="cantidad" value="1">
                                         <div class="b-btn f-btn b-right b-btn-sm-md f-btn-sm-md f-primary-b button-xs addCart" data-img="<?php echo $img[0]->imagen ?>" data-modi="modi" data-idclasif="0" data-id="<?php echo $pr->id ?>" data-valor="<?php echo $pr->valor ?>" data-nombre="<?php echo $pr->name ?>">
                                             <div class="cargando hidden"><i class="fa fa-spinner fa-pulse"></i></div>

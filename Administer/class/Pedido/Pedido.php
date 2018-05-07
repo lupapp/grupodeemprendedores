@@ -262,7 +262,7 @@ class Pedido extends Mysqli
     }
     public function getAll(){
         $resultset=[];
-        $query=$this->con->query("SELECT * FROM pedidos");
+        $query=$this->con->query("SELECT * FROM pedidos ORDER BY id DESC");
         while($row=$query->fetch_object()){
             $resultset[]=$row;
         }

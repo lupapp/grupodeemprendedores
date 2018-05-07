@@ -125,4 +125,8 @@ class Categoria extends Mysqli
         $update=$this->con->query($query);
         return $update;
     }
+    public function delete($id){
+        $query=$this->con->query("DELETE FROM categorias WHERE id=$id");
+        return $query;
+    }
 }

@@ -211,7 +211,9 @@ if(isset($_POST['submit'])){
                                         </div>
                                     </div>
 
-                                    <?php if($ca->nombre=='Membresias'){
+                                    <?php
+                                    $valor=number_format($pro->valor, 2, ',', '.');
+                                    if($ca->nombre=='Membresias'){
                                         $options=new Options($con);
                                         $dolar=$options->getByName('valor_dolar');?>
                                         <form action="GE-procesar-membresia.php" method="post" class="formPago">
@@ -243,7 +245,7 @@ if(isset($_POST['submit'])){
                                                 <div class="col-md-6">
                                                     <div class="b-product-card__info_row pull-right">
                                                         <div class="b-product-card__info_title f-primary-b f-title-smallest">Valor</div>
-                                                        <span class="f-product-card__info_price c-default f-primary-b">$ <span class="valor" data-valor="<?php echo $pro->valor ?>"><?php echo $pro->valor ?></span>  </span>
+                                                        <span class="f-product-card__info_price c-default f-primary-b">$ <span class="valor" data-valor="<?php echo $pro->valor ?>"><?php echo $valor ?></span>  </span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -254,6 +256,10 @@ if(isset($_POST['submit'])){
                                         </form>
                                     <?php }else{?>
                                     <div class="b-product-card__info_row">
+                                        <div class="b-product-card__info_row">
+                                            <div class="b-product-card__info_title f-primary-b f-title-smallest">Valor</div>
+                                            <span class="f-product-card__info_price c-default f-primary-b">$ <span class="valor" data-valor="<?php echo $pro->valor ?>"><?php echo $valor ?></span></span>
+                                        </div>
                                         <div class="b-product-card__info_count">
                                             <input type="number" min="1" class="form-control form-control--secondary cantidad" value="1">
                                         </div>

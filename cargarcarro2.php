@@ -73,26 +73,33 @@ if(isset($_SESSION['carrito'])){
     </tr>';
 
     foreach ($datos as $d){
-        $suma= $d['price']*$d['cant']+$suma;
+
+
         $cantidad=$d['cant']+$cantidad;
+        $total=$d['price']*$d['cant'];
+        $suma= $total+$suma;
+
+        $price=number_format($d['price'], 2, ',', '.');
+        $total=number_format($total, 2, ',', '.');
+
     echo '<tr>
         <td>
             <div class="b-href-with-img">
                 <a class="c-primary" href="shop_detail.html">
                     <img data-retina="" style="width:8%" src="Administer/public/img/'.$d['img'].'" alt="">
                     <p>
-                        <span class="f-title-small ">'.$d['nombre'].' </span>
+                        <span class="f-title-small ">'.$d['nombre'].'  '.$total.'</span>
                     </p>
                 </a>
             </div>
         </td>
-        <td><span class="f-primary-b c-default f-title-medium">$<span class="j-product-price">'.$d['price'].'</span></span></td>
+        <td><span class="f-primary-b c-default f-title-medium">$<span class="j-product-price">'.$price.'</span></span></td>
         <td class="f-center">
             <div class="b-product-card__info_count "  >
                 <input type="number"   min="1" class="form-control form-control--secondary j-product-count cantid"  value="'.$d['cant'].'"  data-id="'.$d['id'].'" data-idcla="'.$d['idclasif'].'"/>
             </div>
         </td>
-        <td><span class="f-primary-b c-default f-title-medium">$<span class="j-product-total ">'.$d['price']*$d['cant'].'</span></span></td>
+        <td><span class="f-primary-b c-default f-title-medium">$<span class=" ">'.$total.'</span></span></td>
         <td><span class="f-center"><a class="btn-close-o quitar" data-id="'.$d['id'].'" data-idcla="'.$d['idclasif'].'"><i class="fa fa-times"></i></a></span></td>
     </tr>';
     }

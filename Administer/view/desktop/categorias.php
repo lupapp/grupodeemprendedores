@@ -10,7 +10,13 @@ spl_autoload_register(function ($clase) {
 
 	<?php include("../../llamadoshead.php");
 	$categorias=new Categoria(new Conexion());
-	$cat=$categorias->getAll(); ?>
+	$cat=$categorias->getAll();
+    if(isset($_GET['id'])){
+        $id=$_GET["id"];
+        $categorias->delete($id);
+        header('location:categorias.php');
+
+    }?>
 
 	</head>
 	<body>

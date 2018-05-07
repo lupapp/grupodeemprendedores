@@ -25,8 +25,6 @@ foreach ($mem as $m){
     }
 
 }
-$maildd=$mails;
-print_r($maildd);
 echo $con;
 
 if(count($mails)!=0) {

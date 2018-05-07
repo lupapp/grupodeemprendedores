@@ -100,7 +100,7 @@ $dolar=$options->getByName('valor_dolar');?>
                                         if(isset($_SESSION['carrito'])) {
                                             $datos = $_SESSION['carrito'];
                                             foreach ($datos as $d) {
-                                                ?>
+                                                $precio=number_format($d['price'], 2, ',', '.');?>
                                                 <tr>
                                                     <td>
                                                         <div class="b-href-with-img">
@@ -115,7 +115,7 @@ $dolar=$options->getByName('valor_dolar');?>
                                                         </div>
                                                     </td>
                                                     <td><span class="f-primary-b c-default f-title-medium">$<span
-                                                                    class="j-product-price"><?php echo $d['price'] ?></span></span>
+                                                                    class="j-product-price"><?php echo $precio ?></span></span>
                                                     </td>
                                                     <td class="f-center">
                                                         <div class="b-product-card__info_count ">
@@ -133,7 +133,7 @@ $dolar=$options->getByName('valor_dolar');?>
                                                         </div>
                                                     </td>
                                                     <td><span class="f-primary-b c-default f-title-medium">$<span
-                                                                    class="j-product-total "><?php echo $d['total']  ?></span></span>
+                                                                    class=""><?php echo number_format($d['total'],2,',','.');  ?></span></span>
                                                     </td>
                                                     <td><span class="f-center"><a class="btn-close-o quitar"
                                                                                   data-id="<?php echo $d['id'] ?>" data-idcla="<?php echo $d['idclasif'] ?>"><i
@@ -333,10 +333,10 @@ $dolar=$options->getByName('valor_dolar');?>
 
                             <div class="col-md-6">
                                 <div class="f-primary-b c-default f-uppercase b-title-b-hr f-title-b-hr">Descuento
-                                    $ <span class="j-price-total  descuento pull-right"> 0</span>
+                                    $ <span class="j-price-total  descuento pull-right"> 0,00</span>
                                 </div>
                                 <div class="f-primary-b c-default f-uppercase b-title-b-hr f-title-b-hr">total a pagar
-                                    $ <span class="j-price-total  totalCart pull-right"> <?php if(isset($_SESSION['carrito'])){echo $_SESSION['total']; }?></span>
+                                    $ <span class="j-price-total  totalCart pull-right"> <?php if(isset($_SESSION['carrito'])){echo number_format($_SESSION['total'],2,',','.'); }?></span>
                                 </div>
                             </div>
                         </div>
